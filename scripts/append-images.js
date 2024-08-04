@@ -1,5 +1,6 @@
-// txt file generated offline since github pages dont support dynamic stuff
-// it contains all the screenshot names which are used to append the screenshots to the gallery
+// A txt file is generated offline and then pushed to the repository whenever new screenshots are added
+// (github pages doesnt support dynamic stuff, though this could maybe be automated using actions)
+// The txt file contains all the screenshot's names which are used to append the screenshots to the gallery
 fetch("images.txt")
 .then(response => response.text())
 .then(data => {
