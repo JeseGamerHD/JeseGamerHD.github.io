@@ -1,0 +1,106 @@
+<!-- The main page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/GalleryStyles.css">
+    <title>Gallery</title>
+</head>
+<body>   
+    <!-- SIDEBAR - START -->
+    <div class="sideBar">
+      <!-- Top part of the sidebar (profile pic + text) -->
+      <a class="sideBarTop" href="#">
+        <img style="vertical-align:middle" src="images/ProfilePic.jpg" width="48px">
+        <span>Welcome!</span>
+      </a>
+    
+      <!-- List containing all the icon + text combos in the side bar -->
+      <ul>
+        <li>
+          <a href="index.html">
+            <img style="vertical-align:middle" src="images/icons/HomeIcon.png" width="48px">
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img style="vertical-align:middle" src="images/icons/ProjectIcon.png" width="48px">
+            <span>Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img style="vertical-align:middle" src="images/icons/GalleryIcon2.png" width="48px">
+            <span>Gallery</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img style="vertical-align:middle" src="images/icons/ProjectIcon.png" width="48px">
+            <span>Projects</span>
+          </a>
+        </li>
+      </ul>
+    
+      <div class="sideBarBottom">
+        <ul>
+          <li>
+            <a href="#">
+              <img style="vertical-align:middle" src="images/icons/ContactIcon.png" width="48px">
+              <span>Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img style="vertical-align:middle" src="images/icons/SettingsIcon.png" width="48px">
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    
+    </div>
+    <!-- SIDEBAR - END -->
+
+    <!-- CENTER - START -->
+     <!-- The main content area (everything except the side bar inside the body)-->   
+     <div class="center">
+      <div class="topBanner">
+        <img style="vertical-align:middle" src="images/icons/GalleryIcon2.png" width="96px">
+        <h1>Screenshot Gallery</h1>
+      </div>
+    
+      <div id="galleryContainer">
+        <!-- <img class="screenshot" data-src="images/screenshots/thumbnails/(1).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(1).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(2).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(2).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(3).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(3).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(4).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(4).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(5).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(5).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(6).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(6).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(7).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(7).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(8).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(8).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(9).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(9).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(10).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(10).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(11).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(11).jpg')">
+        <img class="screenshot" data-src="images/screenshots/thumbnails/(12).jpg" width="600px" height="338px" onclick="showOverlay('images/screenshots/(12).jpg')"> -->
+        <script src="scripts/append-images.js"></script>
+        <!-- <script src="scripts/gallery-loader.js"></script> -->
+      </div>
+
+      <div id="image-overlay" onclick="hideOverlay()">
+        <div class="image-overlay-content">
+          <!-- <button class="overlay-close"></button> -->
+          <img id="image-overlay-img" src="">
+          <p>Tip: Click anywhere to close.</p>
+        </div>
+      </div>
+      <script src="scripts/image-overlay.js"></script>
+    
+      <!-- CENTER - END -->
+    </div>
+
+</body>
+</html>
