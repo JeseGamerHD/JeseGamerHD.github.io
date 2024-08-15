@@ -1,27 +1,25 @@
 
+let overlay = document.getElementById("image-overlay");
 
 function showOverlay(fullResolutionImagePath) {
 
   // Disable overlay for small screen sizes
-  if (matchMedia("(min-width: 0px)").matches) {
-    // Set the overlay image source
+  // Set the overlay image source
+  if(matchMedia("(min-width: 450px)").matches){
     document.getElementById("image-overlay-img").src = fullResolutionImagePath;
-    document.getElementById("image-overlay").classList.toggle("active");
+    overlay.classList.toggle("active");
+    overlay.onclick = hideOverlay;
+    overlay.style.cursor = "pointer";
   }
 }
   
 function hideOverlay() {
     
-  document.getElementById("image-overlay").classList.toggle("active");
+  overlay.classList.toggle("active");
+  overlay.onclick = function(){};
+  overlay.style.cursor = "auto";
 
-  // The old image that was previously viewed in full is removed here
-  // The new image might take some time to load, but its better than displaying the wrong image for a brief moment
-  // const overlay = document.getElementById("image-overlay");
-  // if (!overlay.classList.contains("active")) {
-  //   overlay.addEventListener("transitionend", function removeImage() {
-  //     overlay.removeEventListener("transitionend", removeImage);
-  //     console.log("e");
-  //     document.getElementById("image-overlay-img").src = "";
-  //   });
-  // }
+  overlay.addEventListener("transitionend", () => {
+    document.getElementById("image-overlay-img").src = "";
+  }, { once: true} );
 }
