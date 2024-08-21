@@ -105,10 +105,13 @@ ul, li {
 .banner {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     box-shadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
     background-attachment: fixed;
     padding-top: 40px;
     padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
     text-align: center;
     color: white;
 
@@ -150,7 +153,50 @@ ul, li {
 }
 
 .text-area-container {
-    height: 100vh;
+    
+    min-height: 100vh;
+    height: auto; /* expand when content needs more space */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .text-area {
+        
+        min-height: 100vh;
+        height: auto; /* expand when content needs more space */
+        width: 100%;
+        max-width: 1000px;
+
+        display: flex;
+        flex-direction: column;
+
+        box-shadow: inset 0 0 100px 1000px rgba(10, 15, 40, 0.9);
+
+        .intro-segment {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding-left: 10%;
+            padding-right: 10%;
+
+            color: var(--text-color-darkbg);
+
+            h1 {
+                margin-bottom: 10px;
+            }
+
+            p {
+                line-height: 1.5;
+            }
+        }
+    }
 }
 
 footer {
@@ -158,7 +204,6 @@ footer {
     padding-bottom: 50px;
     text-align: center;
     
-
     color: var(--text-color-darkbg);
     box-shadow: inset 0 0 0 1000px rgb(1, 6, 24);
     background-attachment: fixed;
