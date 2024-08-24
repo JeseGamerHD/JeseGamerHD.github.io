@@ -1,9 +1,5 @@
 :root {
-
-    --swiper-navigation-color: #b8b8b8;
-    --swiper-pagination-color: #b8b8b8;
-    --swiper-pagination-bullet-inactive-color: white;
-    
+  
     /* Colors for the different backgrounds */
     --sidebar-bg: #252525;
     --sidebar-bg-hover: #757575;
