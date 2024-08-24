@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/ProjectTemplate.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>Assorted Additions</title>
 </head>
 
@@ -70,12 +71,48 @@
 
       <div class="text-area-container">
         <div class="text-area">
-          <div class="intro-segment">
+          <div class="text-segment">
             <h1>What is it about?</h1>
-            <p>Assorted Additions is a "medium" sized content mod for the game <a href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that adds all sorts of things to the base game like the name implies. 
+            <p>Assorted Additions is a "medium" sized content mod for the game <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that adds all sorts of things to the base game like the name implies. 
               In its current state the mod adds a little over 200 new items (from basic blocks to more complex weapons) for the player to discover. The mod also adds 15 new enemies and two bosses to the game along with
             a bunch of tweaks. For example, the mod adds a new category of "accessory" to the game called runes and improves the loot the player can find in underground mini biome chests.</p>
           </div>
+
+          <div class="image-swiper-area">
+            <div class="swiper basicSwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Items.png"></div>
+                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Dragonboss.jpg"></div>
+                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Ghostboss.jpg"></div>
+                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Room.jpg"></div>
+                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Swordthingie.jpg"></div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="pagination"></div>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script src="/scripts/basic-image-slide.js"></script>
+          </div>
+
+          <div class="text-segment">
+            <h1>Some background</h1>
+            <p>I was doing a modded playthrough of Terraria with some friends and at some point we were discussing the question "How hard could making a mod be" probably inspired by some bug we had found.   
+              A few moments later my friend had jokingly modded in an artillery cannon, albeit a very scuffed one. After this I also decided to give modding a go.
+            </p>
+            <p>
+              It turns out that getting started on modding is very easy even with zero knowledge of C# or modding in general. To be fair, I did have some experience in Java through my studies 
+              so the C# syntax was easy to understand and I had general knowledge on programming concepts.
+              On top of this <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/tModLoader/tModLoader">tModLoader</a> 
+              provides plenty of examples and documentation to get things started. In no time I had added a basic steel sword to the game. After that I kept adding basic items as new ideas came up.
+            </p>
+            <p>
+              It did take a ton of time and effort to start actually making things that were decent.
+              On top of having to learn the modding API I had to learn how to make sprites. I did struggle a lot with making sprites and still do. Coming up with a visual idea and actually implementing it is very time consuming.
+              To answer the question of "how hard could making a mod be" I would say that it depends. It is as hard and complex as the thing you are trying to implement. A basic sword can be added in minutes, an unique and complex boss can take weeks.
+            </p>
+          </div>
+
         </div>
       </div>
     
