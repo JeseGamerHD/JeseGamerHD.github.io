@@ -96,6 +96,39 @@ ul, li {
     width: 185px;
 }
 
+.mobileSidebarToggle {
+    top: 10px;
+    left: 0px;
+    position: fixed;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    z-index: 990;
+
+    background: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
+    box-shadow: 0px 0 5px 0px #7519ff;
+    opacity: 0.75;
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transition: all 0.4s ease;
+
+    img {
+        filter: invert(0.45);
+    }
+}
+
+/* These two get toggled by JS when clicking on the above toggle btn */
+.mobileSidebarToggle-open {
+    left: 185px;
+    opacity: 1;
+}
+
+.sideBar-open {
+    width: 185px !important;
+}
+/* --- */
+
 .center {
     margin-left: 80px;
     background-color: var(--general-bg-alt);
@@ -575,17 +608,28 @@ footer {
     } 
 }
 
-/* Some tablets, phones */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     
     .sideBar {
-        display: none !important;
+        width: 0px;
     }
 
     .center {
         margin-left: 0px;
     }
 
+    .sideBar:hover {
+        width: 0px;
+    }
+
+    .mobileSidebarToggle {
+        visibility: visible;
+    }
+}
+
+/* Some tablets, phones */
+@media screen and (max-width: 450px) {
+    
     .screenShotGallery {
         
         .gallery-container {  

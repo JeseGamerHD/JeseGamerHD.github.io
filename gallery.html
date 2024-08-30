@@ -10,7 +10,7 @@
 </head>
 <body>   
     <!-- SIDEBAR - START -->
-    <div class="sideBar">
+    <div id="sideBar" class="sideBar">
       <!-- Top part of the sidebar (profile pic + text) -->
       <a class="sideBarTop" href="#">
         <img style="vertical-align:middle" src="images/ProfilePic.jpg" width="48px">
@@ -55,9 +55,13 @@
           </li>
         </ul>
       </div>
-    
     </div>
     <!-- SIDEBAR - END -->
+     
+    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+      <img src="images/icons/MenuIcon.png" width="48px">
+    </button>
+    <script src="scripts/sidebar-toggle.js"></script>
 
     <!-- CENTER - START -->
      <!-- The main content area (everything except the side bar inside the body)-->   

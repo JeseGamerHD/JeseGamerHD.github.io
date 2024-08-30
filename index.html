@@ -12,7 +12,7 @@
 <body>   
 
     <!-- SIDEBAR - START -->
-    <div class="sideBar">
+    <div id="sideBar" class="sideBar">
       <!-- Top part of the sidebar (profile pic + text) -->
       <a class="sideBarTop" href="#">
         <img style="vertical-align:middle" src="images/ProfilePic.jpg" width="48px">
@@ -57,9 +57,13 @@
           </li>
         </ul>
       </div>
-    
     </div>
     <!-- SIDEBAR - END -->
+
+    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+      <img src="/images/icons/MenuIcon.png" width="48px">
+    </button>
+    <script src="/scripts/sidebar-toggle.js"></script>
 
     <!-- CENTER - START -->
      <!-- The main content area (everything except the side bar inside the body)-->
@@ -138,24 +142,9 @@
                     <a><button>View more</button></a>
                   </div>
                 </div>
-                <div class="card swiper-slide">
-                  <div class="card-upperPart">
-                  </div>
-                  <div class="card-lowerPart">
-                      <h2 class="card-title">Title</h2>
-                    <p class="card-description">Description</p>
-                    <a><button>View more</button></a>
-                  </div>
-                </div>
-                <div class="card swiper-slide">
-                  <div class="card-upperPart">
-                  </div>
-                  <div class="card-lowerPart">
-                      <h2 class="card-title">Title</h2>
-                    <p class="card-description">Description</p>
-                    <a><button>View more</button></a>
-                  </div>
-                </div>
+
+                <!-- NEW CARDS HERE -->
+                 
               </div>
             </div>
         
@@ -171,7 +160,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="scripts/card-carousel.js"></script>
+        <script src="scripts/swiper-variations.js"></script>
         <!-- Project Showcase END -->
 
         <div class="screenShotGallery" style="background-image: url(images/backgrounds/SpaceBackGround.jpg);">

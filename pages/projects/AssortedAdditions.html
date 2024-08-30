@@ -10,7 +10,7 @@
 
 <body>   
     <!-- SIDEBAR - START -->
-    <div class="sideBar">
+    <div id="sideBar" class="sideBar">
       <!-- Top part of the sidebar (profile pic + text) -->
       <a class="sideBarTop" href="#">
         <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
@@ -55,8 +55,12 @@
           </li>
         </ul>
       </div>
-    
     </div>
+
+    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+      <img src="/images/icons/MenuIcon.png" width="48px">
+    </button>
+    <script src="/scripts/sidebar-toggle.js"></script>
 
     <div class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
         <div class="banner">
@@ -92,7 +96,7 @@
             </div>
             <div class="pagination"></div>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-            <script src="/scripts/basic-image-slide.js"></script>
+            <script src="/scripts/swiper-variations.js"></script>
           </div>
 
           <div class="text-segment">
