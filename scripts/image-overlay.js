@@ -5,7 +5,7 @@ function showOverlay(fullResolutionImagePath) {
 
   // Disable overlay for small screen sizes
   // Set the overlay image source
-  if(matchMedia("(min-width: 450px)").matches){
+  if(matchMedia("(min-width: 0px)").matches){
     document.getElementById("image-overlay-img").src = fullResolutionImagePath;
     overlay.classList.toggle("active");
     overlay.onclick = hideOverlay;
