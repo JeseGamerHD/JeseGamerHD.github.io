@@ -167,7 +167,7 @@ ul, li {
         justify-content: center;
         align-items: center;
 
-        column-gap: 80px;
+        column-gap: 80px; /* NOTE: Some project htmls set this inlane, maybe make a JS that changes this based on the html file? */
         row-gap: 30px;
 
         .link-img {
@@ -252,6 +252,27 @@ ul, li {
                 aspect-ratio: 16 / 9;
                 box-shadow: 0 0 5px 2px #7602b4c1;
             }
+
+            /* For when a title and a paragraph should be closer together wrap them in this */
+            /* Basically before image groups */
+            .title-paragraph-combo {
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                h1 {
+                    margin-top: 30px;
+                    margin-bottom: 0px;
+                }
+    
+                p {
+                    margin-top: 5px;
+                    line-height: 1.5;
+                    padding-bottom: 20px;
+                }
+            }
         }
 
         .image-swiper-area {
@@ -297,6 +318,33 @@ ul, li {
             width: 80%;
             object-fit: cover;
         }
+
+        .image-group-1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            row-gap: 20px;
+            column-gap: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            img {
+                padding: 0;
+                object-fit: fill;
+                width: 300px;
+                min-width: 300px;
+                height: 225px;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px 0 rgba(158, 1, 231, 0.2), 0 6px 20px 0 rgba(174, 0, 255, 0.19);
+                transition: transform 0.5s;
+            }
+
+            img:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -332,11 +380,20 @@ footer {
     .mobileSidebarToggle {
         visibility: visible;
     }
+
+    .image-swiper-area {
+        min-width: 90%;
+    }
+
 }
 
 @media screen and (max-width: 450px) {
     
     .swiper-button-next, .swiper-button-prev {
         visibility: hidden;
+    }
+
+    .image-swiper-area {
+        min-width: 100%;
     }
 }
