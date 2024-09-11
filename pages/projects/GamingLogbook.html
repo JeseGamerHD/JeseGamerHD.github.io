@@ -4,142 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/ProjectTemplate.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href ="/styles/prism.css"/>
     <title>Gaming Logbook</title>
 </head>
 
 <body>
-    <!-- SIDEBAR - START -->
-    <div id="sideBar" class="sideBar">
-        <!-- Top part of the sidebar (profile pic + text) -->
-        <a class="sideBarTop" href="#">
-          <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
-          <span>Welcome!</span>
+  <!-- SIDEBAR - START -->
+  <div id="sideBar" class="sideBar">
+    <!-- Top part of the sidebar (profile pic + text) -->
+    <a class="sideBarTop" href="#">
+      <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
+      <span>Welcome!</span>
+    </a>
+  
+    <!-- List containing all the icon + text combos in the side bar -->
+    <ul>
+      <li>
+        <a href="/index.html">
+          <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
+          <span>Overview</span>
         </a>
+      </li>
+      <li>
+        <a href="/index.html#projectShowcase">
+          <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
+          <span>Projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gallery.html">
+          <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
+          <span>Gallery</span>
+        </a>
+      </li>
+    </ul>
+  
+    <div class="sideBarBottom">
+      <ul>
+        <li>
+          <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">
+            <img style="vertical-align:middle" src="/images/icons/GitHubIcon.png" width="48px">
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+    <img src="/images/icons/MenuIcon.png" width="48px">
+  </button>
       
-        <!-- List containing all the icon + text combos in the side bar -->
-        <ul>
-          <li>
-            <a href="/index.html">
-              <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
-              <span>Overview</span>
-            </a>
-          </li>
-          <li>
-            <a href="/index.html#projectShowcase">
-              <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
-              <span>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="/gallery.html">
-              <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
-              <span>Gallery</span>
-            </a>
-          </li>
-        </ul>
-      
-        <div class="sideBarBottom">
-          <ul>
-            <li>
-              <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">
-                <img style="vertical-align:middle" src="/images/icons/GitHubIcon.png" width="48px">
-                <span>Contact</span>
-              </a>
-            </li>
-          </ul>
+  <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+    <script src="/scripts/sidebar-toggle.js"></script>
+
+    <div class="banner">
+      <img style="vertical-align:middle" src="/images/projects/GamingLogbook/GamingLogbookLogo.png" width="196px">
+      <h1>Gaming Logbook</h1>
+      <div class="links" style="column-gap: 40px">
+          <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
+          <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
+      </div>
+    </div>
+  
+    <div class="text-area-container">
+      <div class="text-area">
+
+        <div class="text-segment">
+          <h1>What is it about?</h1>
+          <p>Gaming Logbook is a desktop application for keeping a "log" about the games I have played. In the app, the user can add, edit, delete, search and filter entries (essentially a CRUD application). 
+            It also features an interface for creating and switching between themes. The app is implemented using Java's Swing library and it was planned through an iterative designing process 
+            (multiple concept images, evaluation techniques).
+          </p>
+        </div>
+
+        <div class="image-swiper-area">
+          <div class="swiper basicSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook1.PNG"></div>
+              <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook2.PNG"></div>
+              <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook3.PNG"></div>
+              <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook4.PNG"></div>
+            </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+
+        <div class="pagination"></div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="/scripts/swiper-variations.js"></script>
+
+      </div>
+
+      <div class="text-segment">
+        <h1>Context</h1>
+        <p>Sometime during 2021 I started to keep a simple log about the games I have played. Ever since then I have kept on
+          adding new entries as I play new games.
+          Before the app I kept the logs in my private discord for gaming notes and a backup in a txt file. Then a programming
+          course about desiging UI and implementing it came around
+          and I wanted to make something practical. Moving my logs to a proper app was the first thing that came to my mind.
+        </p>
+        <p>During the course we had to pair up and were given some criteria that the app would have to meet (basically contain
+          enough UI elements and follow a planning template).
+          Otherwise we had free reign over the project. It took around a month to plan and gather information before actually
+          beginning to code anything substantial.
+          Getting started on the programming was rough. Swing's 
+          <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html"> layout managers </a>
+          were difficult to grasp. Thinking about the UI elements as groups of boxes helped a lot.
+          The implementation took quite a lot of time, but the outcome was surprisingly good (for a first app).
+        </p>
+        <p>I probably ended up coding and investing a lot more time than my pair did, though they were very much involved
+          throughout the project.
+          This was because we were essentially making an app for me, so I wanted it to be as polished as possible. For the
+          most part we were both involved in each part of the project.
+          The only split was that my pair focused more on the database for storing the log and the "entry adding screen" while
+          I focused on the "main screen" and its functionalities.
+          The interface system for changing the theme was a bonus thing that I decided to add while polishing out the app.
+        </p>
+      </div>
+
+      <div class="text-segment">
+        <div class="title-paragraph-combo"> 
+          <h1>Concept drawings</h1>
+          <p>Here are some of the early concept drawings from the plans</p>
         </div>
       </div>
-  
-      <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
-        <img src="/images/icons/MenuIcon.png" width="48px">
-      </button>
-      
-      <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
-        <script src="/scripts/sidebar-toggle.js"></script>
-          <div class="banner">
-              <img style="vertical-align:middle" src="/images/projects/GamingLogbook/GamingLogbookLogo.png" width="196px">
-              <h1>Gaming Logbook</h1>
-              <div class="links" style="column-gap: 40px">
-                <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
-                <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
-            </div>
-          </div>
-  
-        <div class="text-area-container">
-          <div class="text-area">
-            <div class="text-segment">
-              <h1>What is it about?</h1>
-              <p>Gaming Logbook is a desktop application for keeping a "log" about the games I have played. In the app, the user can add, edit, delete, search and filter entries (essentially a CRUD application). 
-                It also features an interface for creating and switching between themes. The app is implemented using Java's Swing library and it was planned through an iterative designing process 
-                (multiple concept images, evaluation techniques).
-              </p>
-            </div>
 
-            <div class="image-swiper-area">
-              <div class="swiper basicSwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook1.PNG"></div>
-                  <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook2.PNG"></div>
-                  <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook3.PNG"></div>
-                  <div class="swiper-slide"><img src="/images/projects/GamingLogbook/GamingLogbook4.PNG"></div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-              <div class="pagination"></div>
-              <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-              <script src="/scripts/swiper-variations.js"></script>
-            </div>
-
-              <div class="text-segment">
-                <h1>Context</h1>
-                <p>Sometime during 2021 I started to keep a simple log about the games I have played. Ever since then I have kept on
-                  adding new entries as I play new games.
-                  Before the app I kept the logs in my private discord for gaming notes and a backup in a txt file. Then a programming
-                  course about desiging UI and implementing it came around
-                  and I wanted to make something practical. Moving my logs to a proper app was the first thing that came to my mind.
-                </p>
-                <p>During the course we had to pair up and were given some criteria that the app would have to meet (basically contain
-                  enough UI elements and follow a planning template).
-                  Otherwise we had free reign over the project. It took around a month to plan and gather information before actually
-                  beginning to code anything substantial.
-                  Getting started on the programming was rough. Swing's <a title="Opens in a new tab" target="_blank"
-                    rel="noopener noreferrer" href="https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html"> layout
-                    managers</a>
-                  were difficult to grasp. Thinking about the UI elements as groups of boxes helped a lot.
-                  The implementation took quite a lot of time, but the outcome was surprisingly good (for a first app).
-                </p>
-                <p>I probably ended up coding and investing a lot more time than my pair did, though they were very much involved
-                  throughout the project.
-                  This was because we were essentially making an app for me, so I wanted it to be as polished as possible. For the
-                  most part we were both involved in each part of the project.
-                  The only split was that my pair focused more on the database for storing the log and the "entry adding screen" while
-                  I focused on the "main screen" and its functionalities.
-                  The interface system for changing the theme was a bonus thing that I decided to add while polishing out the app.
-                </p>
-              </div>
-
-            <div class="text-segment">
-              <div class="title-paragraph-combo"> 
-                <h1>Concept drawings</h1>
-                <p>Here are some of the early concept drawings from the plans</p>
-              </div>
-            </div>
-
-            <div class="image-group-1">
-              <img title="Main screen concept 1" src="/images/projects/GamingLogbook/Concept1.jpg">
-              <img title="Main screen concept 2" src="/images/projects/GamingLogbook/Concept2.jpg">
-              <img title="Entry creation screen" src="/images/projects/GamingLogbook/Concept3.jpg">
-              <img title="Main screen concept 3" src="/images/projects/GamingLogbook/Concept4.jpg">
-              <img title="Main screen concept 4" src="/images/projects/GamingLogbook/Concept5.jpg">
-            </div>
-            
-          </div>
+      <details open class="closeable">
+        <summary>Click to</summary> <!-- hide images / show images added by CSS -->
+        <div class="image-group-1">
+          <img title="Main screen concept 1" src="/images/projects/GamingLogbook/Concept1.jpg">
+          <img title="Main screen concept 2" src="/images/projects/GamingLogbook/Concept2.jpg">
+          <img title="Entry creation screen" src="/images/projects/GamingLogbook/Concept3.jpg">
+          <img title="Main screen concept 3" src="/images/projects/GamingLogbook/Concept4.jpg">
+          <img title="Main screen concept 4" src="/images/projects/GamingLogbook/Concept5.jpg">
         </div>
+      </details>
+
+      <div class="text-segment">
+        <h1>Code stuff</h1>
+        <h3 class="subheading">Dealing with dates</h3>
+        <p>One of the first issues we tackled was dealing with dates. We wanted to have the dates be sortable from latest to oldest and vice versa using the automatic sorting that Swing's JTable provides.
+          We ended up using ISO8601 formatted strings (yyyy-MM-dd) for storing the dates. That made the date strings to sort correctly without having to implement the sorting ourselves.
+          We then displayed the dates in a more familiar format (dd.MM.yyyy) with a custom renderer for the JTable's cells.
+        </p>
+
+<!-- Scuffed indentation on purpose, seemingly no other way to properly align the prism code stuff without even more external scripts-->
+<!-- This is whole code section is inside the above "text-segment" div-->           
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">public class DateColumnRenderer extends DefaultTableCellRenderer {
+
+  private static final SimpleDateFormat ISO8601_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+  private static final SimpleDateFormat DISPLAY_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+                  
+  @Override
+  protected void setValue(Object value) {
+              
+    if (value != null && value instanceof String) {
+      String date = (String) value;
+         try {
+            Date formattedDate = ISO8601_FORMAT.parse(date);
+            setText(DISPLAY_FORMAT.format(formattedDate));
+          } catch (ParseException e) {
+              setText(date);
+          }
+      } else {
+        setText("");
+      }
+    }
+  }
+</code></pre>
+              
+          <script src="/scripts/prism.js"></script>
+        </div> <!--End of scuffed text-segment with code snippets -->
+      </div> <!-- End of text-area -->
+    </div> <!--End of text-area-conteiner -->
       
-        <footer>
-          Navigation icons provided by <a href="https://icons8.com/">Icons8</a>
-        </footer>
-      </div>
+    <footer>
+      Navigation icons provided by <a href="https://icons8.com/">Icons8</a>
+    </footer>
+  </div> <!-- End of center -->
 </body>

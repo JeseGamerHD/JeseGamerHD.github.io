@@ -15,8 +15,11 @@
 
     --text-color-darkbg: rgb(237, 237, 237);  /* Against darker backgrounds */
     --text-color-lightbg: rgb(10, 10, 10);  /* Againsts lighter backgrounds */
-  }
+}
 
+html { 
+    scroll-behavior: smooth; 
+}
 
 body {
     margin: 0px;

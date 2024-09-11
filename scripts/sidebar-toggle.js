@@ -19,3 +19,10 @@ function toggleSidebar() {
         document.getElementById("center").removeEventListener("click", toggleSidebar);
     }
 }
+
+function closeSidebar() {
+    
+    if(isToggled) {
+        toggleSidebar();
+    }
+}
