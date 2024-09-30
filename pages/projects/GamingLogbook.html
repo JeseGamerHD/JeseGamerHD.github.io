@@ -74,7 +74,7 @@
         <div class="text-segment">
           <h1>What is it about?</h1>
           <p>Gaming Logbook is a desktop application for keeping a "log" about the games I have played. In the app, the user can add, edit, delete, search and filter entries (essentially a CRUD application). 
-            It also features an interface for creating and switching between themes. The app is implemented using Java's Swing library and it was planned through an iterative designing process 
+            It also features an interface for creating and switching themes. The app is implemented using Java's Swing library and it was planned through an iterative designing process 
             (multiple concept images, evaluation techniques).
           </p>
         </div>
@@ -134,13 +134,22 @@
       <details open class="closeable">
         <summary>Click to</summary> <!-- hide images / show images added by CSS -->
         <div class="image-group-1">
-          <img title="Main screen concept 1" src="/images/projects/GamingLogbook/Concept1.jpg">
-          <img title="Main screen concept 2" src="/images/projects/GamingLogbook/Concept2.jpg">
-          <img title="Entry creation screen" src="/images/projects/GamingLogbook/Concept3.jpg">
-          <img title="Main screen concept 3" src="/images/projects/GamingLogbook/Concept4.jpg">
-          <img title="Main screen concept 4" src="/images/projects/GamingLogbook/Concept5.jpg">
+          <img title="Main screen concept 1" src="/images/projects/GamingLogbook/Concept1.jpg" onclick="showOverlay('/images/projects/GamingLogbook/Concept1.jpg')">
+          <img title="Main screen concept 2" src="/images/projects/GamingLogbook/Concept2.jpg" onclick="showOverlay('/images/projects/GamingLogbook/Concept2.jpg')">
+          <img title="Entry creation screen" src="/images/projects/GamingLogbook/Concept3.jpg" onclick="showOverlay('/images/projects/GamingLogbook/Concept3.jpg')">
+          <img title="Main screen concept 3" src="/images/projects/GamingLogbook/Concept4.jpg" onclick="showOverlay('/images/projects/GamingLogbook/Concept4.jpg')">
+          <img title="Main screen concept 4" src="/images/projects/GamingLogbook/Concept5.jpg" onclick="showOverlay('/images/projects/GamingLogbook/Concept5.jpg')">
         </div>
       </details>
+
+      <div id="image-overlay" onclick="hideOverlay()">
+        <div class="image-overlay-content">
+          <!-- <button class="overlay-close"></button> -->
+          <img id="image-overlay-img" src="">
+          <p>Click anywhere to close.</p>
+        </div>
+      </div>
+      <script src="/scripts/image-overlay.js"></script>
 
       <div class="text-segment">
         <h1>Code stuff</h1>
