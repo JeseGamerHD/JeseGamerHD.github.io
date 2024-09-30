@@ -1,13 +1,12 @@
 :root {
   
     /* Colors for the different backgrounds */
-    --sidebar-bg: #252525;
-    --sidebar-bg-hover: #757575;
+    --sidebar-bg-hover: rgba(61, 33, 144, 0.701);
     --sidebar-border: #1a1a1a;
 
-    --banner-bg: #2e2e2e;
-    --general-bg: #373737;
-    --general-bg-alt: #404040;
+    --banner-bg: rgba(3, 9, 39, 0.9);
+    --general-bg: rgba(10, 15, 40, 0.9);
+    --general-bg-alt: rgba(10, 15, 40, 0.9);
 
     --text-color-darkbg: white;  /* Against darker backgrounds */
     --text-color-lightbg: black;  /* Againsts lighter backgrounds */
@@ -17,7 +16,7 @@
 body {
     margin: 0px;
     padding: 0px; /* Remove margin/padding added by the browser */
-    font-family: Tahoma, Arial, Georgia;
+    font-family: Tahoma, Helvetica, Arial, Georgia;
     background-color: var(--general-bg);
 }
 
@@ -54,6 +53,7 @@ ul, li {
     li:hover {
         border-radius: 35px;
         background-color: var(--sidebar-bg-hover);
+        box-shadow: 0px 0 5px 0px #7519ff;
 
         img {
             filter: invert(1);

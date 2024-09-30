@@ -145,9 +145,9 @@
       <div class="text-segment">
         <h1>Code stuff</h1>
         <h3 class="subheading">Dealing with dates</h3>
-        <p>One of the first issues we tackled was dealing with dates. We wanted to have the dates be sortable from latest to oldest and vice versa using the automatic sorting that Swing's JTable provides.
-          We ended up using ISO8601 formatted strings (yyyy-MM-dd) for storing the dates. That made the date strings to sort correctly without having to implement the sorting ourselves.
-          We then displayed the dates in a more familiar format (dd.MM.yyyy) with a custom renderer for the JTable's cells.
+        <p>One issue we tackled was dealing with dates. We wanted to have the dates be sortable from latest to oldest and vice versa using the automatic sorting that Swing's JTable provides.
+          We ended up using ISO8601 formatted strings (yyyy-MM-dd) for storing the dates. That made the dates sort correctly without having to implement the sorting ourselves.
+          We then created a custom renderer for displaying the dates in dd-MM-yyyy format:
         </p>
 
 <!-- Scuffed indentation on purpose, seemingly no other way to properly align the prism code stuff without even more external scripts-->
@@ -166,7 +166,8 @@
             Date formattedDate = ISO8601_FORMAT.parse(date);
             setText(DISPLAY_FORMAT.format(formattedDate));
           } catch (ParseException e) {
-              setText(date);
+              setText(date); // Shouldn't ever happen as user input is checked
+              // before it's put in anything
           }
       } else {
         setText("");
@@ -174,7 +175,112 @@
     }
   }
 </code></pre>
-              
+
+          <p>Then inside the JTable class we simply set the date column to utilize the above renderer:</p>
+
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">DateColumnRenderer dateRenderer = new DateColumnRenderer();
+dateRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+getColumn("Date").setCellRenderer(dateRenderer);
+</code></pre>
+          
+          <h3 class="subheading">Theme interface</h3>
+          <p>When making the GUI I decided to make a class for handling the theme of the app. We could have used a ready 
+            <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/index.html">Look and Feel</a>, 
+            but I felt it would be a better learning experience to try to do custom theme handling. The "Theme handler" defines the different 
+            parts that can be customized in an enum as well as the current active theme.
+          </p>
+
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">public class ThemeHandler {
+      
+  private static AppTheme currentTheme;
+  // An UIBuilder class creates the UI, initializing this class
+  // and setting the theme based on launch arguments
+
+  public static enum AppColors {
+      TextColor,
+      ToolTipBackground,
+      NegativeButtons,
+      NegativeButtonHover,
+      NegativeButtonPressed,
+      // And so on...
+  }
+
+  public static void setCurrentTheme(AppTheme theme) {
+      currentTheme = theme;
+  }
+
+  public static AppTheme getCurrentTheme() {
+      return currentTheme;
+  }
+
+  public static Color getColor(AppColors appColor) {
+      if(currentTheme != null) {
+          return currentTheme.getColor(appColor);
+      }
+      else {
+          return Color.white;
+      }  
+  }
+}
+</code></pre>
+
+          <p>At first the above ThemeHandler had all the colors and image paths defined inside it, but then I relized I could allow for custom themes via an interface.
+            Each theme would implement a simple interface: AppTheme. The new system utilized a design pattern called "strategy pattern" (found that out later on).
+          </p>
+
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers"> public interface AppTheme {
+  // Note: All of these snippets had proper javadocs.
+  // They were left out to make this more compact.
+     public Color getColor(AppColors appColor);
+     public BufferedImage getBufferedImage(AppImages appImage);
+     public Image getImage(AppImages appImage);
+     public ImageIcon getImageIcon(AppImages appImage);
+ }
+</code></pre>
+
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers"> public class DarkMode implements AppTheme {
+
+  private final Map<AppColors, Color> colorMap = new HashMap<>();
+  private final Map<AppImages, String> imageMap = new HashMap<>();
+
+  public DarkMode() {
+      colorMap.put(AppColors.TextColor, Color.white);
+      colorMap.put(AppColors.ToolTipBackground, Color.darkGray);
+      colorMap.put(AppColors.NegativeButtons, new Color(248, 81, 73));
+      colorMap.put(AppColors.NegativeButtonHover, Color.red);
+      colorMap.put(AppColors.NegativeButtonPressed, Color.red); 
+      // ...
+      initializeImages();
+  }
+
+  private void initializeImages() {
+      imageMap.put(AppImages.AddEntryButtonIcon, "/images/AddEntryButtonIcon.png");
+      imageMap.put(AppImages.AppLogo, "/images/AppLogo.png");
+      imageMap.put(AppImages.backButton, "/images/DarkMode/BackButton.png");
+      // ...
+  }
+
+  @Override
+  public Color getColor(AppColors appColor) {
+      return colorMap.getOrDefault(appColor, Color.white);
+  }
+
+  @Override
+  public BufferedImage getBufferedImage(AppImages appImage) {
+      BufferedImage img = null;
+      try {
+          img = ImageIO.read(ImageHandler.class.getResource(imageMap.get(appImage)));
+      } catch (IOException e) {
+          e.printStackTrace();
+          System.out.println("Potential typo in enum: " + imageMap.get(appImage));
+      }
+    return img;
+  } 
+  // Rest of the implementations...
+}
+</code></pre>
+
+          
           <script src="/scripts/prism.js"></script>
         </div> <!--End of scuffed text-segment with code snippets -->
       </div> <!-- End of text-area -->
