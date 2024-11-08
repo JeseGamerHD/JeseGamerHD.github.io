@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/ProjectTemplate.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href ="/styles/prism.css"/>
+
+    <script src="/scripts/sidebar-toggle.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" async></script>
+    <script src="/scripts/swiper-variations.js" async></script>
+    <script src="/scripts/prism.js" async></script>
     <title>Assorted Additions</title>
 </head>
 
@@ -56,7 +62,6 @@
     </button>
     
     <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
-      <script src="/scripts/sidebar-toggle.js"></script>
         <div class="banner">
             <img style="vertical-align:middle" src="/images/backgrounds/AssortedAdditionsBG.png" width="196px">
             <h1>Assorted Additions</h1>
@@ -72,7 +77,7 @@
         <div class="text-area">
           <div class="text-segment">
             <h1>What is it about?</h1>
-            <p>Assorted Additions is a "medium" sized content mod for the game <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that adds all sorts of things to the base game like the name implies. 
+            <p>Assorted Additions is a "medium" sized content mod for <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that adds all sorts of things to the game like the name implies. 
               In its current state the mod adds a little over 200 new items (from basic blocks to more complex weapons) for the player to discover. The mod also adds 15 new enemies and two bosses to the game along with
             a bunch of tweaks. For example, the mod adds a new category of "accessory" to the game called runes and improves the loot the player can find in underground mini biome chests.</p>
           </div>
@@ -90,8 +95,6 @@
               <div class="swiper-button-prev"></div>
             </div>
             <div class="pagination"></div>
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-            <script src="/scripts/swiper-variations.js"></script>
           </div>
 
           <div class="text-segment">
@@ -120,6 +123,62 @@
               <iframe src="https://www.youtube.com/embed/agho2r6z6bk" title="I Made One of the BIGGEST Terraria Modpacks..." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
 
+          <div class="text-segment">
+            <div class="title-paragraph-combo"> 
+              <h1>Code stuff</h1>
+            </div>
+            <h3 class="subheading">Doubling ore drops</h3>
+            <p>The game world of Terraria is made out of different blocks which are called Tiles. These are different from the items that they drop and that are used to place them down.
+              I wanted to add an item to the game that gives a chance to double ore drops when the player mines an ore while wearing it. Sounds simple right? Nope. 
+            </p>
+            <p><b>Problem #1</b>: It turns out that the tiles do not know which item they drop and that logic is instead handled inside a massive switch statement. 
+              Modded tiles do know their drops, but any vanilla tiles don't</p>
+            <p><b>Problem #2</b>: Tiles don't know which player breaks it. Problematic because ores should only double drop if the player breaking it is wearing the item.</p>
+            <p>The solution? I had to detour a vanilla method that runs whenever a player hits a tile. Luckily tModLoader provided an API for detouring some vanilla methods so that was easy.
+              I also defined the vanilla ore tiles and their drops in a dictionary so they could be obtained when checking what type of tile was being hit.
+              The below snippet is just the detour implementation, the rest can be found <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/AssortedAdditions/blob/1bf8421d6be55c0de98f1a477175f33f15c4ef77/Content/Items/Accessories/Runes/RuneOfProsperity.cs">here</a>
+            </p>
+
+<pre class="code-snippet-container"><code id="code-snippet" class="language-csharp line-numbers">private static void CanDoubleOreDrop(On_Player.orig_PickTile orig, Player self, int x, int y, int pickPower) {
+  
+  Tile tile = Main.tile[x, y]; // What tile is being hit
+  ushort type = tile.TileType; // Store it and its type for later use
+            
+  // If wearing the rune, the tile is an ore and the double drop chance returns true
+  if (self.GetModPlayer<RuneOfProsperityPlayer>().isWearingRuneOfProsperity && TileID.Sets.Ore[tile.TileType] && Main.rand.NextBool(7)) {
+    // Check if it's a mod tile and gets its drops if it is (needed later)
+    ModTile modTile = TileLoader.GetTile(type);
+    IEnumerable<Item> modTileDrops = modTile?.GetItemDrops(x, y);
+    // Checked and stored here before the orig call since the tile wont be at the coords after breaking
+    // retrieving the drops later would not work
+            
+    orig(self, x, y, pickPower); // Call orig (vanilla PickTile will run meaning the tile gets hit)
+            
+    // Check if tile broke and if it did, do the double drop
+    if (!tile.HasTile) {
+      // If the tile was not modded, get the vanilla item drop from the dictionary
+      if (modTile == null && vanillaOreTileDrops.TryGetValue(type, out int itemDrop)) {
+        self.QuickSpawnItem(WorldGen.GetItemSource_FromTileBreak(x, y), itemDrop, 1);
+      }
+      // If it was modded, get the drops from modTileDrops (safety null check)
+      else if(modTileDrops != null)  {
+        foreach (var modDrop in modTileDrops) {
+          self.QuickSpawnItem(WorldGen.GetItemSource_FromTileBreak(x, y), modDrop.type, 1);
+        }
+      }
+    }
+  }
+  else { // Conditions not met, just run vanilla method
+    orig(self, x, y, pickPower);
+  }
+}
+</code></pre>
+            <p>This is not the most optimal solution, but it works. The code does nothing to prevent players from placing down tiles and breaking them again to easily duplicate ores. 
+              To prevent that I would have had to implement a way to track tiles placed by the player (yup, this is not tracked either). This has been done before by others, but I decided it was not worth the effort.
+            The code also runs every time the player hits a tile at least until the first if check. 
+            I should probably have stored the last ore tile type and its drop and checked if the next tile is the same to reduce the amount of code run each time.</p>
+          </div>
+          
         </div>
       </div>
     
