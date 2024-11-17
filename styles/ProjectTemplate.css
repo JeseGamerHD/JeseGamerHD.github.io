@@ -1,36 +1,4 @@
-:root {
-    /* Default theme colors and backgrounds  */
-    
-    --banner-boxshadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
-    --banner-link-hover-color: rgba(59, 80, 218, 0.811);
-    --border: #1a1a1a;
-
-    --center-boxshadow: inset 0 50px 500px 300px rgba(13, 21, 62, 0.792);
-    --code-background-color: rgb(1, 6, 24);
-
-    --footer-bg: rgb(1, 6, 24);
-
-    --general-bg: rgba(10, 15, 40, 0.9);
-    --glow-border: #7602b4c1;
-    --glow-border-alt: #7519ff;
-
-    --sidebar-bg: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
-    --sidebar-li-hover: rgba(61, 33, 144, 0.701);
-    --sidebar-li-icon-filter: invert(0.45);
-    --sidebar-li-icon-filter-hover: invert(1);
-    --scrollbar-colors: #3826bac1 #2f016bc1;
-    --summary-marker-color: #66afe9;
-    /* --swiper-navigation-color: #b8b8b8;
-    --swiper-pagination-color: #b8b8b8; */
-    --swiper-pagination-bullet-inactive-color: white; 
-
-    --text-color-darkbg: white;  /* Against darker backgrounds */
-    --text-color-lightbg: black;  /* Againsts lighter backgrounds */
-    --text-link: #764692;
-    --text-link-hover: #8b46b3;
-    --textarea-boxshadow: rgba(10, 15, 40, 0.9);
-}
-
+@import url('ThemeVariables.css');
 
 body {
     margin: 0px;
@@ -63,7 +31,7 @@ ul, li {
         margin-top: 15px; /* Gap between list items (added to top of each item) */
 
         img { /* Make the icons brighter */
-            filter: var(--sidebar-li-icon-filter);
+            filter: var(--icon-filter);
         }
     }
 
@@ -74,7 +42,7 @@ ul, li {
         box-shadow: 0px 0 5px 0px var(--glow-border);
 
         img {
-            filter: var(--sidebar-li-icon-filter-hover);
+            filter: var(--icon-filter-hover);
         }
     }
 
@@ -128,7 +96,7 @@ ul, li {
     transition: all 0.4s ease;
 
     img {
-        filter: var(--sidebar-li-icon-filter);
+        filter: var(--icon-filter);
     }
 }
 
@@ -145,7 +113,7 @@ ul, li {
 
 .center {
     margin-left: 80px;
-    box-shadow: var(--center-boxshadow);
+    box-shadow: inset 0 50px 500px 300px var(--background-alt);
     background-attachment: fixed;
 }
 
@@ -153,7 +121,7 @@ ul, li {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: var(--banner-boxshadow);
+    box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
     padding-top: 40px;
     padding-bottom: 40px;

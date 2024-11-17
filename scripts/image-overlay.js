@@ -1,4 +1,3 @@
-
 let overlay = document.getElementById("image-overlay");
 
 function showOverlay(fullResolutionImagePath) {

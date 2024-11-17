@@ -1,20 +1,4 @@
-:root {
-
-    --swiper-navigation-color: #b8b8b8;
-    --swiper-pagination-color: #b8b8b8;
-    --swiper-pagination-bullet-inactive-color: white;
-    
-    /* Colors for the different backgrounds */
-    --sidebar-bg-hover: rgba(61, 33, 144, 0.701);
-    --sidebar-border: #1a1a1a;
-
-    --banner-bg: rgba(3, 9, 39, 0.9);
-    --general-bg: rgba(10, 15, 40, 0.9);
-    --general-bg-alt: rgba(10, 15, 40, 0.9);
-
-    --text-color-darkbg: rgb(237, 237, 237);  /* Against darker backgrounds */
-    --text-color-lightbg: rgb(10, 10, 10);  /* Againsts lighter backgrounds */
-}
+@import url('ThemeVariables.css');
 
 html { 
     scroll-behavior: smooth; 
@@ -35,14 +19,13 @@ ul, li {
     
     position: fixed;
     z-index: 998;
-    /* background: var(--sidebar-bg); */
-    background: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
+    background: var(--sidebar-bg);
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 1px solid var(--sidebar-border);
+    border-right: 1px solid var(--border);
     
     width: 80px;
     height: 100vh; /* All vertical space */
@@ -52,18 +35,18 @@ ul, li {
         margin-top: 15px; /* Gap between list items (added to top of each item) */
 
         img { /* Make the icons brighter */
-            filter: invert(0.45);
+            filter: var(--icon-filter);
         }
     }
 
     /* Hovering over an item in the list */
     li:hover {
         border-radius: 35px;
-        background-color: var(--sidebar-bg-hover);
-        box-shadow: 0px 0 5px 0px #7519ff;
+        background-color: var(--sidebar-li-hover);
+        box-shadow: 0px 0 5px 0px var(--glow-border);
 
         img {
-            filter: invert(1);
+            filter: var(--icon-filter-hover);
         }
     }
 
@@ -81,7 +64,7 @@ ul, li {
     }
 
     .sideBarTop { /* Pfp + Welcome */
-        box-shadow: 0px 0 5px 0px #7519ff;
+        box-shadow: 0px 0 5px 0px var(--glow-border-alt);
     
         img {
             border-radius: 50%;
@@ -91,11 +74,11 @@ ul, li {
     .sideBarBottom { /* Settings */
         margin-top: auto;
         margin-bottom: 15px;
-        box-shadow: inset 0 5px 5px -5px #7519ff;
+        box-shadow: inset 0 5px 5px -5px var(--glow-border-alt);
     }
 }
 
-.sideBar:hover, .sidebar:active {
+.sideBar:hover {
     width: 185px;
 }
 
@@ -108,8 +91,8 @@ ul, li {
     padding-top: 5px;
     z-index: 990;
 
-    background: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
-    box-shadow: 0px 0 5px 0px #7519ff;
+    background: var(--sidebar-bg);
+    box-shadow: 0px 0 5px 0px var(--glow-border-alt);
     opacity: 0.75;
     border: none;
     border-top-right-radius: 25px;
@@ -117,7 +100,7 @@ ul, li {
     transition: all 0.4s ease;
 
     img {
-        filter: invert(0.45);
+        filter: var(--icon-filter);
     }
 }
 
@@ -140,7 +123,7 @@ ul, li {
 .topBanner {
     height: 180px;
     padding-top: 40px;
-    box-shadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
+    box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
     
     text-align: center;
@@ -151,8 +134,8 @@ ul, li {
         margin-left: auto;
         margin-right: auto;
         border-radius: 50%; /* Rounded img */
-        border: 5px solid var(--sidebar-border);
-        outline: 2px solid var(--sidebar-bg-hover);
+        border: 5px solid var(--border);
+        outline: 2px solid var(--border-alt);
     }
 
     h1 {
@@ -174,7 +157,7 @@ ul, li {
     align-items: center;
     justify-content: center;
 
-    box-shadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
+    box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
     color: var(--text-color-darkbg);
     
@@ -186,14 +169,14 @@ ul, li {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         margin-bottom: 40px;
         text-align: center;
-        background: radial-gradient(circle, rgb(41, 41, 72) 0%, rgb(28, 33, 65) 100%);
+        background: radial-gradient(circle, var(--intro-part-bg) 0%, var(--intro-part-bg-alt) 100%);
         
         p {
             width: 300px;
         }
 
         img {
-            filter: invert(0.5);
+            filter: var(--icon-filter);
         }
     }
 }
@@ -203,7 +186,7 @@ ul, li {
     padding-bottom: 40px;
     overflow: visible;
 
-    box-shadow: inset 0 0 500px 100px rgba(13, 21, 62, 0.792);
+    box-shadow: inset 0 0 500px 100px var(--background-alt);
     background-attachment: fixed;
 
     .projectShowcaseHeader {
@@ -235,7 +218,7 @@ ul, li {
             border: none;
             padding: 15px 25px 15px 50px;
             Color: var(--text-color-darkbg);
-            background-color: #192954;
+            background-color: var(--button-bg);
             box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
             transition: background-color linear 0.2s;
     
@@ -245,7 +228,7 @@ ul, li {
         }
     
         .showAllButton:hover {
-            background-color: #2f52a3;;
+            background-color: var(--button-bg-hover);
         }
     
         .showAllButton:active {
@@ -280,7 +263,7 @@ ul, li {
 
 .card .card-upperPart {
     height: 160px;
-    background-color: #000; /* Replaced by an image, doesnt matter */
+    background-color: var(--general-bg); /* Replaced by an image, doesnt matter */
     border-radius: 25px 25px 0px 0px;
     overflow: hidden;
     transition: all 0.1s ease-in;
@@ -293,7 +276,7 @@ ul, li {
 }
 
 .card .card-lowerPart {
-    background: linear-gradient(180deg, rgb(60, 0, 105) 0%, rgb(0, 17, 77) 100%);
+    background: linear-gradient(180deg, var(--card-bg) 0%, var(--card-bg-alt) 100%);
     color: var(--text-color-darkbg);
     height: 200px;
     max-height: 200px;
@@ -320,7 +303,7 @@ ul, li {
     }
 
     button {
-        background: #541919;
+        background: var(--card-button);
         padding: 10px 10px 10px 10px;
         border-radius: 12px;
         border: none;
@@ -330,18 +313,12 @@ ul, li {
     }
 
     button:hover {
-        background: #a32f2f;
+        background: var(--card-button-hover);
     }
 }
 
 .swiper-navBtn {
     overflow: hidden;
-    background-color: #3e405a;
-    padding: 15px 2px 15px 2px;
-}
-
-.swiper-navBtn:hover {
-    background-color: #2f52a3;
 }
 
 @media screen and (max-width: 450px) {
@@ -366,7 +343,7 @@ ul, li {
     flex-wrap: wrap;
 
     color: var(--text-color-darkbg);
-    box-shadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
+    box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
     padding-bottom: 50px;
     padding-top: 30px;
@@ -392,7 +369,7 @@ ul, li {
         border: none;
         padding: 15px 25px 15px 50px;
         Color: var(--text-color-darkbg);
-        background-color: #192954;
+        background-color: var(--button-bg);
         box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
         transition: background-color linear 0.2s;
 
@@ -402,7 +379,7 @@ ul, li {
     }
 
     button:hover {
-        background-color: #2f52a3;
+        background-color: var(--button-bg-hover);
     }
 
     button:active {
@@ -502,7 +479,7 @@ footer {
     
 
     color: var(--text-color-darkbg);
-    box-shadow: inset 0 0 0 1000px rgb(1, 6, 24);
+    box-shadow: inset 0 0 0 1000px var(--footer-bg);
     background-attachment: fixed;
 
     a{
@@ -563,6 +540,7 @@ footer {
     visibility: visible;
     transform: scale(1.25); /* The image scales in/out along with the fade in/out of the overlay */
 }
+
 
 
 /* Laptops, some tablets */

@@ -1,17 +1,4 @@
-:root {
-  
-    /* Colors for the different backgrounds */
-    --sidebar-bg-hover: rgba(61, 33, 144, 0.701);
-    --sidebar-border: #1a1a1a;
-
-    --banner-bg: rgba(3, 9, 39, 0.9);
-    --general-bg: rgba(10, 15, 40, 0.9);
-    --general-bg-alt: rgba(10, 15, 40, 0.9);
-
-    --text-color-darkbg: white;  /* Against darker backgrounds */
-    --text-color-lightbg: black;  /* Againsts lighter backgrounds */
-  }
-
+@import url('ThemeVariables.css');
 
 body {
     margin: 0px;
@@ -28,14 +15,13 @@ ul, li {
     
     position: fixed;
     z-index: 998;
-    /* background: var(--sidebar-bg); */
-    background: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
+    background: var(--sidebar-bg);
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 1px solid var(--sidebar-border);
+    border-right: 1px solid var(--border);
     
     width: 80px;
     height: 100vh; /* All vertical space */
@@ -45,18 +31,18 @@ ul, li {
         margin-top: 15px; /* Gap between list items (added to top of each item) */
 
         img { /* Make the icons brighter */
-            filter: invert(0.45);
+            filter: var(--icon-filter);
         }
     }
 
     /* Hovering over an item in the list */
     li:hover {
         border-radius: 35px;
-        background-color: var(--sidebar-bg-hover);
-        box-shadow: 0px 0 5px 0px #7519ff;
+        background-color: var(--sidebar-li-hover);
+        box-shadow: 0px 0 5px 0px var(--glow-border);
 
         img {
-            filter: invert(1);
+            filter: var(--icon-filter-hover);
         }
     }
 
@@ -74,7 +60,7 @@ ul, li {
     }
 
     .sideBarTop { /* Pfp + Welcome */
-        box-shadow: 0px 0 5px 0px #7519ff;
+        box-shadow: 0px 0 5px 0px var(--glow-border-alt);
     
         img {
             border-radius: 50%;
@@ -84,7 +70,7 @@ ul, li {
     .sideBarBottom { /* Settings */
         margin-top: auto;
         margin-bottom: 15px;
-        box-shadow: inset 0 5px 5px -5px #7519ff;
+        box-shadow: inset 0 5px 5px -5px var(--glow-border-alt);
     }
 }
 
@@ -101,8 +87,8 @@ ul, li {
     padding-top: 5px;
     z-index: 990;
 
-    background: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
-    box-shadow: 0px 0 5px 0px #7519ff;
+    background: var(--sidebar-bg);
+    box-shadow: 0px 0 5px 0px var(--glow-border-alt);
     opacity: 0.75;
     border: none;
     border-top-right-radius: 25px;
@@ -110,7 +96,7 @@ ul, li {
     transition: all 0.4s ease;
 
     img {
-        filter: invert(0.45);
+        filter: var(--icon-filter);
     }
 }
 
@@ -128,7 +114,7 @@ ul, li {
 
 .center {
     margin-left: 80px;
-    box-shadow: inset 0 50px 500px 300px rgba(13, 21, 62, 0.792);
+    box-shadow: inset 0 50px 500px 300px var(--background-alt);
     background-attachment: fixed;
 }
 
@@ -136,17 +122,17 @@ ul, li {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: inset 0 0 0 1000px rgba(3, 9, 39, 0.9);
+    box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
     padding-top: 40px;
     text-align: center;
-    color: white;
+    color: var(--text-color-darkbg);
 
     img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        filter: invert(0.35);
+        filter: var(--icon-filter);
     }
 
     h1 {
@@ -219,7 +205,7 @@ footer {
     
 
     color: var(--text-color-darkbg);
-    box-shadow: inset 0 0 0 1000px rgb(1, 6, 24);
+    box-shadow: inset 0 0 0 1000px var(--footer-bg);
     background-attachment: fixed;
 
     a{

@@ -1,0 +1,44 @@
+:root {
+
+    /* Default theme colors and backgrounds  */
+    
+    --background: rgba(3, 9, 39, 0.9);
+    --background-alt: rgba(13, 21, 62, 0.792);
+    --background-alt2: rgb(7, 11, 30);
+    --banner-link-hover-color: rgba(59, 80, 218, 0.811);
+    --border: #1a1a1a;
+    --border-alt: rgba(61, 33, 144, 0.701);
+    --button-bg: #192954;
+    --button-bg-hover: #2f52a3;
+
+    --card-bg: rgb(60, 0, 105);
+    --card-bg-alt: rgb(0, 17, 77);
+    --card-button: #541919;
+    --card-button-hover: #a32f2f;
+    --code-background-color: rgb(1, 6, 24);
+
+    --footer-bg: rgb(1, 6, 24);
+
+    --general-bg: rgba(10, 15, 40, 0.9);
+    --glow-border: #7602b4c1;
+    --glow-border-alt: #7519ff;
+
+    --icon-filter: invert(0.45);
+    --icon-filter-hover: invert(1);
+    --intro-part-bg:  rgb(41, 41, 72);
+    --intro-part-bg-alt: rgb(28, 33, 65);
+
+    --sidebar-bg: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
+    --sidebar-li-hover: rgba(61, 33, 144, 0.701);
+    --scrollbar-colors: #3826bac1 #2f016bc1;
+    --summary-marker-color: #66afe9;
+    /* --swiper-navigation-color: #b8b8b8;
+    --swiper-pagination-color: #b8b8b8; */
+    --swiper-pagination-bullet-inactive-color: white; 
+
+    --text-color-darkbg: white;  /* Against darker backgrounds */
+    --text-color-lightbg: black;  /* Againsts lighter backgrounds */
+    --text-link: #764692;
+    --text-link-hover: #8b46b3;
+    --textarea-boxshadow: rgba(10, 15, 40, 0.9);
+}
