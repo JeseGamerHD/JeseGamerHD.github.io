@@ -8,6 +8,7 @@
     --banner-link-hover-color: rgba(59, 80, 218, 0.811);
     --border: #1a1a1a;
     --border-alt: rgba(61, 33, 144, 0.701);
+    --box-shadow: inset 0 0 500px 100px var(--background-alt);
     --button-bg: #192954;
     --button-bg-hover: #2f52a3;
 
@@ -41,4 +42,51 @@
     --text-link: #764692;
     --text-link-hover: #8b46b3;
     --textarea-boxshadow: rgba(10, 15, 40, 0.9);
+}
+
+:root.Dark {
+
+    --background: rgb(20, 20, 20);
+    --background-alt: rgb(31, 31, 31);
+    --background-alt2: rgb(33, 33, 33);
+    --banner-link-hover-color: rgba(59, 80, 218, 0.811);
+    --box-shadow: inset 0 0 500px 1000px var(--background-alt);
+    --border: #000000;
+    --border-alt: rgba(57, 57, 57, 0.701);
+    --button-bg: #1b1d4e;
+    --button-bg-hover: #262870;
+    
+    --card-bg: rgb(15, 15, 15);
+    --card-bg-alt: rgb(15, 15, 15);
+    --card-button: #1b1d4e;
+    --card-button-hover: #262870;
+    --code-background-color: rgb(8, 8, 8);
+
+    --footer-bg: rgb(5, 5, 5);
+
+    --general-bg: rgb(20, 20, 20);
+    --glow-border: #555b70cf;
+    --glow-border-alt: #2d313fcf;
+
+    --icon-filter: invert(0.45);
+    --icon-filter-hover: invert(1);
+    --intro-part-bg:  rgb(31, 31, 31);
+    --intro-part-bg-alt: rgb(31, 31, 31);
+
+    --sidebar-bg: radial-gradient(circle, rgb(0, 0, 0) 30%, rgb(25, 25, 25) 100%);
+    --sidebar-li-hover: rgba(128, 128, 128, 0.701);
+    --scrollbar-colors: #656565c1 #2f2f2fc1;
+    --summary-marker-color: #66afe9;
+    --swiper-pagination-bullet-inactive-color: white;
+    
+    --text-color-darkbg: white;
+    --text-color-lightbg: gray;
+    --text-link: #66afe9;
+    --text-link-hover: #8b46b3;
+    --textarea-boxshadow: rgb(20, 20, 20);
+}
+
+:root.Light {
+    --text-color-darkbg: green;
+    --text-color-lightbg: orange;
 }

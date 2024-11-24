@@ -124,7 +124,13 @@ function createThemeSettings(settings) {
 
 function setTheme(selectedTheme) {
   if(selectedTheme != currentTheme){
+    document.documentElement.classList.toggle(currentTheme);
     currentTheme = selectedTheme;
     localStorage.setItem("theme", currentTheme);
+    applyTheme();
   }
+}
+
+function applyTheme() {
+  document.documentElement.classList.toggle(currentTheme);
 }

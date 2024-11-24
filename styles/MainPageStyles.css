@@ -57,6 +57,7 @@ ul, li {
         text-align: middle;
         color: var(--text-color-darkbg);
         text-decoration: none;
+        cursor: pointer;
 
         img {
             margin-right: 11px; /* Gap between icon and text */
@@ -125,9 +126,9 @@ ul, li {
     padding-top: 40px;
     box-shadow: inset 0 0 0 1000px var(--background);
     background-attachment: fixed;
+    color: var(--text-color-darkbg);
     
     text-align: center;
-    color: white;
 
     img {
         display: block;
@@ -186,7 +187,7 @@ ul, li {
     padding-bottom: 40px;
     overflow: visible;
 
-    box-shadow: inset 0 0 500px 100px var(--background-alt);
+    box-shadow: var(--box-shadow);
     background-attachment: fixed;
 
     .projectShowcaseHeader {

@@ -13,6 +13,11 @@
 </head>
 
 <body>
+  <!--APPLY CURRENT THEME-->
+  <script>
+    var pageTheme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(pageTheme);
+  </script> 
   <!-- SIDEBAR - START -->
   <div id="sideBar" class="sideBar">
     <!-- Top part of the sidebar (profile pic + text) -->

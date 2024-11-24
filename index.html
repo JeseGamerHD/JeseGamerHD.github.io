@@ -11,7 +11,12 @@
     <script src="/scripts/core.js" defer></script>
     <title>Welcome!</title>
 </head>
-<body>   
+<body>
+  <!--APPLY CURRENT THEME-->
+  <script>
+    var pageTheme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(pageTheme);
+  </script>  
 
     <!-- SIDEBAR - START -->
     <div id="sideBar" class="sideBar">
