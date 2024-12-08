@@ -1,5 +1,130 @@
 @import url(ThemeVariables.css);
 
+/* THIS CSS FILE CONTAINS ALL COMMONLY SHARED STYLES */
+
+/*#region SIDEBAR*/
+.sideBar {
+    
+    position: fixed;
+    z-index: 998;
+    background: var(--sidebar-bg);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid var(--border);
+    
+    width: 80px;
+    height: 100vh; /* All vertical space */
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        list-style-type: none; /* Remove the list dot */
+        margin-top: 15px; /* Gap between list items (added to top of each item) */
+
+        img { /* Make the icons brighter */
+            filter: var(--icon-filter);
+        }
+    }
+
+    /* Hovering over an item in the list */
+    li:hover {
+        border-radius: 35px;
+        background-color: var(--sidebar-li-hover);
+        box-shadow: 0px 0 5px 0px var(--glow-border);
+
+        img {
+            filter: var(--icon-filter-hover);
+        }
+    }
+
+    /* Content inside the list (Icon + Text) */
+    a {
+        padding: 16px; /* 16px since image is 48px (this centers the icon) */
+        font-size: 20px;
+        text-align: middle;
+        color: var(--text-color-darkbg);
+        text-decoration: none;
+        cursor: pointer;
+
+        img {
+            margin-right: 11px; /* Gap between icon and text */
+        }
+    }
+
+    .sideBarTop { /* Pfp + Welcome */
+        box-shadow: 0px 0 5px 0px var(--glow-border-alt);
+    
+        img {
+            border-radius: 50%;
+        }   
+    }
+
+    .sideBarBottom { /* Settings */
+        margin-top: auto;
+        margin-bottom: 15px;
+        box-shadow: inset 0 5px 5px -5px var(--glow-border-alt);
+    }
+}
+
+.sideBar:hover {
+    width: 185px;
+}
+
+.mobileSidebarToggle {
+    top: 10px;
+    left: 0px;
+    position: fixed;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    z-index: 990;
+
+    background: var(--sidebar-bg);
+    box-shadow: 0px 0 5px 0px var(--glow-border-alt);
+    opacity: 0.75;
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transition: all 0.4s ease;
+
+    img {
+        filter: var(--icon-filter);
+    }
+}
+
+/* These two get toggled by JS when clicking on the above toggle btn */
+.mobileSidebarToggle-open {
+    left: 185px;
+    opacity: 1;
+}
+
+.sideBar-open {
+    width: 185px !important;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .sideBar {
+        width: 0px;
+    }
+
+    .sideBar:hover {
+        width: 0px;
+    }
+
+    .mobileSidebarToggle {
+        visibility: visible;
+    }
+}
+/*#endregion*/
+
+/*#region SETTINGS*/
 #settingsContainer {
     
     display: flex;
@@ -105,5 +230,21 @@
             width: 100%;
             height: 100%;
         }
+    }
+}
+/*#endregion*/
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    
+
+    color: var(--text-color-darkbg);
+    box-shadow: inset 0 0 0 1000px var(--footer-bg);
+    background-attachment: fixed;
+
+    a{
+        text-decoration: none;
     }
 }

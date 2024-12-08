@@ -7,112 +7,6 @@ body {
     background-color: var(--general-bg);
 }
 
-ul, li {
-    margin: 0; padding: 0;
-}
-
-.sideBar {
-    
-    position: fixed;
-    z-index: 998;
-    background: var(--sidebar-bg);
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 1px solid var(--border);
-    
-    width: 80px;
-    height: 100vh; /* All vertical space */
-
-    ul li {
-        list-style-type: none; /* Remove the list dot */
-        margin-top: 15px; /* Gap between list items (added to top of each item) */
-
-        img { /* Make the icons brighter */
-            filter: var(--icon-filter);
-        }
-    }
-
-    /* Hovering over an item in the list */
-    li:hover {
-        border-radius: 35px;
-        background-color: var(--sidebar-li-hover);
-        box-shadow: 0px 0 5px 0px var(--glow-border);
-
-        img {
-            filter: var(--icon-filter-hover);
-        }
-    }
-
-    /* Content inside the list (Icon + Text) */
-    a {
-        padding: 16px; /* 16px since image is 48px (this centers the icon) */
-        font-size: 20px;
-        text-align: middle;
-        color: var(--text-color-darkbg);
-        text-decoration: none;
-        cursor: pointer;
-
-        img {
-            margin-right: 11px; /* Gap between icon and text */
-        }
-    }
-
-    .sideBarTop { /* Pfp + Welcome */
-        box-shadow: 0px 0 5px 0px var(--glow-border-alt);
-    
-        img {
-            border-radius: 50%;
-        }   
-    }
-
-    .sideBarBottom { /* Settings */
-        margin-top: auto;
-        margin-bottom: 15px;
-        box-shadow: inset 0 5px 5px -5px var(--glow-border-alt);
-    }
-}
-
-.sideBar:hover {
-    width: 185px;
-}
-
-.mobileSidebarToggle {
-    top: 10px;
-    left: 0px;
-    position: fixed;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    z-index: 990;
-
-    background: var(--sidebar-bg);
-    box-shadow: 0px 0 5px 0px var(--glow-border-alt);
-    opacity: 0.75;
-    border: none;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    transition: all 0.4s ease;
-
-    img {
-        filter: var(--icon-filter);
-    }
-}
-
-/* These two get toggled by JS when clicking on the above toggle btn */
-.mobileSidebarToggle-open {
-    left: 185px;
-    opacity: 1;
-}
-
-.sideBar-open {
-    width: 185px !important;
-}
-/* --- */
-
-
 .center {
     margin-left: 80px;
     box-shadow: var(--box-shadow);
@@ -151,7 +45,7 @@ ul, li {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    
+
     row-gap: 30px;
     column-gap: 40px;
     max-width: 1900px;
@@ -163,16 +57,10 @@ ul, li {
     justify-content: center;
 
     .screenshot {     
-        
-        flex: 1;
-        flex-basis: 600px;
-        object-fit: cover;
+
         max-width: 600px;
         width: 80%;
         height: auto;
-        border-radius: 25px;
-        border: none;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         transform: translateX(50%);
         opacity: 0;
@@ -196,21 +84,6 @@ ul, li {
         transform: translateX(0);
         opacity: 1;
         transition: all 0.5s;
-    }
-}
-
-footer {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: center;
-    
-
-    color: var(--text-color-darkbg);
-    box-shadow: inset 0 0 0 1000px var(--footer-bg);
-    background-attachment: fixed;
-
-    a{
-        text-decoration: none;
     }
 }
 
@@ -280,22 +153,18 @@ footer {
     }
 }
 
+/* @media screen and (min-width: 1100px) and (max-width: 1400px) {
+    #galleryContainer {
+        .screenshot {
+            max-width: 450px;
+        }
+    }
+} */
+
 @media screen and (max-width: 600px){
 
     .center {
         margin-left: 0;
-    }
-
-    .sideBar {
-        width: 0px;
-    }
-
-    .sideBar:hover {
-        width: 0px;
-    }
-
-    .mobileSidebarToggle {
-        visibility: visible;
     }
 
     #image-overlay {
@@ -305,16 +174,16 @@ footer {
             font-size: xx-small;
         }
     }
+
+    #galleryContainer {
+        padding: 0px;
+        row-gap: 20px;
+        column-gap: 0px;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 500px) {
     
-    #galleryContainer {
-        padding: 20px;
-        row-gap: 20px;
-        column-gap: 10px;
-    }
-
     .screenshot:hover {
         transform: scale(1) !important;
         z-index: 666;

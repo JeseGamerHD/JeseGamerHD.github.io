@@ -46,8 +46,8 @@
 
 :root.Dark {
 
-    --background: rgb(20, 20, 20);
-    --background-alt: rgb(31, 31, 31);
+    --background: rgba(20, 20, 20, 0.95);
+    --background-alt: rgba(39, 39, 39, 0.35);
     --background-alt2: rgb(33, 33, 33);
     --banner-link-hover-color: rgba(59, 80, 218, 0.811);
     --box-shadow: inset 0 0 500px 1000px var(--background-alt);
@@ -56,8 +56,8 @@
     --button-bg: #1b1d4e;
     --button-bg-hover: #262870;
     
-    --card-bg: rgb(15, 15, 15);
-    --card-bg-alt: rgb(15, 15, 15);
+    --card-bg: rgb(31, 31, 31);
+    --card-bg-alt: rgb(31, 31, 31);
     --card-button: #1b1d4e;
     --card-button-hover: #262870;
     --code-background-color: rgb(8, 8, 8);
@@ -79,14 +79,51 @@
     --summary-marker-color: #66afe9;
     --swiper-pagination-bullet-inactive-color: white;
     
-    --text-color-darkbg: white;
+    --text-color-darkbg: rgb(230, 230, 230);
     --text-color-lightbg: gray;
     --text-link: #66afe9;
     --text-link-hover: #8b46b3;
-    --textarea-boxshadow: rgb(20, 20, 20);
+    --textarea-boxshadow: rgba(20, 20, 20, 1);
 }
 
 :root.Light {
-    --text-color-darkbg: green;
-    --text-color-lightbg: orange;
+
+    --background: rgb(186, 186, 186);
+    --background-alt: rgba(220, 220, 220);
+    --background-alt2: rgb(170, 170, 170);
+    --banner-link-hover-color: rgba(59, 80, 218, 0.811);
+    --box-shadow: inset 0 0 500px 1000px var(--background-alt);
+    --border: #6c6c6c;
+    --border-alt: rgba(255, 255, 255, 0.928);
+    --button-bg: #478dfce9;
+    --button-bg-hover: #1d56b1e9;
+
+    --card-bg: rgb(255, 255, 255);
+    --card-bg-alt: rgb(200, 200, 200);
+    --card-button: #478dfce9;
+    --card-button-hover: #1d56b1e9;
+    --code-background-color: rgb(53, 53, 53);
+
+    --footer-bg: rgb(168, 168, 168);
+
+    --general-bg: rgb(186, 186, 186);
+    --glow-border: #383838d5;
+    --glow-border-alt: #2d313fcf;
+
+    --icon-filter: invert(0.2);
+    --icon-filter-hover: invert(0);
+    --intro-part-bg:  rgb(207, 207, 207);
+    --intro-part-bg-alt: rgb(207, 207, 207);
+
+    --sidebar-bg: radial-gradient(circle, rgb(200, 200, 200) 30%, rgb(200, 200, 200) 100%);
+    --sidebar-li-hover: rgba(222, 241, 252, 0.793);
+    --scrollbar-colors: #656565c1 #2f2f2fc1;
+    --summary-marker-color: #66afe9;
+    --swiper-pagination-bullet-inactive-color: black;
+    
+    --text-color-darkbg: rgb(21, 21, 21);
+    --text-color-lightbg: rgb(220, 220, 220);
+    --text-link: #27218f;
+    --text-link-hover: #8b46b3;
+    --textarea-boxshadow: rgb(170, 170, 170);
 }
