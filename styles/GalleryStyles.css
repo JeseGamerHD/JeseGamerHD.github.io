@@ -36,6 +36,9 @@ body {
     }
 
     p {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0px 30px 40px 30px;
     }
 }
