@@ -1,0 +1,171 @@
+<!-- The main page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/styles/Projects.css">
+    <link rel="stylesheet" href="/styles/core.css">
+    <script src="/scripts/core.js" defer></script>
+    <title>Projects</title>
+</head>
+<body>
+  <!--APPLY CURRENT THEME-->
+  <script>
+    var pageTheme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(pageTheme);
+  </script>  
+    <!-- SIDEBAR - START -->
+    <div id="sideBar" class="sideBar">
+      <!-- Top part of the sidebar (profile pic + text) -->
+      <a class="sideBarTop" href="#">
+        <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
+        <span>Welcome!</span>
+      </a>
+    
+      <!-- List containing all the icon + text combos in the side bar -->
+      <ul>
+        <li>
+          <a href="/index.html">
+            <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
+            <span>Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="/gallery.html">
+            <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
+            <span>Gallery</span>
+          </a>
+        </li>
+      </ul>
+    
+      <div class="sideBarBottom">
+        <ul>
+          <li>
+            <a onclick="toggleSettings()">
+              <img style="vertical-align:middle" src="/images/icons/ThemeIcon.png" width="48px">
+              <span>Theme</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">
+              <img style="vertical-align:middle" src="/images/icons/GitHubIcon.png" width="48px">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- SIDEBAR - END -->
+     
+    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+      <img src="/images/icons/MenuIcon.png" width="48px">
+    </button>
+    
+    <!-- CENTER - START -->
+     <!-- The main content area (everything except the side bar inside the body)-->   
+     <div  id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+
+      <div class="topBanner">
+        <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="96px">
+        <h1>Projects</h1>
+        <p>Here are all of my projects.
+        </p>
+      </div>
+
+      <div class="mainContentArea">
+        
+        <div class="projectCard">
+          <div class="projectCardTop">
+            <span class="projectTag">Tag1</span>
+            <span class="projectTag">Tag2</span>
+            <span class="projectTag">Tag3</span>
+          </div>
+          <div class="projectCardMiddle">
+            <img src="/images/backgrounds/AssortedAdditionsBG.png">
+            <div class="projectTextArea">
+              <h2>Assorted Additions</h2>
+              <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
+                The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a bunch of tweaks.</p>
+                <button class="projectButton">View more</button>
+            </div>
+          </div>
+          <!-- <div class="projectCardBottom">
+            <button class="projectButton">View more</button>
+          </div> -->
+        </div>
+
+        <div class="projectCard">
+          <div class="projectCardTop">
+            <span class="projectTag">Tag1</span>
+            <span class="projectTag">Tag2</span>
+            <span class="projectTag">Tag3</span>
+          </div>
+          <div class="projectCardMiddle">
+            <img src="/images/backgrounds/AssortedAdditionsBG.png">
+            <div class="projectTextArea">
+              <h2>Assorted Additions</h2>
+              <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
+                The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a bunch of tweaks.</p>
+                <button class="projectButton">View more</button>
+            </div>
+          </div>
+          <!-- <div class="projectCardBottom">
+            <button class="projectButton">View more</button>
+          </div> -->
+        </div>
+
+        <div class="projectCard">
+          <div class="projectCardTop">
+            <span class="projectTag">Tag1</span>
+            <span class="projectTag">Tag2</span>
+            <span class="projectTag">Tag3</span>
+          </div>
+          <div class="projectCardMiddle">
+            <img src="/images/backgrounds/AssortedAdditionsBG.png">
+            <div class="projectTextArea">
+              <h2>Assorted Additions</h2>
+              <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
+                The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a bunch of tweaks.</p>
+                <button class="projectButton">View more</button>
+            </div>
+          </div>
+          <!-- <div class="projectCardBottom">
+            <button class="projectButton">View more</button>
+          </div> -->
+        </div>
+
+        <div class="projectCard">
+          <div class="projectCardTop">
+            <span class="projectTag">Tag1</span>
+            <span class="projectTag">Tag2</span>
+            <span class="projectTag">Tag3</span>
+          </div>
+          <div class="projectCardMiddle">
+            <img src="/images/backgrounds/AssortedAdditionsBG.png">
+            <div class="projectTextArea">
+              <h2>Assorted Additions</h2>
+              <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
+                The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a bunch of tweaks.</p>
+                <button class="projectButton">View more</button>
+            </div>
+          </div>
+          <!-- <div class="projectCardBottom">
+            <button class="projectButton">View more</button>
+          </div> -->
+        </div>
+      </div>
+      <footer>
+        Navigation icons provided by <a href="https://icons8.com/">Icons8</a>
+      </footer>
+    </div>
+
+</body>
+</html>
