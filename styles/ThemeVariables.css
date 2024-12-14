@@ -11,6 +11,8 @@
     --box-shadow: inset 0 0 500px 100px var(--background-alt);
     --button-bg: #192954;
     --button-bg-hover: #2f52a3;
+    --button-bg-alt: #439eff;
+    --button-bg-alt-hover: #0065d1;
 
     --card-bg: rgb(60, 0, 105);
     --card-bg-alt: rgb(0, 17, 77);
