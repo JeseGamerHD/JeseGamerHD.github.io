@@ -1,5 +1,5 @@
 
-/** THIS JS FILE CONTAINS ALL COMMONLY SHARED ELEMENT FUNCTIONALITIES */
+/** THIS JS FILE CONTAINS ALL COMMONLY SHARED FUNCTIONALITIES */
 
 let toggleBtn = document.getElementById("mobileSidebarToggle");
 let sidebar = document.getElementById("sideBar");
@@ -52,6 +52,8 @@ function toggleSettings() {
   }
 }
 
+/** Creates and adds the settings to the center div.
+*/
 function createSettings() {
   
   // Container/Wrapper for the settings
@@ -153,6 +155,9 @@ function createThemeSettings(settings) {
   }
 }
 
+/** Sets the current theme based on the given parameter.
+ * @param {string} selectedTheme - The theme to be applied.
+*/
 function setTheme(selectedTheme) {
   if(selectedTheme != currentTheme){
     document.documentElement.classList.toggle(currentTheme);
@@ -165,3 +170,23 @@ function setTheme(selectedTheme) {
 function applyTheme() {
   document.documentElement.classList.toggle(currentTheme);
 }
+
+
+/** Creates a small effect at the cursor's location when the user clicks anything on the page. 
+ * @param {MouseEvent} click - The MouseEvent object.
+*/
+function doClickEffect(click) {
+
+  // Add the "effect" div
+  const cEffect = document.createElement("div");
+  cEffect.className = "click-effect";
+  document.body.appendChild(cEffect);
+
+  // Position it at the click position
+  cEffect.style.left = `${click.clientX}px`;
+  cEffect.style.top = `${click.clientY}px`;
+
+  // When CSS animation is done, remove the element
+  cEffect.onanimationend = () => document.body.removeChild(cEffect);
+}
+document.addEventListener("click", doClickEffect);

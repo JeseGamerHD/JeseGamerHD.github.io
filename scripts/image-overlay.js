@@ -1,5 +1,8 @@
 let overlay = document.getElementById("image-overlay");
 
+/** Toggles on the image overlay and displays an image based on the fullResolutionImagePath.
+ * @param {string} fullResolutionImagePath - The path to the image file.
+*/
 function showOverlay(fullResolutionImagePath) {
 
   // Disable overlay for small screen sizes
@@ -11,7 +14,8 @@ function showOverlay(fullResolutionImagePath) {
     overlay.style.cursor = "pointer";
   }
 }
-  
+
+/** Toggles off the image overlay. */
 function hideOverlay() {
     
   overlay.classList.toggle("active");

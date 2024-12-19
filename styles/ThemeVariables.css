@@ -18,6 +18,7 @@
     --card-bg-alt: rgb(0, 17, 77);
     --card-button: #541919;
     --card-button-hover: #a32f2f;
+    --click-effect: #d450ebd6;
     --code-background-color: rgb(1, 6, 24);
 
     --footer-bg: rgb(1, 6, 24);
@@ -62,6 +63,7 @@
     --card-bg-alt: rgb(31, 31, 31);
     --card-button: #1b1d4e;
     --card-button-hover: #262870;
+    --click-effect: #dbdbdbd6;
     --code-background-color: rgb(8, 8, 8);
 
     --footer-bg: rgb(5, 5, 5);
@@ -104,6 +106,7 @@
     --card-bg-alt: rgb(200, 200, 200);
     --card-button: #478dfce9;
     --card-button-hover: #1d56b1e9;
+    --click-effect: #484848d6;
     --code-background-color: rgb(53, 53, 53);
 
     --footer-bg: rgb(168, 168, 168);

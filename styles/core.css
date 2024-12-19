@@ -140,7 +140,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 999;
+    z-index: 997;
 
     .settingsContent {
         width: 60%;
@@ -249,5 +249,34 @@ footer {
 
     a{
         text-decoration: none;
+    }
+}
+
+
+.click-effect {
+    z-index: 998;
+    position: fixed;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid var(--click-effect);
+    animation: click-effect-frames 0.4s ease-out;
+}
+ 
+ @keyframes click-effect-frames {
+
+    0% {
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+        margin: -5px; /* -half of width/height to center the effect */
+        border-width: .25em;
+    }
+
+    100% {
+        opacity: 0;
+        width: 70px;
+        height: 70px;
+        margin: -35px;
+        border-width: 0.05em;
     }
 }
