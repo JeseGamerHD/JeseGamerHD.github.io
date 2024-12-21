@@ -35,6 +35,7 @@ let currentTheme = localStorage.getItem("theme") != null ? localStorage.getItem(
 let settingsContainer = null;
 function toggleSettings() {
   
+  closeSidebar();
   // Check if the settings have been already added to the document
   // if not create the settings
   if(document.getElementById("settingsContainer") == null){
