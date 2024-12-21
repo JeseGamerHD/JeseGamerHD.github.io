@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/styles/ProjectTemplate.css">
+    <link rel="stylesheet" href="/styles/core.css">
+
+    <script src="/scripts/core.js" defer></script>
+    <title>Sightseeing Server</title>
+</head>
+
+<body>
+  <!--APPLY CURRENT THEME-->
+  <script>
+    var pageTheme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(pageTheme);
+  </script>
+    <!-- SIDEBAR - START -->
+    <div id="sideBar" class="sideBar">
+      <!-- Top part of the sidebar (profile pic + text) -->
+      <a class="sideBarTop" href="#">
+        <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
+        <span>Welcome!</span>
+      </a>
+    
+      <!-- List containing all the icon + text combos in the side bar -->
+      <ul>
+        <li>
+          <a href="/index.html">
+            <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/Projects.html">
+            <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
+            <span>Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="/gallery.html">
+            <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
+            <span>Gallery</span>
+          </a>
+        </li>
+      </ul>
+    
+      <div class="sideBarBottom">
+        <ul>
+          <li>
+            <a onclick="toggleSettings()">
+              <img style="vertical-align:middle" src="/images/icons/ThemeIcon.png" width="48px">
+              <span>Theme</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">
+              <img style="vertical-align:middle" src="/images/icons/GitHubIcon.png" width="48px">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+      <img src="/images/icons/MenuIcon.png" width="48px">
+    </button>
+    
+    <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+        <div class="banner">
+            <img style="vertical-align:middle" src="/images/backgrounds/ServerDatabaseProject.PNG" width="196px">
+            <h1>Sightseeing Server</h1>
+            <div class="links" style="column-gap: 40px">
+                <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
+                <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
+            </div>
+        </div>
+
+      <div class="text-area-container">
+        <div class="text-area">
+          <div class="text-segment">
+            <h1>What is this project?</h1>
+            <p>This project implements a simple HTTPS server where users can register and then send/recieve information about sightseeing locations.
+                The project was done as a programming course assignment so it is not really meant to be used for anything other than viewing/reference.
+                The project deals with database programming (SQLite), data formats (JSON, XML) and the server part of client-server applications as well as a little concurrency.
+            </p>
+
+            <h2>About the implementation</h2>
+            <div class="bullet-point-container">
+                <ul>
+                    <li>
+                        <p>The server accepts POST requests from registered users that have a JSON attached and checks if the JSON contains required information.</p>
+                    </li>
+                    <li>
+                        The POST requests contain a posting date / timestamp and the server converts that to a proper ISO 8601 format when storing and attaching it to messages
+                    </li>
+                    <li>
+                        The server attached the poster's nickname to the message.
+                    </li>
+                    <li>
+                        The user's password is stored encrypted in the database.
+                    </li>
+                    <li>
+                        The server sends the posted messages in a JSON array when the user does a GET request.
+                    </li>
+                    <li>
+                        The external weather service part would let the users to attach weather information based on coordinates in their messages. 
+                        When a message with weather attached is GET requested, the server would do an XML POST request to the external service getting latest weather info and attach it to the message.
+                    </li>
+                </ul>
+            </div>
+
+            <p>The source code and setup instructions are available here: 
+                <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/Server-Database-CourseAssignment">
+                    https://github.com/JeseGamerHD/Server-Database-CourseAssignment
+                </a>
+            </p>
+          </div>
+
+          <div class="text-segment">
+            <h1>Code snippets</h1>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    
+      <footer>
+        Navigation icons provided by <a href="https://icons8.com/">Icons8</a>
+      </footer>
+    </div>
+</body>
