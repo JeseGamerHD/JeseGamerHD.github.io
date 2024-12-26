@@ -6,8 +6,10 @@
     
     <link rel="stylesheet" href="/styles/ProjectTemplate.css">
     <link rel="stylesheet" href="/styles/core.css">
+    <link rel="stylesheet" href ="/styles/prism.css"/>
 
     <script src="/scripts/core.js" defer></script>
+    <script src="/scripts/prism.js" async></script>
     <title>Sightseeing Server</title>
 </head>
 
@@ -85,45 +87,188 @@
             <h1>What is this project?</h1>
             <p>This project implements a simple HTTPS server where users can register and then send/recieve information about sightseeing locations.
                 The project was done as a programming course assignment so it is not really meant to be used for anything other than viewing/reference.
-                The project deals with database programming (SQLite), data formats (JSON, XML) and the server part of client-server applications as well as a little concurrency.
+                The project deals with database programming (JDBC, SQLite), data formats (JSON, XML) and the server part of client-server applications as well as a little concurrency.
             </p>
 
-            <h2>About the implementation</h2>
             <div class="bullet-point-container">
-                <ul>
-                    <li>
-                        <p>The server accepts POST requests from registered users that have a JSON attached and checks if the JSON contains required information.</p>
-                    </li>
-                    <li>
-                        The POST requests contain a posting date / timestamp and the server converts that to a proper ISO 8601 format when storing and attaching it to messages
-                    </li>
-                    <li>
-                        The server attached the poster's nickname to the message.
-                    </li>
-                    <li>
-                        The user's password is stored encrypted in the database.
-                    </li>
-                    <li>
-                        The server sends the posted messages in a JSON array when the user does a GET request.
-                    </li>
-                    <li>
-                        The external weather service part would let the users to attach weather information based on coordinates in their messages. 
-                        When a message with weather attached is GET requested, the server would do an XML POST request to the external service getting latest weather info and attach it to the message.
-                    </li>
-                </ul>
-            </div>
+              <h2>About the implementation</h2>
+              <ul>
+                <li>
+                  The server accepts two types of POST requests: registration and messages for registered users. 
+                  Registered users can also GET request messages from the server.
+                </li>
+                <li>
+                  <p>Users must first register by sending a JSON containing basic information (username, password, email, nickname). 
+                    The user's password is stored encrypted in the database (obviously).
+                  </p>
+                </li>
+                <li>
+                  The server checks if the details are valid and gives a response. If the details were valid, then
+                  the user's details are stored in a database (password is stored encrypted obviously).
+                </li>
+                <li>
+                  The process is similar for sending messages and requesting them. 
+                  First the server checks if the login credentials are valid, then the message and gives a response.
+                  The server attaches the posting date in ISO8601 format and the user's nickname to the message.
+                  When requesting messages they are also given in JSON format.
+                </li>
+                <li>
+                  The server also uses an external weather service. 
+                  Users can optionally send coordinates with their messages and the server would reach out to the service by sending the coordinates in XML format.
+                  The external service sends in weather informaton and the server attaches that to the user's message. (Service unavailable, was given by the course teacher).
+                </li>
+              </ul>
 
-            <p>The source code and setup instructions are available here: 
-                <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/Server-Database-CourseAssignment">
-                    https://github.com/JeseGamerHD/Server-Database-CourseAssignment
+              <p class="below-bullet-paragraph">The source code and setup instructions are available here:</br>
+                <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer"
+                  href="https://github.com/JeseGamerHD/Server-Database-CourseAssignment">
+                  https://github.com/JeseGamerHD/Server-Database-CourseAssignment
                 </a>
-            </p>
+              </p>
+            </div>
           </div>
 
           <div class="text-segment">
-            <h1>Code snippets</h1>
-            <p>...</p>
+            <h1>Code stuff</h1>
+            <h3 class="subheading">Registering a new user</h3>
+            <p>When the server starts it creates an <code class="code-block">UserAuthenticator</code> object which implements <code class="code-block">BasicAuthenticator</code>.
+              Then the server creates context for the different paths and sets the authenticator for them.<code class="code-block">RegistrationHandler</code> is used for handling all requests to the /registration path. 
+              The handler implements <code class="code-block">HttpHandler</code>.</p>
+            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">@Override
+public void handle(HttpExchange exchange) throws IOException {
+     
+  String responseString = null;
+      
+  if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+    
+    if(checkContentType(exchange)){ // invalid Content-Type response handled inside checkContentType()
+          InputStreamReader inputReader = new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8);
+          BufferedReader buffer = new BufferedReader(inputReader);
+          String newUser = buffer.lines().collect(Collectors.joining("\n"));
+          inputReader.close();
+
+          if(newUser != null && newUser.length() != 0){
+              JSONObject json = null;
+              try {
+                   json = new JSONObject(newUser);
+              } catch(JSONException e) {
+                  responseString = "JSON was faulty";
+                  handleResponse(exchange, responseString, 400);
+              }
+
+              if(json != null){
+                  tryToRegisterUser(exchange, json);
+              }
+          }
+          else {
+              responseString = "No user credentials provided";
+              handleResponse(exchange, responseString, 400);
+          }
+      }
+  }
+  else {
+      responseString = "Not supported; Only POST is accepted";
+      handleResponse(exchange, responseString, 400);
+  }
+}           </code></pre>
+            <p>In the above snippet the handler first checks the if the request is a "POST" request and then if it's Content-Type is valid by calling <code class="code-block">checkContentType()</code> (is "application/json").
+              Then it reads the contents into <code class="code-block">newUser</code> and attemps to create a <code class="code-block">JSONObject</code> out of it. After this it calls
+              the <code class="code-block">tryToRegisterUser()</code> method which does some simple checks to ensure the new user has given all the required information.
+              The <code class="code-block">tryToRegisterUser()</code> method calls a method from the authenticator to try and add the user. 
+              he authenticator simply calls the database which does the final checks (user doesnt alreadye exists).
+            </p>
+            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+* Tries to register the user from the given JSONObject. User can only be registered if the username is unique and password is not missing.
+* @param exchange The HTTP request
+* @param json The JSONObject containing user information
+*/
+private void tryToRegisterUser(HttpExchange exchange, JSONObject json) throws IOException {
+      
+    String responseString = null;
+      
+    try {
+        if(json.getString("username").length() != 0 && json.getString("password").length() != 0){
+            // Try to register the user
+            if(authenticator.addUser(json.getString("username"), json.getString("password"), json.getString("email"), json.getString("userNickname"))){
+                responseString = "Registration was succesful";
+                handleResponse(exchange, responseString, 200);
+            }
+            else {
+                responseString = "User already exists";
+                handleResponse(exchange, responseString, 409);
+            }
+        }
+        else {
+            responseString = "Username or password is missing";
+            handleResponse(exchange, responseString, 400);
+        }
+
+    } catch(JSONException e) {
+        responseString = "JSON is missing a key";
+        handleResponse(exchange, responseString, 400);
+    }
+}           </code></pre>
+            <p><code class="code-block">addUser()</code> from the authenticator:</p>
+            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+* Attempts to add a new user with given parameters.
+* @param username The name used for registering/login
+* @param password
+* @param email
+* @param nickname The name shown publicly
+* @return True if the user could be added. False if the user could not be added.
+*/
+public boolean addUser(String username, String password, String email, String nickname) {
+
+    JSONObject potentialUser = new User(username, password, email, nickname).toJsonObject();
+    try {
+        return db.insertUser(potentialUser);
+    } 
+    catch(SQLException e) {
+        System.out.println("adding user to database failed");
+        e.printStackTrace();
+        return false;
+    }
+}           </code></pre>
+            <p>And inside the database: (check if user already exists, if not add user)</p>
+            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+* Creates a new user in the database if the provided user does not already exist.
+* @param user
+* @throws SQLException
+* @return True if the user could be added, False if not.
+*/
+public boolean insertUser(JSONObject user) throws SQLException {
+
+    if(checkIfUserExists(user.getString("username"))){
+        return false;
+    }
+
+    PreparedStatement prepUser = dbConnection.prepareStatement(preparedInsertUser);
+    prepUser.setString(1, user.getString("username"));
+    prepUser.setString(2, encryptPassword(user.getString("password")));
+    prepUser.setString(3, user.getString("email"));
+    prepUser.setString(4, user.getString("userNickname"));
+    prepUser.executeUpdate();
+    prepUser.close();
+
+    return true;
+}         </code></pre>
+<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+* Checks if the provided username is already in the database.
+* @param username
+* @throws SQLException
+* @return True if the username is taken, false if the username is not taken.
+*/
+private boolean checkIfUserExists(String username) throws SQLException {
+      
+    String preparedUserSelect = "SELECT username FROM users WHERE username = ?";
+    PreparedStatement prep = dbConnection.prepareStatement(preparedUserSelect);
+    prep.setString(1, username);
+    ResultSet result = prep.executeQuery();
+
+    return result.next();
+}         </code></pre>           
           </div>
+
         </div>
       </div>
     

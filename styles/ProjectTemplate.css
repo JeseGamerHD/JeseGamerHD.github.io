@@ -100,6 +100,7 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: justify;
 
             padding-left: 10%;
             padding-right: 10%;
@@ -107,6 +108,12 @@ body {
             color: var(--text-color-darkbg);
 
             h1 {
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 0px;
+            }
+
+            h2 {
                 text-align: center;
                 margin-top: 30px;
                 margin-bottom: 0px;
@@ -130,6 +137,14 @@ body {
                     color: var(--text-link-hover);
                     text-decoration: underline;
                 }
+
+                .code-block {
+                    border-radius: 5px;
+                    padding: 1px 5px 1px 5px;
+                    color: var(--code-block-text);
+                    background-color: var(--code-block-bg);
+                    font-family: Tahoma, Helvetica, Arial, Georgia;
+                }
             }
 
             iframe {
@@ -138,6 +153,31 @@ body {
                 min-width: 321px; /* YT has multiple thumbnail sizes, smaller than this and the blurriest image will be used */
                 aspect-ratio: 16 / 9;
                 box-shadow: 0 0 5px 2px var(--glow-border);
+            }
+
+            .bullet-point-container {
+
+                margin-top: 30px;
+                padding-bottom: 30px;
+                background-color: var(--background-alt2);
+                box-shadow: 0 0 5px 2px var(--glow-border);
+                
+                ul {
+                    margin-left: auto;
+                    margin-right: auto;
+                    /* max-width: 65%; */
+                    max-width: 80%;
+                    min-width: 300px;
+                    padding-right: 20px;
+                }
+                
+                li + li {
+                    margin-top: 15px;
+                }
+
+                .below-bullet-paragraph {
+                    text-align: center;
+                }
             }
 
             /* For when a title and a paragraph should be closer together wrap them in this */
