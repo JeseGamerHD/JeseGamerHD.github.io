@@ -75,6 +75,8 @@ body {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         transition: all 0.5s;
         opacity: 0;
+
+        background: transparent var(--loading-icon) center center no-repeat;
     }
 
     .screenshot:hover {
@@ -116,8 +118,11 @@ body {
         justify-content: center;
         width: 100%;
         height: 100%;
-        color: var(--text-color-darkbg);
+        color: white;
         text-align: center;
+
+        /* The loading animation will get covered by the image once it loads, calc offset due to tooltip text (place the loading icon above it) */
+        background: transparent var(--loading-icon) center calc(50% - 25px) no-repeat;
 
         #image-overlay-img {
             
@@ -179,7 +184,7 @@ body {
     }
 
     #galleryContainer {
-        padding: 0px;
+        padding: 20px 0px 20px 0px;
         row-gap: 20px;
         column-gap: 0px;
     }

@@ -358,8 +358,11 @@ body {
         justify-content: center;
         width: 100%;
         height: 100%;
-        color: var(--text-color-darkbg);
+        color: white;
         text-align: center;
+
+        /* The loading animation will get covered by the image once it loads, calc offset due to tooltip text (place the loading icon above it) */
+        background: transparent var(--loading-icon) center calc(50% - 25px) no-repeat;
 
         #image-overlay-img {
             object-fit: cover;

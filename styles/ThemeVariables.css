@@ -34,6 +34,8 @@
     --intro-part-bg:  rgb(41, 41, 72);
     --intro-part-bg-alt: rgb(28, 33, 65);
 
+    --loading-icon: url("/images/icons/loadinIconLight.svg");
+
     --sidebar-bg: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
     --sidebar-li-hover: rgba(61, 33, 144, 0.701);
     --scrollbar-colors: #3826bac1 #2f016bc1;
@@ -81,6 +83,8 @@
     --intro-part-bg:  rgb(31, 31, 31);
     --intro-part-bg-alt: rgb(31, 31, 31);
 
+    --loading-icon: url("/images/icons/loadinIconLight.svg");
+
     --sidebar-bg: radial-gradient(circle, rgb(0, 0, 0) 30%, rgb(25, 25, 25) 100%);
     --sidebar-li-hover: rgba(128, 128, 128, 0.701);
     --scrollbar-colors: #656565c1 #2f2f2fc1;
@@ -125,6 +129,8 @@
     --icon-filter-hover: invert(0);
     --intro-part-bg:  rgb(207, 207, 207);
     --intro-part-bg-alt: rgb(207, 207, 207);
+
+    --loading-icon: url("/images/icons/loadingIconDark.svg");
 
     --sidebar-bg: radial-gradient(circle, rgb(200, 200, 200) 30%, rgb(200, 200, 200) 100%);
     --sidebar-li-hover: rgba(222, 241, 252, 0.793);
