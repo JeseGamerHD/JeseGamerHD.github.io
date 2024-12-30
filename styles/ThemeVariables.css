@@ -31,7 +31,7 @@
 
     --icon-filter: invert(0.45);
     --icon-filter-hover: invert(1);
-    --intro-part-bg:  rgb(41, 41, 72);
+    --intro-part-bg:  rgb(32, 21, 76);
     --intro-part-bg-alt: rgb(28, 33, 65);
 
     --loading-icon: url("/images/icons/loadinIconLight.svg");
