@@ -6,12 +6,19 @@ var swiper = new Swiper(".slide-container", {
   centerSlide: "true",
   fade: "true",
   grabCursor: "true",
+
+  // These are true by default, they prevent "accidental" clicks when the slides can be grabbed
+  // Disable to prevent issues when using clickable things inside the slides (buttons, anchors etc)
+  preventClicks: false,
+  preventClicksPropagation: false,
+
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
     dynamicBullets: false,
     dynamicMainBullets: 1,
   },
+
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
