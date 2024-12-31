@@ -127,12 +127,28 @@ body {
                 margin-bottom: 0px;
             }
 
-            .subheading {
-                margin-bottom: 0;
+            .h2-with-icon {
+                
+                display: flex;
+                column-gap: 20px;
+                margin-top: 20px;
+
+                img {
+                    object-fit: fill;
+                    width: 48px;
+                    height: auto;
+                    filter: var(--icon-filter);
+                }
+
+                h2 {
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    margin-right: 64px; /* Offset by img width + margin */
+                }
             }
 
-            .subheading:not(:first-of-type) {
-                margin-top: 60px;
+            .subheading {
+                margin-bottom: 0;
             }
 
             p {

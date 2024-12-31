@@ -6,8 +6,10 @@
     
     <link rel="stylesheet" href="/styles/ProjectTemplate.css">
     <link rel="stylesheet" href="/styles/core.css">
+    <link rel="stylesheet" href="/styles/prism.css">
 
     <script src="/scripts/core.js" defer></script>
+    <script src="/scripts/prism.js" async></script>
     <title>This website</title>
 </head>
 
@@ -84,8 +86,97 @@
         <div class="text-area">
             <div class="text-segment">
                 <h1>Background</h1>
-                <p>TODO.</p>
+                <p>Originally this project started as an online CV, but I decided against it since I didn't like the idea of my CV being public. 
+                  I still wanted a way to showcase my skills so I decided to create a showcase for my projects. 
+                  Along the way I also decided that I could include stuff from my gaming hobby and thus the site became a showcase of my projects/hobbies. 
+                  Another reason I started the project was to learn some basic web development (HTML, CSS, Javascript).
+                </p>
+                <p>In the below implementation segment I'll go over some things releated to the implementation of the site as well as some problems I encountered along the way.</p>
             </div>
+
+            <div class="text-segment">
+              <h1>Implementation</h1>
+              <div class="h2-with-icon">
+                <img src="/images/icons/GalleryIcon2.png">
+                <h2>Screenshot Gallery</h2>
+              </div>
+              <p>When I was first making the overview/home page I was thinking about things I could add to the site. 
+                I decided to add a screenshot gallery since I like taking screenshots of the games I play. 
+                At the start I manually added images to the page in the HTML document. I quickly realized that this was not a good way to do this since it would have been tedious to add a lot of images manually.
+                This is when I encountered the first problem.
+              </p>
+              <h3 class="subheading">Problem #1: Adding images</h3>
+              <p>The obvious solution that came to mind was to write code to go through the screenshot folder to retrieve all the image file names and to add them to the document.
+                It turns out that getting the file names is not that easy on github pages since it only supports static pages and client sided code.
+                However, there are ways to work around these restrictions.
+              </p>
+              <p>One solution that I came across was to include a file containing all the image names in the repository. This could be approached in multiple ways. 
+                I wrote some simple Java code to generate a txt file offline containing all the image file names. 
+                So whenever I want to add more images I just have to run the Java file and push the updated txt to the repository with the images.
+                The images are added via Javascript by reading the names from the txt file:
+              </p>
+              <pre class="code-snippet-container"><code id="code-snippet" class="language-javascript line-numbers">fetch("images.txt")
+.then(response => response.text())
+.then(data => {
+    const images = data.split("\n");
+    images.forEach(appendImages);
+    initializeLazyLoading(); // After adding all the images, apply lazy loading      
+});
+
+function appendImages(imageName) {
+    
+    let img = document.createElement("img");
+    img.classList.add("screenshot");
+    img.setAttribute("data-src", "images/screenshots/thumbnails/" + imageName);
+    img.width = 600;
+    img.height = 338;
+    img.onclick = function() { showOverlay("images/screenshots/" + imageName) };
+
+    document.getElementById("galleryContainer").appendChild(img);
+}           </code></pre>
+            <p>This might not be the optimal solution but it works for me. The approach could have been automated further using Github Actions for 
+              <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/63762947">example</a>. 
+              Another solution could have been to use Github's REST API similarly to this 
+              <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/53218452">example</a>
+              where the image names are both fetched and added by the client.
+            </p>
+            <h3 class="subheading">Problem #2: Optimizing images</h3>
+            <p>This problem consists of two parts: image file sizes and image loading. 
+              At first the image files were large (in the MB range) so I had to compress them to a more reasonable size.
+              I also realized that I should have an even smaller version of the image as the thumbnail. 
+              So basically the images you see in the gallery are thumbnails and clicking an image opens the higher resolution/quality version.
+            </p>
+            <p>The second part of the problem is loading them only when needed. For this I found a simple lazy loading function utilizing 
+              <code class="code-block">IntersectionObserver</code> to only load the images when they are in view. 
+              I also added an effect for when the image comes into view.
+            </p>
+            <pre class="code-snippet-container"><code id="code-snippet" class="language-javascript line-numbers">function initializeLazyLoading() {
+
+  const targets = document.querySelectorAll(".screenshot");
+
+  const lazyLoad = target => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+
+          img.setAttribute('src', src);
+          img.classList.add('fade');
+          observer.disconnect();
+        }
+      });
+    });
+    io.observe(target)
+  };
+  targets.forEach(lazyLoad);
+}           </code></pre>
+            <p>I'm not sure if this is the best way to do this but it works. 
+              Another thing I added was a loading animation using a .svg file as the background for the image container 
+              so when the image loads it covers the loading animation: <code class="code-block">background: transparent var(--loading-icon) center center no-repeat</code>.
+            </p>
+          </div>
         </div>
       </div>
     
