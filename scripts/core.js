@@ -53,6 +53,160 @@ function toggleSettings() {
   }
 }
 
+let formContainer = null;
+function toggleForm() {
+  
+  if(formContainer == null){
+    createContactForm();
+  }
+
+  if(formContainer.style.display == "flex"){
+    formContainer.style.display = "none";
+  }
+  else {
+    closeFormConfirmation();
+    formContainer.style.display = "flex";
+    document.getElementById("contactForm").style.display = "flex";
+  }
+}
+
+function showFormConfirmation() {
+  let form = document.getElementById("contactForm");
+  form.style.display = "none";
+  document.getElementById("formConfirmWrapper").style.display = "flex";
+}
+
+function closeFormConfirmation() {
+  let formConfirmation = document.getElementById("formConfirmWrapper");
+  formConfirmation.style.display = "none";
+}
+
+function createContactForm() {
+  
+  // Container
+  formContainer = document.createElement('div');
+  formContainer.id = "formContainer";
+  formContainer.className = "formContainer";
+  document.getElementById("center").appendChild(formContainer);
+
+  // Workaround for the formspree redirect
+  let dummyframe = document.createElement('iframe');
+  dummyframe.id = "dummyframe";
+  dummyframe.name = "dummyframe";
+  dummyframe.style.display = "none";
+  formContainer.appendChild(dummyframe);
+
+  let formContentArea = document.createElement('div');
+  formContentArea.id = "formContentArea";
+  formContentArea.className = "formContentArea";
+  formContainer.appendChild(formContentArea);
+
+  let formContentAreaTop = document.createElement('div');
+  formContentAreaTop.id = "formContentAreaTop";
+  formContentAreaTop.className = "formContentAreaTop";
+  formContentArea.appendChild(formContentAreaTop);
+
+  let formClose = document.createElement('button');
+  formClose.id = "formClose";
+  formClose.className = "formClose";
+  formClose.title = "Close"
+  formClose.onclick = toggleForm;
+  formContentArea.appendChild(formClose);
+
+  // Top part, icon + text
+  let formHeaderContainer = document.createElement('div');
+  formHeaderContainer.id = "formHeaderContainer";
+  formHeaderContainer.className = "formHeaderContainer";
+  formContentAreaTop.appendChild(formHeaderContainer);
+
+  let formIcon = document.createElement('img');
+  formIcon.src = "/images/icons/ContactIcon.png";
+  formHeaderContainer.appendChild(formIcon);
+
+  let formHeader = document.createElement('h1');
+  formHeader.textContent = "Contact";
+  formHeaderContainer.appendChild(formHeader);
+
+  // Actual form part (middle)
+  let formWrapper = document.createElement('div');
+  formWrapper.id = "formWrapper";
+  formWrapper.className = "formWrapper";
+  formContentArea.appendChild(formWrapper);
+
+  let contactForm = document.createElement('form');
+  contactForm.id = "contactForm";
+  contactForm.className = "contactForm";
+  contactForm.action = "https://formspree.io/f/mvggwnky";
+  contactForm.method = "POST";
+  contactForm.target = "dummyframe";
+  contactForm.onsubmit = showFormConfirmation;
+
+  let emailPart = document.createElement('div');
+  emailPart.id = "emailPart";
+  emailPart.className = "emailPart";
+  contactForm.appendChild(emailPart);
+
+  let emailLabel = document.createElement('label');
+  emailLabel.textContent = "Your email:"
+  emailPart.appendChild(emailLabel);
+
+  let emailInput = document.createElement('input');
+  emailInput.type = "email";
+  emailInput.name = "email";
+  emailInput.placeholder = "example@mail.to";
+  emailInput.required = true;
+  emailPart.appendChild(emailInput);
+
+  let messagePart = document.createElement('div');
+  messagePart.id = "messagePart";
+  messagePart.className = "messagePart";
+  contactForm.appendChild(messagePart);
+
+  let messageLabel = document.createElement('label');
+  messageLabel.textContent = "Your message:"
+  messagePart.appendChild(messageLabel);
+
+  let messageInput = document.createElement('textarea');
+  messageInput.name = "message";
+  messageInput.placeholder = "Type your message here.";
+  messageInput.required = true;
+  messagePart.appendChild(messageInput);
+
+  let honeypot = document.createElement('input');
+  honeypot.className = "honeypot";
+  honeypot.type = "text";
+  honeypot.name = "_gotcha";
+  contactForm.appendChild(honeypot);
+
+  let submitBtn = document.createElement('button');
+  submitBtn.type = "submit";
+  submitBtn.textContent = "Send";
+  contactForm.appendChild(submitBtn);
+
+  // Finally add the form
+  formWrapper.appendChild(contactForm);
+
+  // Create a confirmation display in advance
+  let formConfirmWrapper = document.createElement('div');
+  formConfirmWrapper.id = "formConfirmWrapper";
+  formConfirmWrapper.className = "formConfirmWrapper";
+  formConfirmWrapper.style.display = "none";
+  formWrapper.appendChild(formConfirmWrapper);
+
+  let confirmIcon = document.createElement('img');
+  confirmIcon.src = "/images/icons/ConfirmIconLarge.png"
+  formConfirmWrapper.appendChild(confirmIcon);
+
+  let confirmMessage = document.createElement('h1');
+  confirmMessage.textContent = "Message sent!";
+  formConfirmWrapper.appendChild(confirmMessage);
+
+  let closeConfirmBtn = document.createElement('button');
+  closeConfirmBtn.textContent = "Close";
+  closeConfirmBtn.onclick = toggleForm;
+  formConfirmWrapper.appendChild(closeConfirmBtn);
+}
+
 /** Creates and adds the settings to the center div.
 */
 function createSettings() {
