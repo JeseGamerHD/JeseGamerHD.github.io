@@ -24,6 +24,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(1, 6, 24);
+    --form-bg: rgb(1, 6, 24);
 
     --general-bg: rgba(10, 15, 40, 0.9);
     --glow-border: #7602b4c1;
@@ -73,6 +74,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(5, 5, 5);
+    --form-bg: rgb(61, 61, 61);
 
     --general-bg: rgb(20, 20, 20);
     --glow-border: #555b70cf;
@@ -120,6 +122,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(168, 168, 168);
+    --form-bg: rgb(235, 235, 235);
 
     --general-bg: rgb(186, 186, 186);
     --glow-border: #383838d5;

@@ -1,48 +1,36 @@
-
 /** THIS JS FILE CONTAINS ALL COMMONLY SHARED FUNCTIONALITIES */
+
+// The current theme, default to Cosmic.
+let currentTheme = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : "Cosmic";
 
 let toggleBtn = document.getElementById("mobileSidebarToggle");
 let sidebar = document.getElementById("sideBar");
 let isToggled = false; // Flag for checking if sidebar is active
 function toggleSidebar() {
     
-    isToggled = !isToggled;
+  isToggled = !isToggled;
 
-    toggleBtn.classList.toggle("mobileSidebarToggle-open");
-    sidebar.classList.toggle("sideBar-open");
+  toggleBtn.classList.toggle("mobileSidebarToggle-open");
+  sidebar.classList.toggle("sideBar-open");
 
-    // Add/Remove a listener for detecting when the user clicks/taps outside of the sidebar to close it
-    if (isToggled) {
-        // Add only when sidebar is active
-        document.getElementById("center").addEventListener("click", toggleSidebar);
-    } 
-    else {
-        // Remove when sidebar is inactive
-        document.getElementById("center").removeEventListener("click", toggleSidebar);
-    }
+  // Add/Remove a listener for detecting when the user clicks/taps outside of the sidebar to close it
+  if (isToggled) {
+    // Add only when sidebar is active
+    document.getElementById("center").addEventListener("click", toggleSidebar);
+  }
+  else {
+    // Remove when sidebar is inactive
+    document.getElementById("center").removeEventListener("click", toggleSidebar);
+  }
 }
-
-function closeSidebar() {
-    
-    if(isToggled) {
-        toggleSidebar();
-    }
-}
-
-// The current theme, default to Cosmic.
-let currentTheme = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : "Cosmic";
 
 let settingsContainer = null;
 function toggleSettings() {
   
-  closeSidebar();
   // Check if the settings have been already added to the document
   // if not create the settings
   if(document.getElementById("settingsContainer") == null){
     createSettings();
-  }
-  else {
-    settingsContainer = document.getElementById("settingsContainer");
   }
 
   if(settingsContainer.style.display == "flex"){
@@ -62,23 +50,27 @@ function toggleForm() {
 
   if(formContainer.style.display == "flex"){
     formContainer.style.display = "none";
+    resetForm();
   }
   else {
-    closeFormConfirmation();
     formContainer.style.display = "flex";
-    document.getElementById("contactForm").style.display = "flex";
   }
 }
 
+// Runs onsubmit of the form, hides the form and makes the confirmation appear
 function showFormConfirmation() {
   let form = document.getElementById("contactForm");
   form.style.display = "none";
   document.getElementById("formConfirmWrapper").style.display = "flex";
 }
 
-function closeFormConfirmation() {
+/** Resets the form to its default state by clearing the fields, 
+ * hiding the confirmation screen and re-enabling the form screen.*/
+function resetForm() {
+  document.getElementById("contactForm").reset(); // Clear the form
   let formConfirmation = document.getElementById("formConfirmWrapper");
-  formConfirmation.style.display = "none";
+  formConfirmation.style.display = "none"; // Hide the confirm screen
+  document.getElementById("contactForm").style.display = "flex"; // Re-enable the form screen
 }
 
 function createContactForm() {
@@ -318,14 +310,9 @@ function setTheme(selectedTheme) {
     document.documentElement.classList.toggle(currentTheme);
     currentTheme = selectedTheme;
     localStorage.setItem("theme", currentTheme);
-    applyTheme();
+    document.documentElement.classList.toggle(currentTheme);
   }
 }
-
-function applyTheme() {
-  document.documentElement.classList.toggle(currentTheme);
-}
-
 
 /** Creates a small effect at the cursor's location when the user clicks anything on the page. 
  * @param {MouseEvent} click - The MouseEvent object.
