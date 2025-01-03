@@ -144,8 +144,9 @@ body {
 }
 .slide-container {
     margin: 0px 25px 0 25px; /* Affects swiper buttons */
-    /* overflow-y: visible;
-    overflow-x: clip; */
+    padding: 0px 10px 0 10px;
+    overflow-y: visible;
+    overflow-x: clip;
 }
 .card {
     padding-top: 10px;
@@ -178,7 +179,11 @@ body {
 }
 
 .card .card-lowerPart {
-    background: linear-gradient(180deg, var(--card-bg) 0%, var(--card-bg-alt) 100%);
+    background: radial-gradient(circle 300px at top, var(--card-bg), transparent 100%),
+    radial-gradient(circle 350px at bottom, var(--card-bg-alt), transparent 100%);
+    background-attachment: fixed;
+    box-shadow: 0px 5px 15px -2px var(--glow-border);
+    
     color: var(--text-color-darkbg);
     height: 200px;
     max-height: 200px;
@@ -188,7 +193,6 @@ body {
     padding: 15px;
     border-radius: 0px 0px 25px 25px;
     transition: all 0.1s ease-in;
-    box-shadow: 5px 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0px rgba(0, 0, 0, 0.19);
     
     h2 {
         margin: 0;
@@ -375,8 +379,11 @@ body {
         justify-content: center;
         width: 100%;
         height: 100%;
-        color: var(--text-color-darkbg);
+        color: white;
         text-align: center;
+
+        /* The loading animation will get covered by the image once it loads, calc offset due to tooltip text (place the loading icon above it) */
+        background: transparent var(--loading-icon) center calc(50% - 25px) no-repeat;
 
         #image-overlay-img {
             margin-left: auto;
@@ -406,7 +413,7 @@ body {
 
 
 /* Laptops, some tablets */
-@media screen and (min-width: 451px) and (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
     
     .screenShotGallery {
         .gallery-container {

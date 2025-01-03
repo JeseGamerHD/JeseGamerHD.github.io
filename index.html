@@ -29,13 +29,13 @@
       <!-- List containing all the icon + text combos in the side bar -->
       <ul>
         <li>
-          <a href="#" onclick="closeSidebar()">
+          <a href="#">
             <img style="vertical-align:middle" src="images/icons/HomeIcon.png" width="48px">
             <span>Overview</span>
           </a>
         </li>
         <li>
-          <a href="pages/Projects.html" onclick="closeSidebar()">
+          <a href="pages/Projects.html">
             <img style="vertical-align:middle" src="images/icons/ProjectIcon.png" width="48px">
             <span>Projects</span>
           </a>
@@ -57,8 +57,8 @@
             </a>
           </li>
           <li>
-            <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">
-              <img style="vertical-align:middle" src="images/icons/GitHubIcon.png" width="48px">
+            <a onclick="toggleForm()">
+              <img style="vertical-align:middle" src="images/icons/ContactIcon.png" width="48px">
               <span>Contact</span>
             </a>
           </li>
@@ -119,7 +119,7 @@
                   </div>
                   <div class="card-lowerPart">
                       <h2 class="card-title">Gaming Logbook</h2>
-                    <p class="card-description">A desktop GUI app for keeping a track of the games I've played.
+                    <p class="card-description">Desktop GUI app for keeping a track of the games I've played.
                       Made using Java's Swing library along with SQLite for storing the log.</p>
                       <a href="pages/projects/GamingLogbook.html"><button>View more</button></a>
                   </div>
@@ -130,10 +130,21 @@
                   </div>
                   <div class="card-lowerPart">
                       <h2 class="card-title">Assorted Additions</h2>
-                    <p class="card-description">An open source mod for Terraria with over 10K downloads on the Steam workshop.
+                    <p class="card-description">An open source mod for Terraria with over 18 000 downloads on the Steam workshop.
                       The mod adds over 200 new items,
                       bunch of NPCs and more to the game.</p>
                     <a href="pages/projects/AssortedAdditions.html"><button>View more</button></a>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="card-upperPart">
+                    <img src="images/projects/github-pages.jpg">
+                  </div>
+                  <div class="card-lowerPart">
+                      <h2 class="card-title">This website</h2>
+                    <p class="card-description">This github.io page is my first ever website project. 
+                      You've already seen it so I'll give a bit of background and some thoughts about the process of making it.</p>
+                    <a href="pages/projects/ThisWebsite.html"><button>View more</button></a>
                   </div>
                 </div>
                 <div class="card swiper-slide">
@@ -144,7 +155,7 @@
                       <h2 class="card-title">Sightseeing Server</h2>
                     <p class="card-description">A simple server made in Java for a programming course. Users can register,
                       send messages and recieve them. Data is stored in an SQLite database.</p>
-                    <a title="Opens in a new tab" href="pages/projects/SightseeingServer.html"><button>View more</button></a>
+                    <a href="pages/projects/SightseeingServer.html"><button>View more</button></a>
                   </div>
                 </div>
 
@@ -202,7 +213,11 @@
         <script src="scripts/image-overlay.js"></script>
       
         <footer>
-          Navigation icons provided by <a href="https://icons8.com/">Icons8</a>
+          <div class="icon-link-container">
+            <img src="images/icons/GitHubIcon.png">
+            <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
+          </div>
+          <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
         </footer>
   
     </div>

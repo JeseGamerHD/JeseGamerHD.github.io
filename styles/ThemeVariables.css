@@ -24,6 +24,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(1, 6, 24);
+    --form-bg: rgb(1, 6, 24);
 
     --general-bg: rgba(10, 15, 40, 0.9);
     --glow-border: #7602b4c1;
@@ -31,8 +32,10 @@
 
     --icon-filter: invert(0.45);
     --icon-filter-hover: invert(1);
-    --intro-part-bg:  rgb(41, 41, 72);
+    --intro-part-bg:  rgb(32, 21, 76);
     --intro-part-bg-alt: rgb(28, 33, 65);
+
+    --loading-icon: url("/images/icons/loadinIconLight.svg");
 
     --sidebar-bg: radial-gradient(circle, rgb(13, 13, 31) 30%, rgb(4, 8, 31) 100%);
     --sidebar-li-hover: rgba(61, 33, 144, 0.701);
@@ -71,6 +74,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(5, 5, 5);
+    --form-bg: rgb(61, 61, 61);
 
     --general-bg: rgb(20, 20, 20);
     --glow-border: #555b70cf;
@@ -80,6 +84,8 @@
     --icon-filter-hover: invert(1);
     --intro-part-bg:  rgb(31, 31, 31);
     --intro-part-bg-alt: rgb(31, 31, 31);
+
+    --loading-icon: url("/images/icons/loadinIconLight.svg");
 
     --sidebar-bg: radial-gradient(circle, rgb(0, 0, 0) 30%, rgb(25, 25, 25) 100%);
     --sidebar-li-hover: rgba(128, 128, 128, 0.701);
@@ -116,6 +122,7 @@
     --code-block-text: white;
 
     --footer-bg: rgb(168, 168, 168);
+    --form-bg: rgb(235, 235, 235);
 
     --general-bg: rgb(186, 186, 186);
     --glow-border: #383838d5;
@@ -125,6 +132,8 @@
     --icon-filter-hover: invert(0);
     --intro-part-bg:  rgb(207, 207, 207);
     --intro-part-bg-alt: rgb(207, 207, 207);
+
+    --loading-icon: url("/images/icons/loadingIconDark.svg");
 
     --sidebar-bg: radial-gradient(circle, rgb(200, 200, 200) 30%, rgb(200, 200, 200) 100%);
     --sidebar-li-hover: rgba(222, 241, 252, 0.793);
