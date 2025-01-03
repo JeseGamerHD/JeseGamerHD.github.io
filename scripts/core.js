@@ -128,7 +128,7 @@ function createContactForm() {
   let contactForm = document.createElement('form');
   contactForm.id = "contactForm";
   contactForm.className = "contactForm";
-  contactForm.action = "https://formspree.io/f/mvggwnky";
+  contactForm.action = "https://formspree.io/f/mdkkpewy";
   contactForm.method = "POST";
   contactForm.target = "dummyframe";
   contactForm.onsubmit = showFormConfirmation;
