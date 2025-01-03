@@ -105,7 +105,7 @@ function createContactForm() {
   formClose.onclick = toggleForm;
   formContentArea.appendChild(formClose);
 
-  // Top part, icon + text
+  // TOP PART: icon + text
   let formHeaderContainer = document.createElement('div');
   formHeaderContainer.id = "formHeaderContainer";
   formHeaderContainer.className = "formHeaderContainer";
@@ -119,7 +119,7 @@ function createContactForm() {
   formHeader.textContent = "Contact";
   formHeaderContainer.appendChild(formHeader);
 
-  // Actual form part (middle)
+  // MIDDLE PART: Actual form
   let formWrapper = document.createElement('div');
   formWrapper.id = "formWrapper";
   formWrapper.className = "formWrapper";
@@ -178,7 +178,7 @@ function createContactForm() {
   // Finally add the form
   formWrapper.appendChild(contactForm);
 
-  // Create a confirmation display in advance
+  // Create a confirmation display in advance (hidden until message is sent)
   let formConfirmWrapper = document.createElement('div');
   formConfirmWrapper.id = "formConfirmWrapper";
   formConfirmWrapper.className = "formConfirmWrapper";
@@ -193,10 +193,34 @@ function createContactForm() {
   confirmMessage.textContent = "Message sent!";
   formConfirmWrapper.appendChild(confirmMessage);
 
+  let confirmDescription = document.createElement('p');
+  confirmDescription.textContent = "If you don't hear from me within a week, you can try contacting me on github by creating an issue in this ";
+  let confirmDescLink = document.createElement('a');
+  confirmDescLink.textContent = "repository.";
+  confirmDescLink.href = "https://github.com/JeseGamerHD/JeseGamerHD.github.io";
+  confirmDescription.appendChild(confirmDescLink);
+  formConfirmWrapper.appendChild(confirmDescription);
+
   let closeConfirmBtn = document.createElement('button');
   closeConfirmBtn.textContent = "Close";
   closeConfirmBtn.onclick = toggleForm;
   formConfirmWrapper.appendChild(closeConfirmBtn);
+
+  // BOTTOM PART: notice
+  let formWrapperBottom = document.createElement('div');
+  formWrapperBottom.id = "formWrapperBottom";
+  formWrapperBottom.className = "formWrapperBottom";
+  formWrapper.appendChild(formWrapperBottom);
+
+  let formNotice = document.createElement('p');
+  formNotice.textContent = "Form service provided by Formspree. Data is handled according to their ";
+  let noticeLink = document.createElement('a');
+  noticeLink.textContent = "privacy policy.";
+  noticeLink.href = "https://formspree.io/legal/privacy-policy/";
+  noticeLink.target = "_blank";
+  noticeLink.rel = "noopener noreferrer";
+  formNotice.appendChild(noticeLink);
+  formWrapperBottom.appendChild(formNotice);
 }
 
 /** Creates and adds the settings to the center div.
