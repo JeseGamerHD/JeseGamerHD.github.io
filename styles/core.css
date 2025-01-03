@@ -486,16 +486,37 @@
 }
 
 footer {
+    display: flex;
+    flex-direction: column;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
+    align-items: center;
     
     color: var(--text-color-darkbg);
     box-shadow: inset 0 0 0 1000px var(--footer-bg);
     background-attachment: fixed;
 
-    a{
+    a {
         text-decoration: none;
+        color: var(--text-link);
+    }
+
+    a:hover {
+        color: var(--text-link-hover);
+    }
+
+    .icon-link-container {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        img {
+            filter: var(--icon-filter);
+            object-fit: contain;
+            width: 32px;
+            height: auto;
+        }
     }
 }
 
