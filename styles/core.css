@@ -548,3 +548,18 @@ footer {
         border-width: 0.05em;
     }
 }
+
+.project-tag {
+    
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px 4px 8px;
+    background-color: white;
+    border-radius: 5px;
+    column-gap: .25em;
+
+    img {
+        width: 1em;
+        object-fit: contain;
+    }
+}

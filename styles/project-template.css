@@ -1,0 +1,155 @@
+@import url('ThemeVariables.css');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    /* Remove margin/padding added by the browser */
+    font-family: Tahoma, Helvetica, Arial, Georgia;
+    background-color: var(--general-bg);
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+}
+
+#page-content-container {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 80px;
+    box-shadow: var(--box-shadow);
+    background-attachment: fixed;
+}
+
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: .5em;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    box-shadow: inset 0 0 0 1000px var(--background);
+    background-attachment: fixed;
+    color: var(--text-color-darkbg);
+
+    h1 {
+        margin-top: .25em;
+        margin-bottom: .25em;
+    }
+}
+
+.banner-links-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner-link {
+    display: inline-flex;
+    padding: 4px 8px 4px 8px;
+    background-color: white;
+    border-radius: 5px;
+    align-items: center;
+    column-gap: .25em;
+
+    img {
+        width: 1em;
+        object-fit: contain;
+    }
+}
+
+.banner-link-tag {
+    text-decoration: none;
+    color: var(--text-color-darkbg);
+}
+
+#banner-tags-container {
+    display: flex;
+    column-gap: 1em;
+    margin-top: .25em;
+}
+
+/* .project-tag styled in core.css */
+
+
+.text-area-container {
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    overflow: hidden;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: inset 0 0 100px 1000px var(--textarea-boxshadow);
+}
+
+.text-segment-wrapper {
+    padding-bottom: 30px;
+}
+
+.text-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-left: 10%;
+    padding-right: 10%;
+    line-height: 1.5;
+
+    color: var(--text-color-darkbg);
+
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
+/*TODO Why does this only work when nested?? and pagination only works outside it...*/
+.image-swiper-container {
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .basicSwiper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-wrapper {
+        width: 90%;
+
+        img {
+            margin-top: 2px;
+            width: 90%;
+            object-fit: cover;
+            box-shadow: 0 0 5px 2px var(--glow-border);
+        }
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    #page-content-container {
+        margin-left: 0;
+    }
+}

@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/styles/ProjectTemplate.css">
+    <link rel="stylesheet" href="/styles/project-template.css">
     <link rel="stylesheet" href="/styles/core.css">
     <link rel="stylesheet" href="/styles/prism.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="/scripts/swiper-variations.js" defer></script>
     <script src="/scripts/core.js" defer></script>
     <script src="/scripts/prism.js" async></script>
-    <title>BEV Calculator</title>
+    <title>Range Anti-Anxiety</title>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/pages/Projects.html">
                         <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
                         <span>Projects</span>
                     </a>
@@ -77,16 +80,73 @@
         </button>
 
         <div id="page-content-container" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+
             <div class="banner">
                 <img style="vertical-align:middle" src="/images/projects/github-pages.jpg" width="196px">
-                <h1>BEV Calculator</h1>
-                <a class="project-link-tag" href="https://bev-calculator.pages.dev/" title="Visit the calculator site!">Visit site</a>
+                <h1>Range Anti-Anxiety</h1>
+                <div class="banner-links-container">
+                    <div class="banner-link" style="background-color: #438de9;">
+                        <a class="banner-link-tag" href="https://bev-calculator.pages.dev/"
+                            title="Visit the calculator site!">Visit site</a>
+                        <img src="/images/icons/InfoIcon.png">
+                    </div>
+                </div>
+
                 <div id="banner-tags-container">
-                    <span class="project-tag" style="background-color: #b07219; color: black">HTML</span>
-                    <span class="project-tag" style="background-color: #b07219; color: black">CSS</span>
-                    <span class="project-tag" style="background-color: #b07219; color: black">Javascript</span>
+                    <div class="project-tag" style="background-color: #b03f19; color: black">
+                        <img src="/images/icons/InfoIcon.png">
+                        <span>HTML</span>
+                    </div>
+                    <div class="project-tag" style="background-color: #d6d623; color: black">
+                        <img src="/images/icons/InfoIcon.png">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-tag" style="background-color: #15a1cb; color: black">
+                        <span>CSS</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="text-area-container">
+                <div class="text-segment-wrapper">
+                    <div class="text-segment">
+                        <h1>What is it?</h1>
+                        <p>Range Anti-Anxiety is a calculator website for electric vehicle related issues. Users can
+                            estimate their car's current range, how much they would need to charge to reach a given
+                            distance, how long it would take and how much it would cost.
+                            The calculator also has an option for comparing two charging setups. The calculations are
+                            only simple estimates due to the very complex nature of all the real world variables
+                            involved. The project was completed as the bachelor's project of my degree and it was a
+                            group project.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="image-swiper-container">
+                    <div class="swiper basicSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Items.png"></div>
+                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Dragonboss.jpg">
+                            </div>
+                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Ghostboss.jpg"></div>
+                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Room.jpg"></div>
+                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Swordthingie.jpg">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+
+                <div class="text-segment-wrapper">
+                    <div class="text-segment">
+                        <h1>Background</h1>
+                        <p>TODO</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <footer>
