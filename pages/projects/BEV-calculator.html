@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/styles/ProjectTemplate.css">
+    <link rel="stylesheet" href="/styles/core.css">
+    <link rel="stylesheet" href="/styles/prism.css">
+
+    <script src="/scripts/core.js" defer></script>
+    <script src="/scripts/prism.js" async></script>
+    <title>BEV Calculator</title>
+</head>
+
+<body>
+
+    <script>
+        var pageTheme = localStorage.getItem("theme");
+        document.documentElement.classList.toggle(pageTheme);
+    </script>
+
+    <div id="main-container">
+
+        <!-- SIDEBAR - START -->
+        <div id="sideBar" class="sideBar">
+            <!-- Top part of the sidebar (profile pic + text) -->
+            <a class="sideBarTop" href="#">
+                <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
+                <span>Welcome!</span>
+            </a>
+            <!-- List containing all the icon + text combos in the side bar -->
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/gallery.html">
+                        <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
+                        <span>Gallery</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sideBarBottom">
+                <ul>
+                    <li>
+                        <a onclick="toggleSettings()">
+                            <img style="vertical-align:middle" src="/images/icons/ThemeIcon.png" width="48px">
+                            <span>Theme</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="toggleForm()">
+                            <img style="vertical-align:middle" src="/images/icons/ContactIcon.png" width="48px">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- SIDEBAR - END -->
+
+        <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()"
+            title="Open/Close sidebar">
+            <img src="/images/icons/MenuIcon.png" width="48px">
+        </button>
+
+        <div id="page-content-container" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+            <div class="banner">
+                <img style="vertical-align:middle" src="/images/projects/github-pages.jpg" width="196px">
+                <h1>BEV Calculator</h1>
+                <a class="project-link-tag" href="https://bev-calculator.pages.dev/" title="Visit the calculator site!">Visit site</a>
+                <div id="banner-tags-container">
+                    <span class="project-tag" style="background-color: #b07219; color: black">HTML</span>
+                    <span class="project-tag" style="background-color: #b07219; color: black">CSS</span>
+                    <span class="project-tag" style="background-color: #b07219; color: black">Javascript</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="icon-link-container">
+                <img src="/images/icons/GitHubIcon.png">
+                <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
+            </div>
+            <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
+        </footer>
+
+    </div>
+</body>
