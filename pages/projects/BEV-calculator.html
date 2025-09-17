@@ -82,7 +82,7 @@
         <div id="page-content-container" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
 
             <div class="banner">
-                <img style="vertical-align:middle" src="/images/projects/github-pages.jpg" width="196px">
+                <img style="vertical-align:middle" src="/images/projects/RangeAntiAnxiety/BEV-thumbnail.jpg" width="196px">
                 <h1>Range Anti-Anxiety</h1>
                 <div class="banner-links-container">
                     <div class="banner-link" style="background-color: #438de9;">
@@ -110,8 +110,9 @@
             <div class="text-area-container">
                 <div class="text-segment-wrapper">
                     <div class="text-segment">
-                        <h1>What is it?</h1>
-                        <p>Range Anti-Anxiety is a calculator website for electric vehicle related issues. Users can
+                        <h1 class="text-heading1">What is it?</h1>
+                        <p class="text-paragraph">
+                            Range Anti-Anxiety is a calculator website for electric vehicle related issues. Users can
                             estimate their car's current range, how much they would need to charge to reach a given
                             distance, how long it would take and how much it would cost.
                             The calculator also has an option for comparing two charging setups. The calculations are
@@ -125,13 +126,8 @@
                 <div class="image-swiper-container">
                     <div class="swiper basicSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Items.png"></div>
-                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Dragonboss.jpg">
-                            </div>
-                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Ghostboss.jpg"></div>
-                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Room.jpg"></div>
-                            <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Swordthingie.jpg">
-                            </div>
+                            <div class="swiper-slide"><img src="/images/projects/RangeAntiAnxiety/BEV1.jpg"></div>
+                            <div class="swiper-slide"><img src="/images/projects/RangeAntiAnxiety/BEV2.jpg"></div>
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -141,9 +137,65 @@
 
                 <div class="text-segment-wrapper">
                     <div class="text-segment">
-                        <h1>Background</h1>
-                        <p>TODO</p>
+                        <h1 class="text-heading1">Background</h1>
+                        <p class="text-paragraph">
+                            During the last year of my bachelor's studies I had to complete a "Bachelor's project" course. Students were grouped and assigned to different projects based on our listed skills and interests.
+                            The different projects varied a lot from mobile applications to backend stuff and even a few research projects. These projects involved real companies or the university's internal actors. I along with five others were assigned to the "Range Anti-anxiety" project.
+                            I can't mention the company, however, my group retained rights to the project so I can talk about it.
+                        </p>
+                        <p class="text-paragraph">
+                            The idea of the project was to create an "educational" calculator for Battery Electric Vehicle (BEV) drivers. The calculator's purpose was to ease the "range anxiety" (=driver's fear that a vehicle has insufficient energy) by
+                            giving quick estimates on range, charge, cost, time related questions. Completely accurate results would have been basically impossible and way beyond the scope of the course as everything from weather to the car's age affects its battery usage.
+                        </p>
+                        <p class="text-paragraph">
+                            Our project group was given a few core requirements from our client but we mostly had free reign over desinging and implementing the calculator. From the university's perspective the point of the course was to simulate a software project which meant we were assigned roles,
+                            had to plan the use of our resources (time), attend client meetings and have our own group meetings and so on. My role was essentially the lead developer role as I was the most experienced in the group. Other roles included the project manager who communicated with the client and planned the project timeline, UI/UX designer, developer, tester.
+                            These roles were not strictly set in stone so we could help each other out and move between roles when required.
+                        </p>
+                        <p class="text-paragraph">
+                            In the next section I'll go over a few things related to the implementation and problems I encountered while working on the project. I'll also include a few code snippets.
+                        </p>
                     </div>
+                </div>
+
+                <div class="text-segment-wrapper">
+                    <div class="text-segment">
+                        <h1 class="text-heading1">Implementation</h1>
+                        <h2 class="text-heading2">Project structure</h2>
+                        <p class="text-paragraph">The core of the calculator consists of three parts: input fields, results display and the internal calculations. Essentially when the user inputs values the field sends an update request to the calculator which then updates the calculated values in real time so the user can play around with values and see their effects. Nothing too fancy.
+                            I was responsible for implementing the input fields and sections as well as designing them to be connectable to the calculator part.
+                        </p>
+                        <h3 class="text-heading3">Input fields</h3>
+                        <p class="text-paragraph">I decided to create each input element as its own JavaScript class. Each class is responsible for that type of input element. Additionally all the classes share a common base class for handling input. The purpose of this was to make testing easy and reduce points of failure.
+                            Below are parts of the <code class="text-code-block">InputField</code> base class:
+                        </p>
+                    </div>
+<pre class="code-snippet-container"><code id="code-snippet" class="language-javascript line-numbers">/** Sets the default values for the given elements based on their data-property.
+* If defaultValues entry contain a null value (new user), sets visible value to empty and internal value to 0.
+* @param {NodeList} elements - A List of all the elements that the handler is responsible for.
+* @param {Object} defaultValues - The object holding the default values that the fields should be initialized with
+*/
+setDefaultValues(elements, defaultValues) {
+    this.#defaultValues = defaultValues;
+        
+    elements.forEach(element => {
+        if(element.hasAttribute("data-property")) { // Check if they have a data-property
+                
+            let property = element.dataset.property;
+            if(defaultValues.hasOwnProperty(element.dataset.property)) { // Check if the defaultValue contains the property set for the element
+                element.value = defaultValues[property] != null ? defaultValues[property] : ''; 
+                element.dataset.value = defaultValues[property] != null ? defaultValues[property] : 0; 
+            }
+            else {
+                console.warn(element.id + ": data-property mismatch (or missing from defaultValues)");
+            }
+        }
+        else {
+            console.warn(element.id + ": data-property missing from element");
+        }
+    });
+}
+</code></pre>
                 </div>
             </div>
 
