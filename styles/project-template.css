@@ -106,18 +106,10 @@ body {
     color: var(--text-color-darkbg);
 }
 
-.text-heading1 {
+.text-heading {
+    white-space: nowrap;
     margin-bottom: 0;
 }
-
-.text-heading2 {
-    margin-bottom: 0;
-}
-
-.text-heading3 {
-    margin-bottom: 0;
-}
-
 .text-paragraph {
     margin-bottom: 0;
 }
