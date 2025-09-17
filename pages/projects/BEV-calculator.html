@@ -326,11 +326,139 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="text-segment-wrapper">
                     <div class="text-segment">
                         <h1 class="text-heading">Issues & Solutions</h1>
-                        <p class="text-paragraph">s
-                        </p> 
+                        <h2 class="text-heading">Localization</h2>
+                        <p class="text-paragraph">
+                            Localization was not a requirement set by our client, however, when coming up with ideas for further development it came up.
+                            In a meeting our client accepted some of these ideas as we were ahead of schedule. When designing the localization we decided to use localization files and HTML data attributes to make it easy.
+                            Essentially each element that requires localization sets a <code class="text-code-block">data-localization="key.to.item"</code> to match the localization file. Then our <code class="text-code-block">LocalizationManager</code> swaps the text content matching the current locale.
+                        </p>
+                        <p class="text-paragraph">
+                            The localization first checks if the local storage already has a language set for the user (they have previously selected one from the dropdown). If not, then it tries to check for the user's browser language. Finally it has an English fallback. The idea is to automatically apply the language the user prefers if it is available.
+                            I decided to make the <code class="text-code-block">LocalicationManager</code> a singleton so it can easily be accessed as the website is frontend only. In the process I learned that with JavaScript you can use modules for getting the instance which is pretty cool.
+                        </p>
                     </div>
                 </div>
 
+                <pre class="code-snippet-container"><code id="code-snippet" class="language-javascript line-numbers">class LocalizationManager {
+  constructor() {
+    if(!LocalizationManager.instance) { // Singleton pattern utilizing modules
+      this.currentLanguage = 'en';
+      this.translations = {};
+      LocalizationManager.instance = this;
+    }
+    return LocalizationManager.instance;
+  }
+
+  async initializeLanguage() {
+    const languageSources = {
+      "localStorage": localStorage.getItem("language"),
+      "browser": navigator.language.split("-")[0],
+      "defaultFallback": "en"
+    }
+    // Then tries to load a language based on the above priority
+  };
+
+  async loadLanguage(languageCode) {
+    // Tries to access the language file
+    // then calls updatePageText if language was found
+  }
+
+  getText(path) {
+    // Gets the localization text from the JSON using the path (key)
+  }
+
+  updatePageText() {
+    // Saves language setting
+    // Updates all texts etc...
+  }
+}
+
+// Singleton access via modules:
+const localization = new LocalizationManager();
+export default localization;
+</code></pre>
+
+                <div class="text-segment-wrapper">
+                    <div class="text-segment">
+                        <h2 class="text-heading">Dealing with tooltips</h2>
+                        <p class="text-paragraph">When making tooltips I ran into many issues mainly with CSS. While the concept is simple, creating a "universal" tooltip that can easily be just placed anywhere took a bit of trial and error.
+                            At first I tried to only use CSS for it and it didnt really work. The tooltips easily overflowed and were all over the place.
+                            In the end the solution is pretty simple. I created a script responsible for setting the tooltip position. It checks in which quadrant of the screen the tooltip "(?)" icon is located in.
+                            Then it calculates the offset based on that so the tooltip is always on screen properly next to its icon.
+                        </p>
+                    </div>
+                </div>
+
+                <pre class="code-snippet-container"><code id="code-snippet" class="language-javascript line-numbers">function handleTooltipActivation(element) {
+   
+    const tooltipKey = element.getAttribute("data-tooltipkey"); // Each tooltip-container should define a key for localization so the text can be set
+    let elementBounds = element.getBoundingClientRect();
+    let tooltipBounds = tooltip.parentElement.getBoundingClientRect();
+
+    const offSet = window.matchMedia("(max-width: 900px)").matches ? 0 : 10; // Different offset for mobile and desktop
+    // This calculation relies on that tooltip has position: fixed
+    let left = elementBounds.left + elementBounds.width / 2 + offSet;
+    let top = elementBounds.top + elementBounds.height / 2 + offSet;
+
+    // Position the tooltip based on which quadrant of the screen the element being hovered is in
+    // This is to prevent it from overflowing outside of the page
+    let position = {
+        top: "auto",
+        right: "auto",
+        bottom: "auto",
+        left: "auto"
+    };
+
+    // Check if element is in the top or bottom half of the screen
+    if (top > tooltipBounds.height / 2) { // Bottom half
+        position.bottom = `${tooltipBounds.height - top + offSet}px`;
+    }
+    else { // Top half
+        position.top = `${top + offSet}px`;
+    }
+
+    // Check if the element is in the left or right half of the screen
+    if (left > tooltipBounds.width / 2) { // Right half
+        position.right = `${tooltipBounds.width - left + offSet}px`;      
+    }
+    else { // Left half
+        position.left = `${left + offSet}px`;
+    }
+    // Finally, set the position and the tooltip text
+    showTooltip(tooltipKey, position);
+}
+
+function showTooltip(tipKey, position) {
+    // call localization to get the new text using the key
+    tooltip.textContent = localization.getText(tipKey);
+    // Adjust position
+    tooltip.style.top = position.top;
+    tooltip.style.right = position.right;
+    tooltip.style.bottom = position.bottom;
+    tooltip.style.left = position.left;
+    // Display it
+    tooltip.style.display = "flex";
+}
+
+function hideTooltip() {
+    tooltip.style.display = "none";
+}
+</code></pre>
+
+                <div class="text-segment-wrapper">
+                    <div class="text-segment">
+                        <h2 class="text-heading">Automated tests</h2>
+                        <p class="text-paragraph">At some point we discussed testing of the calculator and automated tests came up. 
+                            While I was not responsible for creating the individual test cases, 
+                            I did setup the testing libraries and configure a simple CI/CD pipeline for our github repository (simply runs tests when code is pushed). I also assisted a bunch with other issues related to the tests. While the tests themselves are simple, configuring them to work was not.
+                        </p>
+                        <p class="text-paragraph">
+                            Turns out that using JavaScript modules made testing configuration a lot harder as the JEST library only had experimental support for them.
+                            In addition we used UserEvent to test the input section. In the end the configuration is not complex but finding a solution by combing through documentation,
+                            StackOverflow and trying various AI models I managed to get the tests to run both locally and on github. Check out the <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/BEV-calculator/tree/main">source code</a> for the configuration files.
+                        </p>
+                    </div>
+                </div>
 
             </div>
 
