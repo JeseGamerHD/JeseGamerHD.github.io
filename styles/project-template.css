@@ -68,12 +68,6 @@ body {
     color: var(--text-color-darkbg);
 }
 
-#banner-tags-container {
-    display: flex;
-    column-gap: 1em;
-    margin-top: .25em;
-}
-
 /* .project-tag styled in core.css */
 
 

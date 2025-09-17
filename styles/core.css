@@ -549,17 +549,34 @@ footer {
     }
 }
 
+#project-tags-container {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    margin-top: .25em;
+}
 .project-tag {
-    
     display: inline-flex;
+    vertical-align: middle;
     align-items: center;
     padding: 4px 8px 4px 8px;
-    background-color: white;
     border-radius: 5px;
     column-gap: .25em;
-
-    img {
-        width: 1em;
-        object-fit: contain;
-    }
+    font-size: small;
+}
+.project-tag img {
+    width: 1em;
+    object-fit: contain;
+}
+.project-tag.HTML-tag {
+    background-color: #ba5415;
+    color: white;
+}
+.project-tag.JavaScript-tag {
+    background-color: #e5e90c;
+    color: rgb(0, 0, 0);
+}
+.project-tag.CSS-tag {
+    background-color: #1575ba;
+    color: white;
 }
