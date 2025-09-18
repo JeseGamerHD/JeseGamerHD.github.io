@@ -552,7 +552,7 @@ footer {
 #project-tags-container {
     display: flex;
     align-items: center;
-    column-gap: 0.5em;
+    column-gap: 1em;
     margin-top: .25em;
 }
 .project-tag {

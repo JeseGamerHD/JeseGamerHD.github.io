@@ -1,4 +1,6 @@
-/** THIS JS FILE CONTAINS ALL COMMONLY SHARED FUNCTIONALITIES */
+/* THIS JS FILE CONTAINS ALL COMMONLY SHARED FUNCTIONALITIES */
+
+let centralContentArea = document.getElementById("page-content-container");
 
 // The current theme, default to Cosmic.
 let currentTheme = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : "Cosmic";
@@ -16,11 +18,11 @@ function toggleSidebar() {
   // Add/Remove a listener for detecting when the user clicks/taps outside of the sidebar to close it
   if (isToggled) {
     // Add only when sidebar is active
-    document.getElementById("center").addEventListener("click", toggleSidebar);
+    centralContentArea.addEventListener("click", toggleSidebar);
   }
   else {
     // Remove when sidebar is inactive
-    document.getElementById("center").removeEventListener("click", toggleSidebar);
+    centralContentArea.removeEventListener("click", toggleSidebar);
   }
 }
 
@@ -79,7 +81,7 @@ function createContactForm() {
   formContainer = document.createElement('div');
   formContainer.id = "formContainer";
   formContainer.className = "formContainer";
-  document.getElementById("center").appendChild(formContainer);
+  centralContentArea.appendChild(formContainer);
 
   // Workaround for the formspree redirect
   let dummyframe = document.createElement('iframe');
@@ -231,7 +233,7 @@ function createSettings() {
   settingsContainer = document.createElement('div');
   settingsContainer.id = "settingsContainer";
   settingsContainer.className = "settingsContainer";
-  document.getElementById("center").appendChild(settingsContainer);
+  centralContentArea.appendChild(settingsContainer);
 
   // Main area containing all the content
   let settingsContent = document.createElement('div');
