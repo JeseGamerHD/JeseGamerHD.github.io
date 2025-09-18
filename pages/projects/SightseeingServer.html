@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/styles/ProjectTemplate.css">
-    <link rel="stylesheet" href="/styles/core.css">
-    <link rel="stylesheet" href ="/styles/prism.css"/>
 
-    <script src="/scripts/core.js" defer></script>
-    <script src="/scripts/prism.js" async></script>
-    <title>Sightseeing Server</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/project-template.css">
+  <link rel="stylesheet" href="/styles/core.css">
+  <link rel="stylesheet" href="/styles/prism.css"/>
+
+  <script src="/scripts/core.js" defer></script>
+  <script src="/scripts/prism.js" async></script>
+  <title>Sightseeing Server</title>
 </head>
 
 <body>
@@ -19,6 +20,8 @@
     var pageTheme = localStorage.getItem("theme");
     document.documentElement.classList.toggle(pageTheme);
   </script>
+
+  <div id="main-container">
     <!-- SIDEBAR - START -->
     <div id="sideBar" class="sideBar">
       <!-- Top part of the sidebar (profile pic + text) -->
@@ -26,7 +29,7 @@
         <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
         <span>Welcome!</span>
       </a>
-    
+
       <!-- List containing all the icon + text combos in the side bar -->
       <ul>
         <li>
@@ -48,7 +51,7 @@
           </a>
         </li>
       </ul>
-    
+
       <div class="sideBarBottom">
         <ul>
           <li>
@@ -70,72 +73,100 @@
     <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
       <img src="/images/icons/MenuIcon.png" width="48px">
     </button>
-    
-    <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
-        <div class="banner">
-            <img style="vertical-align:middle" src="/images/backgrounds/ServerDatabaseProject.PNG" width="196px">
-            <h1>Sightseeing Server</h1>
-            <div class="links" style="column-gap: 40px">
-                <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
-                <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
-            </div>
+
+    <div id="page-content-container" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+      <div class="banner">
+        <img style="vertical-align:middle" src="/images/backgrounds/ServerDatabaseProject.PNG" width="196px">
+        <h1>Sightseeing Server</h1>
+        <div class="banner-links-container">
+          <!--NONE-->
         </div>
+        <div class="project-tags-container">
+          <div class="project-tag JavaScript-tag" data-tagsize="large">
+            <img src="/images/icons/project-tags/tag-javascript.png">
+            <span>Java</span>
+          </div>
+          <div class="project-tag JavaScript-tag" data-tagsize="large">
+            <img src="/images/icons/project-tags/tag-javascript.png">
+            <span>SQLite</span>
+          </div>
+        </div>
+      </div>
 
       <div class="text-area-container">
-        <div class="text-area">
+        <div class="text-segment-wrapper">
           <div class="text-segment">
-            <span class="gap-small"></span>
-            <h1>What is this project?</h1>
-            <p>This project implements a simple HTTPS server where users can register and then send/recieve information about sightseeing locations.
-                The project was done as a programming course assignment so it is not really meant to be used for anything other than viewing/reference.
-                The project deals with database programming (JDBC, SQLite), data formats (JSON, XML) and the server part of client-server applications as well as a little concurrency.
+            <h1 class="text-heading">What is this project?</h1>
+            <p class="text-paragraph">This project implements a simple HTTPS server where users can register and then
+              send/recieve information
+              about sightseeing locations.
+              The project was done as a programming course assignment so it is not really meant to be used for anything
+              other than viewing/reference.
+              The project deals with database programming (JDBC, SQLite), data formats (JSON, XML) and the server part
+              of
+              client-server applications as well as a little concurrency.
             </p>
-
-            <div class="bullet-point-container">
-              <h2>About the implementation</h2>
-              <ul>
-                <li>
-                  The server accepts two types of POST requests: registration and messages for registered users. 
-                  Registered users can also GET request messages from the server.
-                </li>
-                <li>
-                  <p>Users must first register by sending a JSON containing basic information (username, password, email, nickname). 
-                    The user's password is stored encrypted in the database (obviously).
-                  </p>
-                </li>
-                <li>
-                  The server checks if the details are valid and gives a response. If the details were valid, then
-                  the user's details are stored in a database (password is stored encrypted obviously).
-                </li>
-                <li>
-                  The process is similar for sending messages and requesting them. 
-                  First the server checks if the login credentials are valid, then the message and gives a response.
-                  The server attaches the posting date in ISO8601 format and the user's nickname to the message.
-                  When requesting messages they are also given in JSON format.
-                </li>
-                <li>
-                  The server also uses an external weather service. 
-                  Users can optionally send coordinates with their messages and the server would reach out to the service by sending the coordinates in XML format.
-                  The external service sends in weather informaton and the server attaches that to the user's message. (Service unavailable, was given by the course teacher).
-                </li>
-              </ul>
-
-              <p class="below-bullet-paragraph">The source code and setup instructions are available here:</br>
-                <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer"
-                  href="https://github.com/JeseGamerHD/Server-Database-CourseAssignment">
-                  https://github.com/JeseGamerHD/Server-Database-CourseAssignment
-                </a>
-              </p>
-            </div>
           </div>
-          <span class="gap-small"></span>
+        </div>
+
+        <div class="bullet-point-container">
+          <h2 class="text-heading">About the implementation</h2>
+          <ul>
+            <li>
+              The server accepts two types of POST requests: registration and messages for registered users.
+              Registered users can also GET request messages from the server.
+            </li>
+            <li>
+              <p>Users must first register by sending a JSON containing basic information (username, password,
+                email,
+                nickname).
+                The user's password is stored encrypted in the database (obviously).
+              </p>
+            </li>
+            <li>
+              The server checks if the details are valid and gives a response. If the details were valid, then
+              the user's details are stored in a database (password is stored encrypted obviously).
+            </li>
+            <li>
+              The process is similar for sending messages and requesting them.
+              First the server checks if the login credentials are valid, then the message and gives a response.
+              The server attaches the posting date in ISO8601 format and the user's nickname to the message.
+              When requesting messages they are also given in JSON format.
+            </li>
+            <li>
+              The server also uses an external weather service.
+              Users can optionally send coordinates with their messages and the server would reach out to the
+              service
+              by sending the coordinates in XML format.
+              The external service sends in weather informaton and the server attaches that to the user's message.
+              (Service unavailable, was given by the course teacher).
+            </li>
+          </ul>
+
+          <p class="below-bullet-paragraph">The source code and setup instructions are available here:</br>
+            <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer"
+              href="https://github.com/JeseGamerHD/Server-Database-CourseAssignment">
+              https://github.com/JeseGamerHD/Server-Database-CourseAssignment
+            </a>
+          </p>
+        </div>
+
+        <div class="text-segment-wrapper">
           <div class="text-segment">
-            <h1>Code stuff</h1>
-            <h3 class="subheading">Registering a new user</h3>
-            <p>When the server starts it creates an <code class="code-block">UserAuthenticator</code> object which implements <code class="code-block">BasicAuthenticator</code>.
-              Then the server creates context for the different paths and sets the authenticator for them.<code class="code-block">RegistrationHandler</code> is used for handling all requests to the /registration path. 
-              The handler implements <code class="code-block">HttpHandler</code>.</p>
-            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">@Override
+            <h1 class="text-heading">Code stuff</h1>
+            <h3 class="text-heading">Registering a new user</h3>
+            <p class="text-paragraph">When the server starts it creates an <code
+                class="text-code-block">UserAuthenticator</code> object which
+              implements <code class="text-code-block">BasicAuthenticator</code>.
+              Then the server creates context for the different paths and sets the authenticator for them.<code
+                class="text-code-block">RegistrationHandler</code> is used for handling all requests to the
+              /registration
+              path.
+              The handler implements <code class="text-code-block">HttpHandler</code>.</p>
+          </div>
+        </div>
+
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">@Override
 public void handle(HttpExchange exchange) throws IOException {
      
   String responseString = null;
@@ -172,13 +203,29 @@ public void handle(HttpExchange exchange) throws IOException {
       handleResponse(exchange, responseString, 400);
   }
 }           </code></pre>
-            <p>In the above snippet the handler first checks the if the request is a "POST" request and then if it's Content-Type is valid by calling <code class="code-block">checkContentType()</code> (is "application/json").
-              Then it reads the contents into <code class="code-block">newUser</code> and attemps to create a <code class="code-block">JSONObject</code> out of it. After this it calls
-              the <code class="code-block">tryToRegisterUser()</code> method which does some simple checks to ensure the new user has given all the required information.
-              The <code class="code-block">tryToRegisterUser()</code> method calls a method from the authenticator to try and add the user. 
+
+
+        <div class="text-segment-wrapper">
+          <div class="text-segment">
+            <p class="text-paragraph">In the above snippet the handler first checks the if the request is a "POST"
+              request and then if it's
+              Content-Type is valid by calling <code class="text-code-block">checkContentType()</code> (is
+              "application/json").
+              Then it reads the contents into <code class="text-code-block">newUser</code> and attemps to create a <code
+                class="text-code-block">JSONObject</code> out of it. After this it calls
+              the <code class="text-code-block">tryToRegisterUser()</code> method which does some simple checks to
+              ensure the
+              new user has given all the required information.
+              The <code class="text-code-block">tryToRegisterUser()</code> method calls a method from the authenticator
+              to
+              try
+              and add the user.
               he authenticator simply calls the database which does the final checks (user doesnt alreadye exists).
             </p>
-            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+          </div>
+        </div>
+
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
 * Tries to register the user from the given JSONObject. User can only be registered if the username is unique and password is not missing.
 * @param exchange The HTTP request
 * @param json The JSONObject containing user information
@@ -209,8 +256,15 @@ private void tryToRegisterUser(HttpExchange exchange, JSONObject json) throws IO
         handleResponse(exchange, responseString, 400);
     }
 }           </code></pre>
-            <p><code class="code-block">addUser()</code> from the authenticator:</p>
-            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+
+
+        <div class="text-segment-wrapper">
+          <div class="text-segment">
+            <p class="text-paragraph"><code class="text-code-block">addUser()</code> from the authenticator:</p>
+          </div>
+        </div>
+
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
 * Attempts to add a new user with given parameters.
 * @param username The name used for registering/login
 * @param password
@@ -230,8 +284,15 @@ public boolean addUser(String username, String password, String email, String ni
         return false;
     }
 }           </code></pre>
-            <p>And inside the database: (check if user already exists, if not add user)</p>
-            <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+
+
+        <div class="text-segment-wrapper">
+          <div class="text-segment">
+            <p class="text-paragraph">And inside the database: (check if user already exists, if not add user)</p>
+          </div>
+        </div>
+
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
 * Creates a new user in the database if the provided user does not already exist.
 * @param user
 * @throws SQLException
@@ -253,7 +314,8 @@ public boolean insertUser(JSONObject user) throws SQLException {
 
     return true;
 }         </code></pre>
-<pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
+
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-java line-numbers">/**
 * Checks if the provided username is already in the database.
 * @param username
 * @throws SQLException
@@ -267,18 +329,18 @@ private boolean checkIfUserExists(String username) throws SQLException {
     ResultSet result = prep.executeQuery();
 
     return result.next();
-}         </code></pre>           
-          </div>
-
-        </div>
+}         </code></pre>
       </div>
-    
-      <footer>
-        <div class="icon-link-container">
-          <img src="/images/icons/GitHubIcon.png">
-          <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
-        </div>
-        <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
-      </footer>
+
+
     </div>
+  </div>
+
+  <footer>
+    <div class="icon-link-container">
+      <img src="/images/icons/GitHubIcon.png">
+      <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
+    </div>
+    <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
+  </footer>
 </body>

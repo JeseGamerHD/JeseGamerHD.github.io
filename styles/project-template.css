@@ -104,6 +104,7 @@ body {
     cursor: pointer;
 }
 
+
 /* .project-tag styled in core.css */
 
 
@@ -118,6 +119,8 @@ body {
 
     margin-top: 40px;
     margin-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 40px;
 
     width: 100%;
     max-width: 1000px;
@@ -129,7 +132,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
-    max-width: 100%;
+    width: 100%;
 }
 
 .text-segment { 
@@ -183,6 +186,37 @@ body {
     color: var(--code-block-text);
     background-color: var(--code-block-bg);
     font-family: Tahoma, Helvetica, Arial, Georgia;
+}
+
+/***** BULLET POINT SEGMENT *****/
+.bullet-point-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    padding-bottom: 10px;
+    background-color: var(--background-alt2);
+    box-shadow: 0 0 5px 2px var(--glow-border);
+    color: var(--text-color-darkbg);
+
+    ul {
+        max-width: 80%;
+        min-width: 300px;
+        padding-right: 20px; /* Due to the bullet point */
+    }
+
+    li+li {
+        margin-top: 15px;
+    }
+
+    .below-bullet-paragraph {
+        text-align: center;
+    }
+
+    a {
+        color: var(--text-link);
+    }
 }
 
 /***** SWIPER JS *****/
