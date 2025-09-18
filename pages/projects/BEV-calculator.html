@@ -86,23 +86,28 @@
                     width="196px">
                 <h1>Range Anti-Anxiety</h1>
                 <div class="banner-links-container">
-                    <div class="banner-link" style="background-color: #438de9;">
+                    <div class="banner-link website-tag">
                         <a class="banner-link-tag" href="https://bev-calculator.pages.dev/"
-                            title="Visit the calculator site!">Visit site</a>
-                        <img src="/images/icons/InfoIcon.png">
+                            title="Visit the calculator site!">Calculator site</a>
+                        <img src="/images/icons/ExternalLinkIcon.png">
+                    </div>
+                    <div class="banner-link github-tag">
+                        <img src="/images/icons/GitHubIcon.png">
+                        <a class="banner-link-tag" href="https://bev-calculator.pages.dev/"
+                            title="Visit the repository!">GitHub</a>
                     </div>
                 </div>
 
                 <div id="project-tags-container">
-                    <div class="project-tag HTML-tag">
+                    <div class="project-tag HTML-tag" data-tagsize="large">
                         <img src="/images/icons/project-tags/tag-html.png">
                         <span>HTML</span>
                     </div>
-                    <div class="project-tag JavaScript-tag">
+                    <div class="project-tag JavaScript-tag" data-tagsize="large">
                         <img src="/images/icons/project-tags/tag-javascript.png">
                         <span>JavaScript</span>
                     </div>
-                    <div class="project-tag CSS-tag">
+                    <div class="project-tag CSS-tag" data-tagsize="large">
                         <span>CSS</span>
                     </div>
                 </div>
@@ -455,7 +460,8 @@ function hideTooltip() {
                         <p class="text-paragraph">
                             Turns out that using JavaScript modules made testing configuration a lot harder as the JEST library only had experimental support for them.
                             In addition we used UserEvent to test the input section. In the end the configuration is not complex but finding a solution by combing through documentation,
-                            StackOverflow and trying various AI models I managed to get the tests to run both locally and on github. Check out the <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/BEV-calculator/tree/main">source code</a> for the configuration files.
+                            StackOverflow and a sprinkle of AI I managed to get the tests to run both locally and on github. Check out the <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/BEV-calculator/tree/main">source code</a> for the configuration files and tests if interested. The tests print a lot of errors in the console, however,
+                             they still work fine. I suspect this is due to race conditions with the JSDOM manipulation. I decided to let it be as the tests pass/fail as they should and since tests were an internal helper for spotting if we accidentally broke something.
                         </p>
                     </div>
                 </div>

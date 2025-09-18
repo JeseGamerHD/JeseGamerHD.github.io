@@ -552,7 +552,7 @@ footer {
 #project-tags-container {
     display: flex;
     align-items: center;
-    column-gap: 1em;
+    column-gap: 0.5em;
     margin-top: .25em;
 }
 .project-tag {
@@ -563,6 +563,15 @@ footer {
     border-radius: 5px;
     column-gap: .25em;
     font-size: small;
+    transition: all 0.1s;
+}
+.project-tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--banner-link-hover-color);
+}
+.project-tag[data-tagsize="large"]{
+    padding: 4px 8px 4px 8px;
+    font-size: medium;
 }
 .project-tag img {
     width: 1.25em;
@@ -571,6 +580,7 @@ footer {
 .project-tag.HTML-tag {
     background-color: #ba4415;
     color: white;
+    
 }
 .project-tag.JavaScript-tag {
     background-color: #decf00;

@@ -27,10 +27,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: .5em;
+    row-gap: .25em;
 
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     padding-right: 20px;
     padding-left: 20px;
 
@@ -46,26 +46,53 @@ body {
 
 .banner-links-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding: 0 10% 1em 10%;
+    column-gap: 1em;
+    row-gap: 1em;
+    border-bottom: 1px solid gray;
 }
 
 .banner-link {
     display: inline-flex;
-    padding: 4px 8px 4px 8px;
+    padding: 4px 6px 4px 6px;
     background-color: white;
     border-radius: 5px;
     align-items: center;
-    column-gap: .25em;
+    column-gap: .5em;
+    transition: all 0.1s;
+    font-size: large;
+    white-space: nowrap;
 
     img {
-        width: 1em;
+        width: 24px;
         object-fit: contain;
     }
 }
-
 .banner-link-tag {
     text-decoration: none;
     color: var(--text-color-darkbg);
+}
+.banner-link.website-tag {
+    background: linear-gradient(165deg, rgb(56,140,204) 0%, rgb(64,84,180) 100%);
+    img {
+        width: 1em;
+    }
+}
+.banner-link.github-tag {
+    background: linear-gradient(180deg,rgba(18, 18, 18, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    img {
+        filter: invert(1);
+    }
+}
+.banner-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--banner-link-hover-color);
+    cursor: pointer;
 }
 
 /* .project-tag styled in core.css */
