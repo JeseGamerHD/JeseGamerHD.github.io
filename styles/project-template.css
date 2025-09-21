@@ -238,6 +238,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     color: var(--text-color-darkbg);
+    padding-bottom: 20px;
 
     summary {
         padding-top: 20px;
