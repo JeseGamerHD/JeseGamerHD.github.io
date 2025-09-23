@@ -76,6 +76,25 @@ body {
     }
 }
 
+.banner-link-shieldio {
+
+    transform: scale(1.3);
+    margin-left: 1em;
+    margin-right: 1em;
+
+    .link-img {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: all 0.1s;
+    }
+
+    .link-img:hover {
+        transform: scale(1.1);
+        /* border-color: #66afe9; */
+        box-shadow: 0 0 10px var(--banner-link-hover-color);
+        cursor: pointer;
+    }
+}
+
 /***** BANNER LINKS *****/
 .banner-link-tag {
     text-decoration: none;
@@ -156,6 +175,7 @@ body {
 
 /***** Headings *****/
 .text-heading {
+    color: var(--text-color-darkbg);
     white-space: nowrap;
     margin-bottom: 0;
 }
@@ -196,6 +216,35 @@ body {
     color: var(--code-block-text);
     background-color: var(--code-block-bg);
     font-family: Tahoma, Helvetica, Arial, Georgia;
+}
+
+/***** IMAGE SEGMENTS *****/
+/*************************/
+.image-banner {
+    width: 80%;
+}
+
+/***** VIDEO SEGMENTS *****/
+/*************************/
+.video-segment {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2em;
+    row-gap: 1em;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: var(--background-alt2);
+    box-shadow: 0 0 5px 2px var(--glow-border);
+}
+iframe {
+    min-width: 321px;
+    /* YT has multiple thumbnail sizes, smaller than this and the blurriest image will be used */
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 0 5px 2px var(--glow-border);
 }
 
 /***** BULLET POINT SEGMENT *****/
@@ -351,8 +400,9 @@ body {
 }
 
 @media screen and (max-width: 450px) {
-    
-    .swiper-button-next, .swiper-button-prev {
+
+    .swiper-button-next,
+    .swiper-button-prev {
         visibility: hidden;
     }
 

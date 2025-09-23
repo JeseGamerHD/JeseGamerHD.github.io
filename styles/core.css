@@ -641,6 +641,7 @@ footer {
     column-gap: .25em;
     font-size: small;
     transition: all 0.1s;
+    white-space: nowrap;
 }
 .project-tag:hover {
     transform: scale(1.1);
@@ -675,5 +676,20 @@ footer {
 .project-tag.CSS-tag {
     background-color: #1575ba;
     color: white;
+}
+.project-tag.Csharp-tag {
+    background-color: #14af29;
+    color: white;
+    img {
+        filter: invert(1);
+    }
+}
+.project-tag.opensource-tag {
+    background: linear-gradient(124deg, rgba(215,112,13,1) 0%, rgba(251,249,185,1) 50%, rgba(187,54,25,1) 100%);
+    color: black;
+}
+.project-tag.modding-tag {
+    background: radial-gradient(circle, rgba(5,34,128,1) 0%, rgba(0,127,133,1) 100%);
+    color: white
 }
 /*#endregion*/
