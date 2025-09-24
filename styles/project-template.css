@@ -87,6 +87,7 @@ body {
         transition: all 0.1s;
     }
 }
+
 .banner-link-shieldio:hover {
     transform: scale(1.2);
     box-shadow: 0 0 10px var(--banner-link-hover-color);
@@ -201,16 +202,14 @@ body {
 /***** Paragraphs *****/
 .text-paragraph {
     margin-bottom: 0;
-
-    a {
-        color: var(--text-link);
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: var(--text-link-hover);
-        text-decoration: underline;
-    }
+}
+a {
+    color: var(--text-link);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--text-link-hover);
+    text-decoration: underline;
 }
 
 .text-code-block {
@@ -219,6 +218,20 @@ body {
     color: var(--code-block-text);
     background-color: var(--code-block-bg);
     font-family: Tahoma, Helvetica, Arial, Georgia;
+}
+
+.project-end {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#last-updated-msg {
+    color: var(--text-color-darkbg);
+    font-style: oblique;
+    font-size: small;
+    text-decoration: underline;
 }
 
 /***** IMAGE SEGMENTS *****/
@@ -243,6 +256,7 @@ body {
     background-color: var(--background-alt2);
     box-shadow: 0 0 5px 2px var(--glow-border);
 }
+
 iframe {
     min-width: 321px;
     /* YT has multiple thumbnail sizes, smaller than this and the blurriest image will be used */
@@ -424,10 +438,11 @@ iframe {
         margin-right: .25em;
     }
 
-    .text-heading-with-img {  
+    .text-heading-with-img {
         img {
             display: none;
         }
+
         .text-heading {
             margin-right: 0;
         }
