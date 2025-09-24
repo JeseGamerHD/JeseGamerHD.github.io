@@ -485,6 +485,8 @@
     }
 }
 
+/* #region FOOTER */
+/*********/
 footer {
     display: flex;
     flex-direction: column;
@@ -519,8 +521,10 @@ footer {
         }
     }
 }
+/*#endregion*/
 
-
+/* #region CURSOR EFFECT */
+/****************/
 .click-effect {
     z-index: 998;
     position: fixed;
@@ -548,3 +552,148 @@ footer {
         border-width: 0.05em;
     }
 }
+/*#endregion*/
+
+/*#region IMAGE OVERLAY */
+/****************/
+#image-overlay {
+    position: fixed;
+    display: flex;   
+    margin-left: 80px; 
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    cursor: pointer;
+
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.image-overlay-content {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+
+    /* The loading animation will get covered by the image once it loads, calc offset due to tooltip text (place the loading icon above it) */
+    background: transparent var(--loading-icon) center calc(50% - 25px) no-repeat;
+
+    #image-overlay-img {
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        max-width: 60%;
+        max-height: 70%;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.49);
+    }
+
+    p {
+        margin: 0;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+}
+
+/* This gets applied when the overlay is activated by clicking on an image from the gallery preview */
+/* When clicking away this deactivates */
+#image-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.25); /* The image scales in/out along with the fade in/out of the overlay */
+}
+
+@media only screen and (max-width: 600px) {
+    #image-overlay {
+        margin-left: 0;
+
+        p {
+            font-size: xx-small;
+        }
+    }
+}
+/*#endregion */
+
+/* #region PROJECT TAGS */
+/***************/
+#project-tags-container {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    margin-top: .25em;
+}
+.project-tag {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    padding: 2px 6px 2px 6px;
+    border-radius: 5px;
+    column-gap: .25em;
+    font-size: small;
+    transition: all 0.1s;
+    white-space: nowrap;
+}
+.project-tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--banner-link-hover-color);
+}
+.project-tag[data-tagsize="large"]{
+    padding: 4px 8px 4px 8px;
+    font-size: medium;
+}
+.project-tag img {
+    width: 1.25em;
+    height: 1.25em;
+    object-fit: contain;
+}
+.project-tag.HTML-tag {
+    background-color: #ba4415;
+    color: white;
+}
+.project-tag.Java-tag {
+    background-color: #cd850b;
+}
+.project-tag.SQLite-tag {
+    background: linear-gradient(180deg,rgba(44, 75, 133, 1) 0%, rgba(0, 80, 110, 1) 100%);
+    img {
+        filter: invert(1);
+    }
+}
+.project-tag.JavaScript-tag {
+    background-color: #decf00;
+    color: rgb(0, 0, 0);
+}
+.project-tag.CSS-tag {
+    background-color: #1575ba;
+    color: white;
+}
+.project-tag.Csharp-tag {
+    background-color: #14af29;
+    color: white;
+    img {
+        filter: invert(1);
+    }
+}
+.project-tag.opensource-tag {
+    background: linear-gradient(124deg, rgba(215,112,13,1) 0%, rgba(251,249,185,1) 50%, rgba(187,54,25,1) 100%);
+    color: black;
+}
+.project-tag.modding-tag {
+    background: radial-gradient(circle, rgba(5,34,128,1) 0%, rgba(0,127,133,1) 100%);
+    color: white
+}
+.project-tag.GUI-tag {
+    color: white;
+    background-color: #c60a52;
+}
+/*#endregion*/

@@ -1,185 +1,245 @@
 <!-- The main page -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/styles/Projects.css">
-    <link rel="stylesheet" href="/styles/core.css">
-    <script src="/scripts/core.js" defer></script>
-    <title>Projects</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/Projects.css">
+  <link rel="stylesheet" href="/styles/core.css">
+  <script src="/scripts/core.js" defer></script>
+  <title>Projects</title>
 </head>
+
 <body>
   <!--APPLY CURRENT THEME-->
   <script>
     var pageTheme = localStorage.getItem("theme");
     document.documentElement.classList.toggle(pageTheme);
-  </script>  
-    <!-- SIDEBAR - START -->
-    <div id="sideBar" class="sideBar">
-      <!-- Top part of the sidebar (profile pic + text) -->
-      <a class="sideBarTop" href="#">
-        <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
-        <span>Welcome!</span>
-      </a>
-    
-      <!-- List containing all the icon + text combos in the side bar -->
+  </script>
+  <!-- SIDEBAR - START -->
+  <div id="sideBar" class="sideBar">
+    <!-- Top part of the sidebar (profile pic + text) -->
+    <a class="sideBarTop" href="#">
+      <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
+      <span>Welcome!</span>
+    </a>
+
+    <!-- List containing all the icon + text combos in the side bar -->
+    <ul>
+      <li>
+        <a href="/index.html">
+          <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
+          <span>Overview</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
+          <span>Projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gallery.html">
+          <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
+          <span>Gallery</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sideBarBottom">
       <ul>
         <li>
-          <a href="/index.html">
-            <img style="vertical-align:middle" src="/images/icons/HomeIcon.png" width="48px">
-            <span>Overview</span>
+          <a onclick="toggleSettings()">
+            <img style="vertical-align:middle" src="/images/icons/ThemeIcon.png" width="48px">
+            <span>Theme</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="48px">
-            <span>Projects</span>
-          </a>
-        </li>
-        <li>
-          <a href="/gallery.html">
-            <img style="vertical-align:middle" src="/images/icons/GalleryIcon2.png" width="48px">
-            <span>Gallery</span>
+          <a onclick="toggleForm()">
+            <img style="vertical-align:middle" src="/images/icons/ContactIcon.png" width="48px">
+            <span>Contact</span>
           </a>
         </li>
       </ul>
-    
-      <div class="sideBarBottom">
-        <ul>
-          <li>
-            <a onclick="toggleSettings()">
-              <img style="vertical-align:middle" src="/images/icons/ThemeIcon.png" width="48px">
-              <span>Theme</span>
-            </a>
-          </li>
-          <li>
-            <a onclick="toggleForm()">
-              <img style="vertical-align:middle" src="/images/icons/ContactIcon.png" width="48px">
-              <span>Contact</span>
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
-    <!-- SIDEBAR - END -->
-     
-    <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
-      <img src="/images/icons/MenuIcon.png" width="48px">
-    </button>
-    
-    <!-- CENTER - START -->
-     <!-- The main content area (everything except the side bar inside the body)-->   
-     <div  id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+  </div>
+  <!-- SIDEBAR - END -->
 
-      <div class="topBanner">
-        <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="96px">
-        <h1>Projects</h1>
-        <p>Here are all of my projects with short descriptions about each of them. If you want to know more about a project click the view more button on the cards.
-        </p>
+  <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
+    <img src="/images/icons/MenuIcon.png" width="48px">
+  </button>
+
+  <!-- CENTER - START -->
+  <!-- The main content area (everything except the side bar inside the body)-->
+  <div id="page-content-container" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+
+    <div class="topBanner">
+      <img style="vertical-align:middle" src="/images/icons/ProjectIcon.png" width="96px">
+      <h1>Projects</h1>
+      <p>Here are most of my projects and projects I have been a part of with short descriptions about each of them. If
+        you want to know more about a project click the view more button on the cards.
+      </p>
+    </div>
+
+    <div class="mainContentArea">
+
+            <div class="projectCard">
+        <div class="projectCardTop">
+          
+          <div class="project-tags-container">
+            <div class="project-tag HTML-tag">
+              <img src="/images/icons/project-tags/tag-html.png">
+              <span>HTML</span>
+            </div>
+            <div class="project-tag JavaScript-tag">
+              <img src="/images/icons/project-tags/tag-javascript.png">
+              <span>JavaScript</span>
+            </div>
+            <div class="project-tag CSS-tag">
+              <span>CSS</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="projectCardMiddle">
+          <img src="/images/projects/RangeAntiAnxiety/BEV-thumbnail.jpg">
+          <div class="projectTextArea">
+            <h2>Range Anti-Anxiety</h2>
+            <p>Calculator for electric vehicles. Can be used to calculate range, charging time, cost and amount. Can
+              also compare charging options. Has localization support.</p>
+            <a href="/pages/projects/BEV-calculator.html"><button class="projectButton">View more</button></a>
+          </div>
+        </div>
       </div>
 
-      <div class="mainContentArea">
-        
-        <div class="projectCard">
-          <div class="projectCardTop">
-            <!-- <span class="projectTag" style="background-color: #178600; color: black;">C#</span> -->
-            <a title="C#"><img class="link-img" alt="C#" src="https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white"></a>
-            <span class="projectTag" style="background: linear-gradient(124deg, rgba(215,112,13,1) 0%, rgba(251,249,185,1) 50%, rgba(187,54,25,1) 100%);color: black">
-              Open source</span>
-            <span class="projectTag" style="background: radial-gradient(circle, rgba(5,34,128,1) 0%, rgba(0,127,133,1) 100%); color: white;">
-              Modding</span>
-          </div>
-          <div class="projectCardMiddle">
-            <img title="Assorted Additions logo" src="/images/backgrounds/AssortedAdditionsBG.png">
-            <div class="projectTextArea">
-              <h2>Assorted Additions</h2>
-              <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
-                The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a bunch of tweaks.</p>
-                <a href="/pages/projects/AssortedAdditions.html"><button class="projectButton">View more</button></a>
+      <div class="projectCard">
+        <div class="projectCardTop">
+          <div class="project-tags-container">
+            <div class="project-tag Csharp-tag">
+              <img src="/images/icons/project-tags/tag-csharp.png">
+              <span>C#</span>
+            </div>
+            <div class="project-tag opensource-tag">
+              <span>Open source</span>
+            </div>
+            <div class="project-tag modding-tag">
+              <span>Modding</span>
             </div>
           </div>
-          <!-- <div class="projectCardBottom">
+        </div>
+        <div class="projectCardMiddle">
+          <img title="Assorted Additions logo" src="/images/backgrounds/AssortedAdditionsBG.png">
+          <div class="projectTextArea">
+            <h2>Assorted Additions</h2>
+            <p>An open source mod for Terraria with over 15 000 downloads on the Steam Workshop.
+              The mod adds over 200 new items, 2 Bosses, 15 NPCs, a new accessory category called "Runes" along with a
+              bunch of tweaks.</p>
+            <a href="/pages/projects/AssortedAdditions.html"><button class="projectButton">View more</button></a>
+          </div>
+        </div>
+        <!-- <div class="projectCardBottom">
             <button class="projectButton">View more</button>
           </div> -->
-        </div>
+      </div>
 
-        <div class="projectCard">
-          <div class="projectCardTop">
-            <!-- <span class="projectTag" style="background-color: #e34c26;">HTML</span>
-            <span class="projectTag" style="background-color: #663399;">CSS</span>
-            <span class="projectTag" style="background-color: #f1e05a; color:black">Javascript</span> -->
-            <a title="HTML"><img class="link-img" alt="HTML" src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white"></a>
-            <a title="Javascript"><img class="link-img" alt="Javascript" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000"></a>
-            <a title="CSS"><img class="link-img" alt="CSS" src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff"></a>
-          </div>
-          <div class="projectCardMiddle">
-            <img src="/images/projects/github-pages.jpg">
-            <div class="projectTextArea">
-              <h2>This website</h2>
-              <p>This github.io page is my first ever website project. You've already seen it so I'll give a bit of background and some thoughts about the process of making it.</p>
-                <a href="/pages/projects/ThisWebsite.html"><button class="projectButton">View more</button></a>
+      <div class="projectCard">
+        <div class="projectCardTop">
+          <div class="project-tags-container">
+            <div class="project-tag HTML-tag">
+              <img src="/images/icons/project-tags/tag-html.png">
+              <span>HTML</span>
+            </div>
+            <div class="project-tag JavaScript-tag">
+              <img src="/images/icons/project-tags/tag-javascript.png">
+              <span>JavaScript</span>
+            </div>
+            <div class="project-tag CSS-tag">
+              <span>CSS</span>
             </div>
           </div>
-          <!-- <div class="projectCardBottom">
+        </div>
+        <div class="projectCardMiddle">
+          <img src="/images/projects/github-pages.jpg">
+          <div class="projectTextArea">
+            <h2>This website</h2>
+            <p>This github.io page is my first ever website project. You've already seen it so I'll give a bit of
+              background and some thoughts about the process of making it.</p>
+            <a href="/pages/projects/ThisWebsite.html"><button class="projectButton">View more</button></a>
+          </div>
+        </div>
+        <!-- <div class="projectCardBottom">
             <button class="projectButton">View more</button>
           </div> -->
-        </div>
+      </div>
 
-        <div class="projectCard">
-          <div class="projectCardTop">
-            <!-- <span class="projectTag" style="background-color: #b07219; color: black">Java</span>
+      <div class="projectCard">
+        <div class="projectCardTop">
+          <div class="project-tags-container">
+            <div class="project-tag Java-tag">
+              <img src="/images/icons/project-tags/tag-java.png">
+              <span>Java</span>
+            </div>
+            <div class="project-tag SQLite-tag">
+              <img src="/images/icons/project-tags/tag-sqlite.png">
+              <span>SQLite</span>
+            </div>
+            <div class="project-tag GUI-tag">
+              <span>GUI</span>
+            </div>
+          </div>
+        </div>
+        <div class="projectCardMiddle">
+          <img title="Gaming Logbook logo" src="/images/projects/GamingLogbook/GamingLogbookLogo.png">
+          <div class="projectTextArea">
+            <h2>Gaming Logbook</h2>
+            <p>Desktop application for keeping track of the games I've played.
+              Made using Java's Swing library along with SQLite for storing the log.</p>
+            <a href="/pages/projects/GamingLogbook.html"><button class="projectButton">View more</button></a>
+          </div>
+        </div>
+        <!-- <div class="projectCardBottom">
+            <button class="projectButton">View more</button>
+          </div> -->
+      </div>
+
+      <div class="projectCard">
+        <div class="projectCardTop">
+          <!-- <span class="projectTag" style="background-color: #b07219; color: black">Java</span>
             <span class="projectTag" style="background: linear-gradient(0deg, rgba(0,71,133,1) 0%, rgba(0,120,198,1) 48%, rgba(83,206,255,1) 100%); color: white">
               SQLite</span> -->
-            <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
-            <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
-            <span class="projectTag" style="background-color: #4b1842;">GUI</span>
+          <a title="Java (OpenJDK)"><img class="link-img" alt="Java"
+              src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
+          <a title="SQLite"><img class="link-img" alt="SQLite"
+              src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
+        </div>
+        <div class="projectCardMiddle">
+          <img src="/images/backgrounds/ServerDatabaseProject.PNG">
+          <div class="projectTextArea">
+            <h2>Sightseeing server</h2>
+            <p>A simple server made for a programming course. The server stores information about sightseeing locations.
+              Users can register, send messages and recieve them. Data is stored in an SQLite database.</p>
+            <a href="/pages/projects/SightseeingServer.html"><button class="projectButton">View more</button></a>
           </div>
-          <div class="projectCardMiddle">
-            <img title="Gaming Logbook logo" src="/images/projects/GamingLogbook/GamingLogbookLogo.png">
-            <div class="projectTextArea">
-              <h2>Gaming Logbook</h2>
-              <p>Desktop application for keeping track of the games I've played.
-                Made using Java's Swing library along with SQLite for storing the log.</p>
-                <a href="/pages/projects/GamingLogbook.html"><button class="projectButton">View more</button></a>
-            </div>
-          </div>
-          <!-- <div class="projectCardBottom">
+        </div>
+        <!-- <div class="projectCardBottom">
             <button class="projectButton">View more</button>
           </div> -->
-        </div>
-
-        <div class="projectCard">
-          <div class="projectCardTop">
-            <!-- <span class="projectTag" style="background-color: #b07219; color: black">Java</span>
-            <span class="projectTag" style="background: linear-gradient(0deg, rgba(0,71,133,1) 0%, rgba(0,120,198,1) 48%, rgba(83,206,255,1) 100%); color: white">
-              SQLite</span> -->
-            <a title="Java (OpenJDK)"><img class="link-img" alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white"></a>
-            <a title="SQLite"><img class="link-img" alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite"></a>
-          </div>
-          <div class="projectCardMiddle">
-            <img src="/images/backgrounds/ServerDatabaseProject.PNG">
-            <div class="projectTextArea">
-              <h2>Sightseeing server</h2>
-              <p>A simple server made for a programming course. The server stores information about sightseeing locations. Users can register, send messages and recieve them. Data is stored in an SQLite database.</p>
-                <a href="/pages/projects/SightseeingServer.html"><button class="projectButton">View more</button></a>
-            </div>
-          </div>
-          <!-- <div class="projectCardBottom">
-            <button class="projectButton">View more</button>
-          </div> -->
-        </div>
       </div>
 
-      <footer>
-        <div class="icon-link-container">
-          <img src="/images/icons/GitHubIcon.png">
-          <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
-        </div>
-        <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
-      </footer>
     </div>
+
+    <footer>
+      <div class="icon-link-container">
+        <img src="/images/icons/GitHubIcon.png">
+        <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
+      </div>
+      <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
+    </footer>
+  </div>
 
 </body>
+
 </html>

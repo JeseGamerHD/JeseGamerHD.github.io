@@ -47,7 +47,7 @@
 
     --text-color-darkbg: white;  /* Against darker backgrounds */
     --text-color-lightbg: black;  /* Againsts lighter backgrounds */
-    --text-link: #764692;
+    --text-link: #66afe9;
     --text-link-hover: #8b46b3;
     --textarea-boxshadow: rgba(10, 15, 40, 0.9);
 }

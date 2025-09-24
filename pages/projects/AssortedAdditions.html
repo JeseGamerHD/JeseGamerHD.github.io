@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/styles/ProjectTemplate.css">
-    <link rel="stylesheet" href="/styles/core.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href ="/styles/prism.css"/>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script src="/scripts/swiper-variations.js" defer></script>
-    <script src="/scripts/prism.js" async></script>
-    <script src="/scripts/core.js" defer></script>
-    <title>Assorted Additions</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/project-template.css">
+  <link rel="stylesheet" href="/styles/core.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/styles/prism.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="/scripts/swiper-variations.js" defer></script>
+  <script src="/scripts/prism.js" async></script>
+  <script src="/scripts/core.js" defer></script>
+  <title>Assorted Additions</title>
 </head>
 
 <body>
@@ -22,6 +23,8 @@
     var pageTheme = localStorage.getItem("theme");
     document.documentElement.classList.toggle(pageTheme);
   </script>
+
+  <div id="main-container">
     <!-- SIDEBAR - START -->
     <div id="sideBar" class="sideBar">
       <!-- Top part of the sidebar (profile pic + text) -->
@@ -29,7 +32,7 @@
         <img style="vertical-align:middle" src="/images/ProfilePic.jpg" width="48px">
         <span>Welcome!</span>
       </a>
-    
+
       <!-- List containing all the icon + text combos in the side bar -->
       <ul>
         <li>
@@ -51,7 +54,7 @@
           </a>
         </li>
       </ul>
-    
+
       <div class="sideBarBottom">
         <ul>
           <li>
@@ -73,88 +76,156 @@
     <button id="mobileSidebarToggle" class="mobileSidebarToggle" onclick="toggleSidebar()" title="Open/Close sidebar">
       <img src="/images/icons/MenuIcon.png" width="48px">
     </button>
-    
-    <div id="center" class="center" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
-        <div class="banner">
-            <img style="vertical-align:middle" src="/images/backgrounds/AssortedAdditionsBG.png" width="196px">
-            <h1>Assorted Additions</h1>
-            <h3>Check it out on</h3>
-            <div class="links">
-                <a title="View Github repository" href="https://github.com/JeseGamerHD/AssortedAdditions"><img class="link-img" alt="GitHub License" src="https://img.shields.io/github/license/jesegamerhd/AssortedAdditions?style=flat&logo=github&label=GitHub&labelColor=black&color=d64f00"></a>
-                <a title="Join the Discord" href="https://discord.gg/TZXJ9yGapC"><img class="link-img" alt="GitHub License" src="https://img.shields.io/discord/1233667170572177408?style=flat&logo=discord&label=Discord&labelColor=1e2124"></a>
-                <a title="View Steam Workshop"href="https://steamcommunity.com/sharedfiles/filedetails/?id=3242730118"><img class="link-img" alt="GitHub License" src="https://img.shields.io/steam/downloads/3242730118?style=flat&logo=steam&labelColor=1b2838&color=2a475e"></a>
-            </div>
+
+    <div id="page-content-container" style="background-image: url(/images/backgrounds/SpaceBackGround.jpg);">
+
+      <div class="banner">
+        <img style="vertical-align:middle" src="/images/backgrounds/AssortedAdditionsBG.png" width="196px">
+
+        <h1>Assorted Additions</h1>
+
+        <h3>Check it out on</h3>
+
+        <div class="banner-links-container">
+          <div class="banner-link-shieldio">
+            <a title="View Github repository" href="https://github.com/JeseGamerHD/AssortedAdditions"><img
+                class="link-img" alt="GitHub License"
+                src="https://img.shields.io/github/license/jesegamerhd/AssortedAdditions?style=flat&logo=github&label=GitHub&labelColor=black&color=d64f00"></a>
+          </div>
+          <div class="banner-link-shieldio">
+            <a title="Join the Discord" href="https://discord.gg/TZXJ9yGapC"><img class="link-img" alt="GitHub License"
+                src="https://img.shields.io/discord/1233667170572177408?style=flat&logo=discord&label=Discord&labelColor=1e2124"></a>
+          </div>
+          <div class="banner-link-shieldio">
+            <a title="View Steam Workshop" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3242730118"><img
+                class="link-img" alt="GitHub License"
+                src="https://img.shields.io/steam/downloads/3242730118?style=flat&logo=steam&labelColor=1b2838&color=2a475e"></a>
+          </div>
         </div>
 
+        <div id="project-tags-container">
+          <div class="project-tag Csharp-tag" data-tagsize="large">
+            <img src="/images/icons/project-tags/tag-csharp.png">
+            <span>C#</span>
+          </div>
+          <div class="project-tag opensource-tag" data-tagsize="large">
+            <span>Open source</span>
+          </div>
+          <div class="project-tag modding-tag" data-tagsize="large">
+            <span>Modding</span>
+          </div>
+        </div>
+      </div>
+
       <div class="text-area-container">
-        <div class="text-area">
-          <div class="text-segment">
-            <h1>What is it about?</h1>
-            <p>Assorted Additions is a "medium" sized content mod for <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that adds all sorts of things to the game like the name implies. 
-              In its current state the mod adds a little over 200 new items (from basic blocks to more complex weapons) for the player to discover. The mod also adds 15 new enemies and two bosses to the game along with
-            a bunch of tweaks. For example, the mod adds a new category of "accessory" to the game called runes and improves the loot the player can find in underground mini biome chests.</p>
-          </div>
 
-          <div class="image-swiper-area">
-            <div class="swiper basicSwiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Items.png"></div>
-                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Dragonboss.jpg"></div>
-                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Ghostboss.jpg"></div>
-                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Room.jpg"></div>
-                <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Swordthingie.jpg"></div>
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+        <div class="text-segment-wrapper">
+          <div class="text-segment">
+            <h1 class="text-heading">What is it about?</h1>
+            <p class="text-paragraph">Assorted Additions is a "medium" sized content mod for <a
+                title="Opens in a new tab" target="_blank" rel="noopener noreferrer"
+                href="https://store.steampowered.com/app/105600/Terraria/">Terraria</a> that
+              adds all sorts of things to the game like the name implies.
+              In its current state the mod adds a little over 200 new items (from basic blocks to more complex weapons)
+              for the player to discover. The mod also adds 15 new enemies and two bosses to the game along with
+              a bunch of tweaks. For example, the mod adds a new category of "accessory" to the game called runes and
+              improves the loot the player can find in underground mini biome chests.</p>
+          </div>
+        </div>
+
+        <div class="image-swiper-container">
+          <div class="swiper basicSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Items.png"></div>
+              <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Dragonboss.jpg"></div>
+              <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Ghostboss.jpg"></div>
+              <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Room.jpg"></div>
+              <div class="swiper-slide"><img src="/images/projects/AssortedAdditions/Swordthingie.jpg"></div>
             </div>
-            <div class="pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </div>
+          <div class="pagination"></div>
+        </div>
 
+        <div class="text-segment-wrapper">
           <div class="text-segment">
-            <span class="gap-small"></span>
-            <h1>Some background</h1>
-            <p>I was doing a modded playthrough of Terraria with some friends and at some point we were discussing the question "How hard could making a mod be" probably inspired by some bug we had found.   
-              A few moments later my friend had jokingly modded in an artillery cannon, albeit a very scuffed one. After this I also decided to give modding a go.
+            <h1 class="text-heading">Some background</h1>
+            <p class="text-paragraph">I was doing a modded playthrough of Terraria with some friends and at some point
+              we were discussing the
+              question "How hard could making a mod be" probably inspired by some bug we had found.
+              A few moments later my friend had jokingly modded in an artillery cannon, albeit a very scuffed one. After
+              this I also decided to give modding a go.
             </p>
-            <p>
-              It turns out that getting started on modding is very easy even with zero knowledge of C# or modding in general. To be fair, I did have some experience in Java through my studies 
+            <p class="text-paragraph">
+              It turns out that getting started on modding is very easy even with zero knowledge of C# or modding in
+              general. To be fair, I did have some experience in Java through my studies
               so the C# syntax was easy to understand and I had general knowledge on programming concepts.
-              On top of this <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/tModLoader/tModLoader">tModLoader</a>, the modding API for Terraria, 
-              provides plenty of examples and documentation. In no time I had added a basic steel sword to the game. After that I kept adding new things as new ideas came up.
+              On top of this <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer"
+                href="https://github.com/tModLoader/tModLoader">tModLoader</a>, the modding API for Terraria,
+              provides plenty of examples and documentation. In no time I had added a basic steel sword to the game.
+              After
+              that I kept adding new things as new ideas came up.
             </p>
-            <p>
+            <p class="text-paragraph">
               It did take a ton of time and effort to start actually making things that were decent.
-              On top of having to learn the modding API I had to learn how to make sprites. I did struggle a lot with making sprites and still do. Coming up with a visual idea and actually implementing it is very time consuming.
-              To answer the question of "how hard could making a mod be" I would say that it depends. It is as hard and complex as the thing you are trying to implement. A basic sword can be added in minutes, an unique and complex boss can take weeks (taken you have the neccessary knowledge already).
+              On top of having to learn the modding API I had to learn how to make sprites. I did struggle a lot with
+              making sprites and still do. Coming up with a visual idea and actually implementing it is very time
+              consuming.
+              To answer the question of "how hard could making a mod be" I would say that it depends. It is as hard and
+              complex as the thing you are trying to implement. A basic sword can be added in minutes, an unique and
+              complex boss can take weeks (taken you have the neccessary knowledge already).
             </p>
           </div>
+        </div>
 
-          <img class="image-banner" src="/images/projects/AssortedAdditions/Runes.png" title="Rune sprites">
+        <img class="image-banner" src="/images/projects/AssortedAdditions/Runes.png" title="Rune sprites">
 
+        <h1 class="text-heading">Featured in</h1>
+        <div class="video-segment">
+          <iframe src="https://www.youtube-nocookie.com/embed/X79Ei70bsU0" title="Terraria has a new Skyblock mod."
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/agho2r6z6bk"
+            title="I Made One of the BIGGEST Terraria Modpacks..." frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="text-segment-wrapper">
           <div class="text-segment">
-            <h1>Featured in</h1>
-              <iframe src="https://www.youtube-nocookie.com/embed/X79Ei70bsU0" title="Terraria has a new Skyblock mod." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <iframe src="https://www.youtube-nocookie.com/embed/agho2r6z6bk" title="I Made One of the BIGGEST Terraria Modpacks..." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-
-          <div class="text-segment">
-            <div class="title-paragraph-combo">
-              <span class="gap-small"></span> 
-              <h1>Code stuff</h1>
-            </div>
-            <h3 class="subheading">Doubling ore drops</h3>
-            <p>The game world of Terraria is made out of different blocks which are called Tiles. These are different from the items that they drop and that are used to place them down.
-              I wanted to add an item to the game that gives a chance to double ore drops when the player mines an ore while wearing it. Sounds simple right? Nope. 
+            <h1 class="text-heading">Code stuff</h1>
+            <h3 class="text-heading">Doubling ore drops</h3>
+            <p class="text-paragraph">The game world of Terraria is made out of different blocks which are called Tiles.
+              These are different
+              from
+              the items that they drop and that are used to place them down.
+              I wanted to add an item to the game that gives a chance to double ore drops when the player mines an ore
+              while wearing it. Sounds simple right? Nope.
             </p>
-            <p><b>Problem #1</b>: It turns out that the tiles do not know which item they drop and that logic is instead handled inside a massive switch statement. 
+            <p class="text-paragraph"><b>Problem #1</b>: It turns out that the tiles do not know which item they drop
+              and that logic is instead
+              handled inside a massive switch statement.
               Modded tiles do know their drops, but any vanilla tiles don't</p>
-            <p><b>Problem #2</b>: Tiles don't know which player breaks it. Problematic because ores should only double drop if the player breaking it is wearing the item.</p>
-            <p>The solution? I had to detour a vanilla method that runs whenever a player hits a tile. Luckily tModLoader provided an API for detouring some vanilla methods so that was easy.
-              I also defined the vanilla ore tiles and their drops in a dictionary so they could be obtained when checking what type of tile was being hit.
-              The below snippet is just the detour implementation, the rest can be found <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/AssortedAdditions/blob/1bf8421d6be55c0de98f1a477175f33f15c4ef77/Content/Items/Accessories/Runes/RuneOfProsperity.cs">here</a>
+            <p class="text-paragraph"><b>Problem #2</b>: Tiles don't know which player breaks it. Problematic because
+              ores should only double
+              drop if the player breaking it is wearing the item.</p>
+            <p class="text-paragraph">The solution? I had to detour a vanilla method that runs whenever a player hits a
+              tile. Luckily
+              tModLoader
+              provided an API for detouring some vanilla methods so that was easy.
+              I also defined the vanilla ore tiles and their drops in a dictionary so they could be obtained when
+              checking
+              what type of tile was being hit.
+              The below snippet is just the detour implementation, the rest can be found <a title="Opens in a new tab"
+                target="_blank" rel="noopener noreferrer"
+                href="https://github.com/JeseGamerHD/AssortedAdditions/blob/1bf8421d6be55c0de98f1a477175f33f15c4ef77/Content/Items/Accessories/Runes/RuneOfProsperity.cs">here</a>
             </p>
+          </div>
+        </div>
 
-<pre class="code-snippet-container"><code id="code-snippet" class="language-csharp line-numbers">private static void CanDoubleOreDrop(On_Player.orig_PickTile orig, Player self, int x, int y, int pickPower) {
+        <pre class="code-snippet-container"><code id="code-snippet" class="language-csharp line-numbers">private static void CanDoubleOreDrop(On_Player.orig_PickTile orig, Player self, int x, int y, int pickPower) {
   
   Tile tile = Main.tile[x, y]; // What tile is being hit
   ushort type = tile.TileType; // Store it and its type for later use
@@ -188,22 +259,35 @@
   }
 }
 </code></pre>
-            <p>This is not the most optimal solution, but it works. The code does nothing to prevent players from placing down tiles and breaking them again to easily duplicate ores. 
-              To prevent that I would have had to implement a way to track tiles placed by the player (yup, this is not tracked either). This has been done before by others, but I decided it was not worth the effort.
-            The code also runs every time the player hits a tile at least until the first if check. 
-            I should probably have stored the last ore tile type and its drop and checked if the next tile is the same to reduce the amount of code run each time.</p>
+
+        <div class="text-segment-wrapper">
+          <div class="text-segment">
+            <p class="text-paragraph">This is not the most optimal solution, but it works. The code does nothing to
+              prevent players from
+              placing
+              down tiles and breaking them again to easily duplicate ores.
+              To prevent that I would have had to implement a way to track tiles placed by the player (yup, this is not
+              tracked either). This has been done before by others, but I decided it was not worth the effort.
+              The code also runs every time the player hits a tile at least until the first if check.
+              I should probably have stored the last ore tile type and its drop and checked if the next tile is the same
+              to reduce the amount of code run each time.</p>
           </div>
-          
         </div>
+
+        <div class="project-end">
+          <a href="/pages/Projects.html">Back to projects</a>
+          <p id="last-updated-msg">Last updated: 24/09/2025</p>
+        </div>
+        
       </div>
-    
-      <footer>
-        <div class="icon-link-container">
-          <img src="/images/icons/GitHubIcon.png">
-          <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
-        </div>
-        <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
-      </footer>
     </div>
+    <footer>
+      <div class="icon-link-container">
+        <img src="/images/icons/GitHubIcon.png">
+        <a href="https://github.com/JeseGamerHD/JeseGamerHD.github.io">Github repository</a>
+      </div>
+      <p>Navigation icons provided by <a href="https://icons8.com/">Icons8</a></p>
+    </footer>
+  </div>
 
 </body>
