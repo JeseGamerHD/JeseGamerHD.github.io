@@ -86,13 +86,11 @@ body {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         transition: all 0.1s;
     }
-
-    .link-img:hover {
-        transform: scale(1.1);
-        /* border-color: #66afe9; */
-        box-shadow: 0 0 10px var(--banner-link-hover-color);
-        cursor: pointer;
-    }
+}
+.banner-link-shieldio:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--banner-link-hover-color);
+    cursor: pointer;
 }
 
 /***** BANNER LINKS *****/
@@ -207,6 +205,11 @@ body {
     a {
         color: var(--text-link);
         text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--text-link-hover);
+        text-decoration: underline;
     }
 }
 
@@ -408,5 +411,29 @@ iframe {
 
     .image-swiper-container {
         min-width: 100%;
+    }
+
+    .banner-links-container {
+        padding: 0 0 1em 0;
+        min-width: 80%;
+    }
+
+    .banner-link-shieldio {
+        transform: scale(1.1);
+        margin-left: .25em;
+        margin-right: .25em;
+    }
+
+    .text-heading-with-img {  
+        img {
+            display: none;
+        }
+        .text-heading {
+            margin-right: 0;
+        }
+    }
+
+    .bullet-point-container {
+        width: 100%;
     }
 }

@@ -460,9 +460,12 @@ function hideTooltip() {
                         <p class="text-paragraph">
                             Turns out that using JavaScript modules made testing configuration a lot harder as the JEST library only had experimental support for them.
                             In addition we used UserEvent to test the input section. In the end the configuration is not complex but finding a solution by combing through documentation,
-                            StackOverflow and a sprinkle of AI I managed to get the tests to run both locally and on github. Check out the <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/BEV-calculator/tree/main">source code</a> for the configuration files and tests if interested. The tests print a lot of errors in the console, however,
-                             they still work fine. I suspect this is due to race conditions with the JSDOM manipulation. I decided to let it be as the tests pass/fail as they should and since tests were an internal helper for spotting if we accidentally broke something.
+                            StackOverflow and a sprinkle of AI I managed to get the tests to run both locally and on github. The solution was to set these in the package.json file: 
+                            <code class="text-code-block">"type": "module"</code>, <code class="text-code-block">"scripts": ""node --experimental-vm-modules node_modules/jest/bin/jest.js tests/"</code>
+                            and finally these in the "jest" configuration: <code class="text-code-block">"transform": {}</code class="text-code-block"> (override defaults) and use <code class="text-code-block">"testEnvironment": "jsdom"</code>.
                         </p>
+                        <p class="text-paragraph">Check out the <a title="Opens in a new tab" target="_blank" rel="noopener noreferrer" href="https://github.com/JeseGamerHD/BEV-calculator/tree/main">source code</a> for the configuration files and tests if interested. The tests print a lot of errors in the console, however,
+                             they still work fine. I suspect this is due to race conditions with the JSDOM manipulation. I decided to let it be as the tests pass/fail as they should and since tests were an internal helper for spotting if we accidentally broke something.</p>
                     </div>
                 </div>
 
